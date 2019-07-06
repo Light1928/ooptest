@@ -16,7 +16,7 @@ public class Log_out extends JPanel implements Title {
 	private JPanel mainPanel;
 	private JLabel titleLabel,userLabel,passLabel;
 	private JTextField userID,pass;
-	JButton log_out;
+	private JButton log_out;
 	private CardLayout cardlayout;
 
 	//コンストラクタ
