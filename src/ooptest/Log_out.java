@@ -25,7 +25,7 @@ public class Log_out extends JPanel implements Title {
 		logoutPanel.setLayout(this.cardlayout);
 	}
 	@Override
-	public void content() {
+	public void panelSet() {
 
 		 logoutPanel = new JPanel();
 		 mainPanel = new JPanel();

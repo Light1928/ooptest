@@ -37,13 +37,13 @@ public class Log_in extends JFrame implements Title,ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//xボタンを押されたら終了
 	}
 	@Override
-	public void content() {
+	public void panelSet() {
 		Container contentPane = getContentPane();
 
 		//遷移用パネル
 		loginPanel = new JPanel();
 		Log_out logout = new Log_out();
-		 logout.content();
+		 logout.panelSet();
 
 		//カードレイアウト登録
 		mainPanel = new JPanel();
