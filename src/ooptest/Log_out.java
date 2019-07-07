@@ -47,7 +47,7 @@ public class Log_out extends JPanel implements Title {
 		 passLabel.setBounds(330,300,100,30);
          userID.setBounds(410, 250, 150, 30);
          pass.setBounds(410, 300, 150, 30);
-         log_out.setBounds(473,350,90,30);
+         log_out.setBounds(473,350,120,30);
 
        //ログアウトパネルに貼り付け
          logoutPanel.add(titleLabel,BorderLayout.CENTER);
