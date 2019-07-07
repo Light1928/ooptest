@@ -12,11 +12,11 @@ public class MyactionListener implements ActionListener {
 		Log_in login = new Log_in();
 		JOptionPane.showMessageDialog(null,cmd+"しました");
 		if(cmd.equals("ログイン")) {	
-			login.setVisible(false);
+			//.setVisible(false);
 			logout.setVisible(true);
 		}else if(cmd.equals("ログアウト")) {
 			login.setVisible(true);
-			logout.setVisible(false);
+			//logout.setVisible(false);
 		}
 	}
 }
