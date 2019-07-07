@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 
 public class Log_out extends JPanel implements Title {
 	public JPanel logoutPanel;
-	private JPanel mainPanel;
 	private JLabel titleLabel,userLabel,passLabel;
 	private JTextField userID,pass;
 	private JButton log_out;
@@ -26,12 +25,12 @@ public class Log_out extends JPanel implements Title {
 	}
 	@Override
 	public void panelSet() {
-
+		Log_in login = new Log_in();
 		 logoutPanel = new JPanel();
-		 mainPanel = new JPanel();
+		 login.mainPanel = new JPanel();
 		 cardlayout = new CardLayout();
-		 mainPanel.setLayout(cardlayout);
-         mainPanel.add(logoutPanel,"ログアウト");
+		 login.mainPanel.setLayout(cardlayout);
+         login.mainPanel.add(logoutPanel,"ログアウト");
 
          //ログアウトパネル描画
 		 titleLabel = new JLabel("ログアウト");

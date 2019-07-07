@@ -5,8 +5,6 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,9 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-public class Log_in extends JFrame implements Title,ActionListener {
+public class Log_in extends JFrame implements Title{
 	public JPanel loginPanel;
-	private JPanel mainPanel;
+	public JPanel mainPanel;
 	private JLabel titleLabel,userLabel,passLabel;
 	private JTextField userID,pass;
 	private JButton log_in;
@@ -53,6 +51,9 @@ public class Log_in extends JFrame implements Title,ActionListener {
 		mainPanel.add(logout.logoutPanel,"ログアウト");
 		contentPane.add(mainPanel);
 
+		//ActionEvent呼び出し
+		MyactionListener listener = new MyactionListener(cardlayout,mainPanel);
+
 		//ログイン画面描画
 		titleLabel = new JLabel("SalaPay");
 		titleLabel.setForeground(Color.BLACK);
@@ -63,13 +64,14 @@ public class Log_in extends JFrame implements Title,ActionListener {
 		pass = new JTextField(20);
 		log_in = new JButton("ログイン");
 		log_in.setActionCommand("ログアウト");
-		log_in.addActionListener(this);
+		//ボタンを押した時の処理をMyactionlistenerに渡す
+		log_in.addActionListener(listener);
 		titleLabel.setBounds(300,50,600,200);
 		userLabel.setBounds(330,250,100,30);
 		passLabel.setBounds(330,300,100,30);
-       userID.setBounds(410, 250, 150, 30);
-       pass.setBounds(410, 300, 150, 30);
-       log_in.setBounds(473,350,100,30);
+        userID.setBounds(410, 250, 150, 30);
+        pass.setBounds(410, 300, 150, 30);
+        log_in.setBounds(473,350,100,30);
 
        //ログインパネルに貼り付け
        loginPanel.add(titleLabel,BorderLayout.CENTER);
@@ -80,10 +82,5 @@ public class Log_in extends JFrame implements Title,ActionListener {
        loginPanel.add(log_in,BorderLayout.CENTER);
        //レイアウトマネージャ無効にして配置を自由に
        loginPanel.setLayout(null);
-	}
-	//ボタンを押した時の処理
-	public void actionPerformed(ActionEvent e) {
-		String cmd = e.getActionCommand();
-		cardlayout.show(this.mainPanel,cmd);
 	}
 }
