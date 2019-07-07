@@ -69,7 +69,7 @@ public class Log_in extends JFrame implements Title,ActionListener {
 		passLabel.setBounds(330,300,100,30);
        userID.setBounds(410, 250, 150, 30);
        pass.setBounds(410, 300, 150, 30);
-       log_in.setBounds(473,350,90,30);
+       log_in.setBounds(473,350,100,30);
 
        //ログインパネルに貼り付け
        loginPanel.add(titleLabel,BorderLayout.CENTER);
