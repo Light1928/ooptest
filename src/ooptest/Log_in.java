@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 //
@@ -64,13 +63,11 @@ public class Log_in extends JFrame implements ActionListener {
 	}
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
-		JFrame frame = new JFrame();
+		//遷移したいページのインスタンス生成
 		Log_out logout = new Log_out();
-		JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
 		if(cmd.equals("ログイン")) {
 			setVisible(false);
 			logout.setVisible(true);
-			
 		}
 	}
 
