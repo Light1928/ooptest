@@ -21,7 +21,8 @@ public class Log_out extends JFrame {
 	//コンストラクタ
 	Log_out(){
 		setTitle("ログアウト");
-		setBounds(100,100,900,600);//Frameの左上ｘ座標、ｙ座標、幅、高さを設定
+		setSize(900,600);//Frameの左上ｘ座標、ｙ座標、幅、高さを設定
+		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//xボタンを押されたら終了
 		Container contentPane = getContentPane();

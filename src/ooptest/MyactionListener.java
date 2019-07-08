@@ -14,9 +14,13 @@ public class MyactionListener implements ActionListener {
 		Log_in login = new Log_in();
 		JOptionPane.showMessageDialog(parent,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
 		if(cmd.equals("ログイン")) {
-			logout.setVisible(true);
-		}else if(cmd.equals("ログアウト")) {
 			login.setVisible(true);
+			logout.setVisible(true);
+			
+		}else if(cmd.equals("ログアウト")) {
+			logout.setVisible(false);
+			login.setVisible(true);
+			
 		}
 	}
 }
