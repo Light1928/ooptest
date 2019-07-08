@@ -66,8 +66,8 @@ public class Log_in extends JFrame implements ActionListener {
 		//遷移したいページのインスタンス生成
 		Log_out logout = new Log_out();
 		if(cmd.equals("ログイン")) {
-			setVisible(false);
 			logout.setVisible(true);
+			setVisible(false);
 		}
 	}
 

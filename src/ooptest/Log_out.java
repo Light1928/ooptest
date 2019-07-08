@@ -62,8 +62,8 @@ public class Log_out extends JFrame implements ActionListener {
 		Log_in login = new Log_in();
 		JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
 		if(cmd.equals("ログアウト")) {
-			setVisible(false);
 			login.setVisible(true);
+			setVisible(false);
 		}
 	}
 }
