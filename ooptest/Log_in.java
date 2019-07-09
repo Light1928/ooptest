@@ -43,11 +43,15 @@ public class Log_in extends JFrame  {
 		titleLabel = new JLabel("SalaPay");
 		titleLabel.setForeground(Color.BLACK);
 		titleLabel.setFont(new Font("Helvetica Neue",Font.BOLD,80));
+
 		userLabel = new JLabel("ユーザID");
 		userLabel.setFont(new Font("Helvetica Neue",Font.BOLD,13));
+
 		passLabel = new JLabel("パスワード");
 		setFont(new Font("Helvetica Neue",Font.BOLD,13));
+
 		signupLabel = new JLabel("アカウントをお持ちでない方はこちら");
+
 		userID = new JTextField(20);
 		userBorder = new LineBorder(new Color(29,161,242), 1, true);
 		userID.setBorder(userBorder);
