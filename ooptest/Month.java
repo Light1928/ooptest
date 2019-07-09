@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -21,10 +22,15 @@ public class Month extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public Month() {
+		setTitle("月選択");
+		setSize(900,600);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 592, 523);
+		
+		
 		Month_Pane = new JPanel();
-		Month_Pane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Month_Pane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(Month_Pane);
 		Month_Pane.setLayout(null);
 
@@ -108,22 +114,28 @@ public class Month extends JFrame implements ActionListener{
 		}
 		);
 
-
 		 logoutsub = new JButton("ログアウト");
 		 logoutsub.setActionCommand("ログアウト");
-		 logoutsub.setActionCommand("ログアウト");
-			logoutsub.setBounds(750, 32, 125, 19);
-			logoutsub.setBackground(new Color(24,180,0));
-			Month_Pane.add(logoutsub);
+		 logoutsub.setBounds(750, 32, 125, 19);
+		 logoutsub.setBackground(new Color(255,153,0));
+	     Month_Pane.add(logoutsub);
 
-		logoutsub.addActionListener(new ActionListener() {
+		 logoutsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成
-				Log_out logout = new Log_out();
-				if(cmd.equals("ログアウト")) {
-					logout.setVisible(true);
-					setVisible(false);
+				JFrame frame = new JFrame();
+
+				//移動したいページのインスタンス生成
+				Log_in login = new Log_in();
+				if(cmd.equals("ログアウト") ) {
+					int ans = JOptionPane.showConfirmDialog(null, "ログアウトしますか？","ログアウト",
+							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
+					//0がYes、１がNo
+					if(ans == 0){
+						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
+						login.setVisible(true);
+						setVisible(false);
+					}
 				}
 			}
 		}
