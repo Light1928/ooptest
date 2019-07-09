@@ -38,7 +38,7 @@ public class Main_menu extends JFrame  {
 		tukiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
 		tukiselect.setBounds(245, 259, 154, 70);
 		tukiselect.setForeground(new Color(255,255,255));
-		tukiselect.setBackground(new Color(0,172,238));
+		tukiselect.setBackground(new Color(29,161,242));
 		main_panel.add(tukiselect);
 		
 		//月選択ボタンを押した場合の処理
@@ -59,7 +59,7 @@ public class Main_menu extends JFrame  {
 		shinkiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
 		shinkiselect.setBounds(500, 259, 154, 70);
 		shinkiselect.setForeground(new Color(255,255,255));
-		shinkiselect.setBackground(new Color(0,172,238));
+		shinkiselect.setBackground(new Color(29,161,242));
 		main_panel.add(shinkiselect);
 		
 		shinkiselect.setActionCommand("新規登録");
@@ -79,6 +79,7 @@ public class Main_menu extends JFrame  {
 		 shinkisub = new JButton("新規登録");
 		 shinkisub.setActionCommand("新規登録");
 		 shinkisub.setBounds(620, 10, 125, 19);
+		 shinkisub.setBackground(new Color(15,158,88));
 			main_panel.add(shinkisub);
 			
 		shinkisub.addActionListener(new ActionListener() {
@@ -98,6 +99,7 @@ public class Main_menu extends JFrame  {
 		deletesub = new JButton("アカウント削除");
 		deletesub.setBounds(750, 10, 125, 19);
 		deletesub.setActionCommand("アカウント削除");
+		deletesub.setBackground(new Color(24,180,0));
 		deletesub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -109,6 +111,7 @@ public class Main_menu extends JFrame  {
 		
 		 tukisub = new JButton("月選択");
 		 tukisub.setBounds(620, 32, 125, 19);
+		 tukisub.setBackground(new Color(24,180,0));
 		main_panel.add(tukisub);
 		tukisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -129,6 +132,7 @@ public class Main_menu extends JFrame  {
 		 logoutsub.setActionCommand("ログアウト");
 		 logoutsub.setActionCommand("ログアウト");
 			logoutsub.setBounds(750, 32, 125, 19);
+			logoutsub.setBackground(new Color(24,180,0));
 			main_panel.add(logoutsub);
 		 
 		logoutsub.addActionListener(new ActionListener() {
