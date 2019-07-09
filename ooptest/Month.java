@@ -38,17 +38,17 @@ public class Month extends JFrame {
 		year = new JComboBox();
 		year.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
 																 "2014", "2013", "2012", "2011", "2010"}));
-		year.setBounds(100, 135, 101, 35);
+		year.setBounds(246, 135, 101, 35);
 		month_Pane.add(year);
 
 		month = new JComboBox();
 		month.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
 																   "7", "8", "9", "10", "11", "12"}));
-		month.setBounds(346, 135, 101, 35);
+		month.setBounds(477, 135, 101, 35);
 		month_Pane.add(month);
 
 		meisai = new JButton("明細");
-		meisai.setBounds(400, 309, 116, 40);
+		meisai.setBounds(362, 327, 116, 40);
 		meisai.setActionCommand("明細");
 		month_Pane.add(meisai);
 		meisai.addActionListener(new ActionListener() {
@@ -65,11 +65,11 @@ public class Month extends JFrame {
 		);
 
 		yearLabel = new JLabel("年");
-		yearLabel.setBounds(211, 144, 57, 16);
+		yearLabel.setBounds(359, 144, 57, 16);
 		month_Pane.add(yearLabel);
 
 		monthLabel = new JLabel("月");
-		monthLabel.setBounds(459, 144, 57, 16);
+		monthLabel.setBounds(620, 144, 57, 16);
 		month_Pane.add(monthLabel);
 
 	    shinkisub = new JButton("新規登録");
