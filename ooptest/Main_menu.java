@@ -79,7 +79,7 @@ public class Main_menu extends JFrame  {
 		 shinkisub = new JButton("新規登録");
 		 shinkisub.setActionCommand("新規登録");
 		 shinkisub.setBounds(620, 10, 125, 19);
-		 shinkisub.setBackground(new Color(15,158,88));
+		 shinkisub.setBackground(new Color(255,153,0));
 			main_panel.add(shinkisub);
 			
 		shinkisub.addActionListener(new ActionListener() {
