@@ -84,7 +84,7 @@ public class Shinki_registration extends JFrame  {
 
 				//移動したいページのインスタンス生成
 				Main_menu main_menu = new Main_menu();
-				if(cmd.equals("ログアウト") ) {
+				if(cmd.equals("登録") ) {
 					int ans = JOptionPane.showConfirmDialog(null, "登録しますか？","新規登録",
 							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
@@ -99,8 +99,6 @@ public class Shinki_registration extends JFrame  {
 		 }
 		 );
 
-
-
 		regist.setBounds(361, 436, 87, 25);
 		contentPane.add(regist);
 
@@ -108,8 +106,9 @@ public class Shinki_registration extends JFrame  {
 		 shinkisub.setActionCommand("新規登録");
 		 shinkisub.setBounds(620, 10, 125, 19);
 		 shinkisub.setBackground(new Color(255,153,0));
-		 shinkisub.addActionListener(new ActionListener() {
+		 contentPane.add(shinkisub);
 
+		 shinkisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 				//遷移したいページのインスタンス生成
@@ -121,27 +120,64 @@ public class Shinki_registration extends JFrame  {
 			}
 		}
 		);
-		shinkisub.setBounds(629, 0, 113, 19);
-		contentPane.add(shinkisub);
+
 
 		deletesub = new JButton("アカウント削除");
+		deletesub.setBounds(750, 10, 125, 19);
+		deletesub.setActionCommand("アカウント削除");
+		deletesub.setBackground(new Color(255,153,0));
+
 		deletesub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 			}
-		});
-		deletesub.setBounds(754, 0, 128, 19);
+		}
+		);
 		contentPane.add(deletesub);
 
-		tukisub = new JButton("月選択");
-		tukisub.addActionListener(new ActionListener() {
+		 tukisub = new JButton("月選択");
+		 tukisub.setBounds(620, 32, 125, 19);
+		 tukisub.setBackground(new Color(255,153,0));
+		 contentPane.add(tukisub);
+		 tukisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Month month = new Month();
+				if(cmd.equals("月選択")) {
+					month.setVisible(true);
+					setVisible(false);
+				}
 			}
-		});
-		tukisub.setBounds(629, 32, 113, 19);
-		contentPane.add(tukisub);
+		}
+		);
 
-		logoutsub = new JButton("ログアウト");
-		logoutsub.setBounds(754, 32, 128, 19);
-		contentPane.add(logoutsub);
+		 logoutsub = new JButton("ログアウト");
+		 logoutsub.setActionCommand("ログアウト");
+		 logoutsub.setBounds(750, 32, 125, 19);
+		 logoutsub.setBackground(new Color(255,153,0));
+		 contentPane.add(logoutsub);
+
+		 logoutsub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				JFrame frame = new JFrame();
+
+				//移動したいページのインスタンス生成
+				Log_in login = new Log_in();
+				if(cmd.equals("ログアウト") ) {
+					int ans = JOptionPane.showConfirmDialog(null, "ログアウトしますか？",
+							"ログアウト",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
+					//0がYes、１がNo
+					if(ans == 0){
+						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",
+								JOptionPane.PLAIN_MESSAGE);
+						login.setVisible(true);
+						setVisible(false);
+					}
+				}
+			}
+		}
+		);
 	}
 }
