@@ -30,7 +30,7 @@ public class Main_menu extends JFrame  {
 
 		main_panel = new JPanel();
 		main_panel.setBackground(new Color(255,255,255));
-		contentPane.add(main_panel, BorderLayout.CENTER);
+		contentPane.add(main_panel);
 		main_panel.setLayout(null);
 
 		tukiselect = new JButton("月選択");
