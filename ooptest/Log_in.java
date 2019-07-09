@@ -16,13 +16,14 @@ import javax.swing.border.LineBorder;
 
 
 public class Log_in extends JFrame  {
+
+	private Container contentPane;
 	private LineBorder userBorder,passBorder;
 	private JPanel loginPanel;
 	private JLabel titleLabel,userLabel,passLabel,signupLabel;
 	private JTextField userID,pass;
 	private JButton log_in,sign_up;
 
-	//コンストラクタ
 	Log_in(){
 
 		//フレームの設定
@@ -33,7 +34,7 @@ public class Log_in extends JFrame  {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//xボタンを押されたら終了
 
 		//コンテナ作成
-		Container contentPane = getContentPane();
+		contentPane = getContentPane();
 
 		//ログインパネル
 		loginPanel = new JPanel();
@@ -66,13 +67,14 @@ public class Log_in extends JFrame  {
 		log_in.setFont(new Font("Helvetica Neue",Font.BOLD,13));
 		log_in.setActionCommand("ログイン");
 
-		//ボタンを押したら時の処理
+		//ログインボタンを押したら時の処理
 	    log_in.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		String cmd = e.getActionCommand();
-	    		//遷移したいページのインスタンス生成（メインメニューへ）
+	    		//遷移したいページのインスタンス生成
 	    		Main_menu main_menu = new Main_menu();
 	    		if(cmd.equals("ログイン")) {
+	    			//メインメニューへ
 	    			main_menu.setVisible(true);
 	    			setVisible(false);
 	    		}
@@ -86,7 +88,7 @@ public class Log_in extends JFrame  {
 		sign_up.setFont(new Font("Helvetica Neue",Font.BOLD,13));
 		sign_up.setActionCommand("新規登録");
 
-		//ボタンを押した時の処理をMyactionlistenerに渡す
+		//新規登録ボタンを押した時の処理
 		sign_up.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			String cmd = e.getActionCommand();

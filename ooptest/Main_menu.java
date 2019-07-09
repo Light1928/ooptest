@@ -16,8 +16,9 @@ public class Main_menu extends JFrame  {
 	private JPanel contentPane,main_panel;
 	private JButton tukiselect,shinkiselect,shinkisub,
 					deletesub,tukisub,logoutsub;
-//コンストラクタ
+
 	 Main_menu() {
+		 
 		setTitle("メインメニュー");
 		setSize(900,600);
 		setLocationRelativeTo(null);
@@ -49,6 +50,7 @@ public class Main_menu extends JFrame  {
 				//遷移したいページのインスタンス生成
 				Month month = new Month();
 				if(cmd.equals("月選択")) {
+					//月選択画面へ
 					month.setVisible(true);
 					setVisible(false);
 				}
@@ -67,9 +69,10 @@ public class Main_menu extends JFrame  {
 		shinkiselect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成（新規登録画面へ）
+				//遷移したいページのインスタンス生成
 				Shinki_registration new_Account = new Shinki_registration();
 				if(cmd.equals("新規登録")) {
+					//新規登録画面へ
 					new_Account.setVisible(true);
 					setVisible(false);
 				}
@@ -88,16 +91,17 @@ public class Main_menu extends JFrame  {
 		 shinkisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成（新規登録画面へ）
+				//遷移したいページのインスタンス生成
 				Shinki_registration new_Account = new Shinki_registration();
 				if(cmd.equals("新規登録")) {
+					//新規登録画面へ
 					new_Account.setVisible(true);
 					setVisible(false);
 				}
 			}
 		}
 		);
-		 
+
 		//削除サブボタンを押した場合の処理
 		deletesub = new JButton("アカウント削除");
 		deletesub.setBounds(750, 10, 125, 19);
@@ -111,20 +115,21 @@ public class Main_menu extends JFrame  {
 			}
 		}
 		);
-		 
-		
+
+
 		 tukisub = new JButton("月選択");
 		 tukisub.setBounds(620, 32, 125, 19);
 		 tukisub.setBackground(new Color(255,153,0));
 		 main_panel.add(tukisub);
-		 
+
 		 //月サブボタンを押した場合の処理
 		 tukisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成(月選択画面へ）　
+				//遷移したいページのインスタンス生成）　
 				Month month = new Month();
 				if(cmd.equals("月選択")) {
+					//月選択画面へ
 					month.setVisible(true);
 					setVisible(false);
 				}
@@ -143,7 +148,7 @@ public class Main_menu extends JFrame  {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 				JFrame frame = new JFrame();
-				//遷移したいページのインスタンス生成（ログイン画面へ）
+				//遷移したいページのインスタンス生成
 				Log_in login = new Log_in();
 				if(cmd.equals("ログアウト") ) {
 					int ans = JOptionPane.showConfirmDialog(null, "ログアウトしますか？",
@@ -152,6 +157,7 @@ public class Main_menu extends JFrame  {
 					if(ans == 0){
 						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",
 								JOptionPane.PLAIN_MESSAGE);
+						//ログイン画面へ
 						login.setVisible(true);
 						setVisible(false);
 					}
