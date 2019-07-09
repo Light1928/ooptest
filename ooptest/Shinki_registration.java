@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -75,11 +76,29 @@ public class Shinki_registration extends JFrame  {
 
 		regist = new JButton("登録");
 		regist.setFont(new Font("Dialog", Font.BOLD, 17));
-		
-		regist.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+
+		 regist.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				JFrame frame = new JFrame();
+
+				//移動したいページのインスタンス生成
+				Main_menu main_menu = new Main_menu();
+				if(cmd.equals("ログアウト") ) {
+					int ans = JOptionPane.showConfirmDialog(null, "登録しますか？","新規登録",
+							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
+					//0がYes、１がNo
+					if(ans == 0){
+						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
+						main_menu.setVisible(true);
+						setVisible(false);
+					}
+				}
 			}
-		});
+		 }
+
+
+
 		regist.setBounds(361, 436, 87, 25);
 		contentPane.add(regist);
 
@@ -103,7 +122,7 @@ public class Shinki_registration extends JFrame  {
 		shinkisub.setBounds(629, 0, 113, 19);
 		contentPane.add(shinkisub);
 
-		JButton deletesub = new JButton("アカウント削除");
+		deletesub = new JButton("アカウント削除");
 		deletesub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -111,7 +130,7 @@ public class Shinki_registration extends JFrame  {
 		deletesub.setBounds(754, 0, 128, 19);
 		contentPane.add(deletesub);
 
-		JButton tukisub = new JButton("月選択");
+		tukisub = new JButton("月選択");
 		tukisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
