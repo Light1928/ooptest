@@ -87,7 +87,7 @@ public class Log_in extends JFrame  {
 		sign_up.setActionCommand("新規登録");
 
 		//ボタンを押した時の処理をMyactionlistenerに渡す
-		log_in.addActionListener(new ActionListener() {
+		sign_up.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			String cmd = e.getActionCommand();
 			//遷移したいページのインスタンス生成
