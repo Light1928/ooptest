@@ -59,13 +59,14 @@ public class Log_out extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
 		JFrame frame = new JFrame();
-		JOptionPane optionPane = new JOptionPane();
+
 		//移動したいページのインスタンス生成
 		Log_in login = new Log_in();
 		if(cmd.equals("ログアウト") ) {
-			JOptionPane.showConfirmDialog(null, "ログアウトしますか？","ログアウト", 
+			int ans = JOptionPane.showConfirmDialog(null, "ログアウトしますか？","ログアウト", 		
 					JOptionPane.YES_NO_OPTION , JOptionPane.QUESTION_MESSAGE);
-			if(optionPane.getValue().equals(JOptionPane.YES_OPTION)){
+			//0がYes、１がNo
+			if(ans == 0){
 			JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
 			login.setVisible(true);
 			setVisible(false);
