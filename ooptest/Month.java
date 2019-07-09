@@ -1,22 +1,21 @@
 package ooptest;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.DefaultComboBoxModel;
 
 public class Month extends JFrame implements ActionListener{
 
-	private JPanel contentPane;
-
+	private JPanel Month_Pane;
+	private JButton shinkisub,deletesub,tukisub,logoutsub;
 
 	/**
 	 * Create the frame.
@@ -24,42 +23,117 @@ public class Month extends JFrame implements ActionListener{
 	public Month() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 592, 523);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
+		Month_Pane = new JPanel();
+		Month_Pane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(Month_Pane);
+		Month_Pane.setLayout(null);
+
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
 																 "2014", "2013", "2012", "2011", "2010"}));
 		comboBox.setBounds(100, 135, 101, 35);
-		contentPane.add(comboBox);
-		
+		Month_Pane.add(comboBox);
+
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
 																   "7", "8", "9", "10", "11", "12"}));
 		comboBox_1.setBounds(346, 135, 101, 35);
-		contentPane.add(comboBox_1);
-		
+		Month_Pane.add(comboBox_1);
+
 		JButton btnNewButton = new JButton("明細");
 		btnNewButton.setBounds(400, 309, 116, 40);
 		btnNewButton.setActionCommand("明細");
 		btnNewButton.addActionListener(this);
-		contentPane.add(btnNewButton);
-		
+		Month_Pane.add(btnNewButton);
+
 		JLabel lblNewLabel = new JLabel("年");
 		lblNewLabel.setBounds(211, 144, 57, 16);
-		contentPane.add(lblNewLabel);
-		
+		Month_Pane.add(lblNewLabel);
+
 		JLabel lblNewLabel_1 = new JLabel("月");
 		lblNewLabel_1.setBounds(459, 144, 57, 16);
-		contentPane.add(lblNewLabel_1);
+		Month_Pane.add(lblNewLabel_1);
+
+
+
+
+		 shinkisub = new JButton("新規登録");
+		 shinkisub.setActionCommand("新規登録");
+		 shinkisub.setBounds(620, 10, 125, 19);
+		 shinkisub.setBackground(new Color(255,153,0));
+			Month_Pane.add(shinkisub);
+
+		shinkisub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Shinki_registration new_Account = new Shinki_registration();
+				if(cmd.equals("新規登録")) {
+					new_Account.setVisible(true);
+					setVisible(false);
+				}
+			}
+		}
+		);
+
+
+		deletesub = new JButton("アカウント削除");
+		deletesub.setBounds(750, 10, 125, 19);
+		deletesub.setActionCommand("アカウント削除");
+		deletesub.setBackground(new Color(24,180,0));
+		deletesub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		}
+		);
+		Month_Pane.add(deletesub);
+
+
+		 tukisub = new JButton("月選択");
+		 tukisub.setBounds(620, 32, 125, 19);
+		 tukisub.setBackground(new Color(24,180,0));
+		Month_Pane.add(tukisub);
+		tukisub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Month month = new Month();
+				if(cmd.equals("月選択")) {
+					month.setVisible(true);
+					setVisible(false);
+
+				}
+			}
+		}
+		);
+
+
+		 logoutsub = new JButton("ログアウト");
+		 logoutsub.setActionCommand("ログアウト");
+		 logoutsub.setActionCommand("ログアウト");
+			logoutsub.setBounds(750, 32, 125, 19);
+			logoutsub.setBackground(new Color(24,180,0));
+			Month_Pane.add(logoutsub);
+
+		logoutsub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Log_out logout = new Log_out();
+				if(cmd.equals("ログアウト")) {
+					logout.setVisible(true);
+					setVisible(false);
+				}
+			}
+		}
+		);
+
 	}
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		
 	}
 }
