@@ -1,7 +1,7 @@
 package ooptest;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,8 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
+
 import java.awt.Font;
 
 public class Main_menu extends JFrame  {
@@ -19,6 +18,7 @@ public class Main_menu extends JFrame  {
 	private JButton tukiselect,shinkiselect,shinkisub,deletesub,tukisub,logoutsub;
 	
 	public Main_menu() {
+		setTitle("メインメニュー");
 		setSize(900,600);
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -35,17 +35,26 @@ public class Main_menu extends JFrame  {
 		
 		 tukiselect = new JButton("月選択");
 		tukiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
-		tukiselect.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		tukiselect.setBounds(245, 259, 154, 70);
 		panel.add(tukiselect);
+		tukiselect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Month month = new Month();
+				if(cmd.equals("月選択")) {
+					month.setVisible(true);
+					setVisible(false);
+				}
+			}	
+		}
+		);
 		
 		 shinkiselect = new JButton("新規登録");
 		shinkiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
 		shinkiselect.setBounds(500, 259, 154, 70);
 		panel.add(shinkiselect);
+		
 		shinkiselect.setActionCommand("新規登録");
 		shinkiselect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -56,10 +65,15 @@ public class Main_menu extends JFrame  {
 					new_Account.setVisible(true);
 					setVisible(false);
 				}
-			}});
+			}
+		}
+		);
 		
 		 shinkisub = new JButton("新規登録");
 		 shinkisub.setActionCommand("新規登録");
+		 shinkisub.setBounds(620, 10, 125, 19);
+			panel.add(shinkisub);
+			
 		shinkisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
@@ -68,25 +82,32 @@ public class Main_menu extends JFrame  {
 				if(cmd.equals("新規登録")) {
 					new_Account.setVisible(true);
 					setVisible(false);	
+				}
 			}
-		}});
-		shinkisub.setBounds(620, 10, 125, 19);
-		panel.add(shinkisub);
+		}
+		);
+		
 		
 		 deletesub = new JButton("アカウント削除");
 		deletesub.setBounds(750, 10, 125, 19);
 		panel.add(deletesub);
 		
 		 tukisub = new JButton("月選択");
+		 tukisub.setBounds(620, 32, 125, 19);
+		panel.add(tukisub);
 		tukisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
-		});
-		tukisub.setBounds(620, 32, 125, 19);
-		panel.add(tukisub);
+		}
+		);
+		
 		
 		 logoutsub = new JButton("ログアウト");
 		 logoutsub.setActionCommand("ログアウト");
+		 logoutsub.setActionCommand("ログアウト");
+			logoutsub.setBounds(750, 32, 125, 19);
+			panel.add(logoutsub);
+		 
 		logoutsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
@@ -96,10 +117,8 @@ public class Main_menu extends JFrame  {
 					logout.setVisible(true);
 					setVisible(false);	
 				}
-				}
-			});
-		logoutsub.setActionCommand("ログアウト");
-		logoutsub.setBounds(750, 32, 125, 19);
-		panel.add(logoutsub);
+			}
+		}
+		);	
 	}
 }
