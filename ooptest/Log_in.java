@@ -36,6 +36,7 @@ public class Log_in extends JFrame implements ActionListener {
 		
 		//ログインパネル
 		loginPanel = new JPanel();
+		loginPanel.setBackground(new Color(255,255,255));
 
 		//ログイン画面描画
 		titleLabel = new JLabel("SalaPay");
@@ -46,6 +47,9 @@ public class Log_in extends JFrame implements ActionListener {
 		userID = new JTextField(20);
 		pass = new JPasswordField(20);
 		log_in = new JButton("ログイン");
+		
+		log_in.setForeground(new Color(255,255,255));
+		log_in.setBackground(new Color(0,172,238));
 		log_in.setActionCommand("ログイン");
 		
 		//ボタンを押した時の処理をMyactionlistenerに渡す

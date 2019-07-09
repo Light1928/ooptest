@@ -46,7 +46,7 @@ public class Log_out extends JFrame implements ActionListener {
 		log_out.addActionListener(this);
 		
 //		背景色をつける場合の文法
-		//logoutPanel.setBackground(new Color(255,255,255));
+		logoutPanel.setBackground(new Color(255,255,255));
 		titleLabel.setBounds(250,50,600,200);
 		passLabel.setBounds(330,300,100,30);
 		pass.setBounds(410, 300, 150, 30);
@@ -71,7 +71,7 @@ public class Log_out extends JFrame implements ActionListener {
 		Log_in login = new Log_in();
 		if(cmd.equals("ログアウト") ) {
 			int ans = JOptionPane.showConfirmDialog(null, "ログアウトしますか？","ログアウト", 		
-					JOptionPane.YES_NO_OPTION , JOptionPane.QUESTION_MESSAGE);
+					JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 			//0がYes、１がNo
 			if(ans == 0){
 			JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
