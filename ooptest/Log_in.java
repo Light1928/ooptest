@@ -16,13 +16,17 @@ import javax.swing.JTextField;
 
 
 public class Log_in extends JFrame implements ActionListener {
+	
 	private JPanel loginPanel;
 	private JLabel titleLabel,userLabel,passLabel;
 	private JTextField userID,pass;
 	private JButton log_in;
+	
 	//コンストラクタ
 	Log_in(){
-		setTitle("ログイン");
+		
+		//フレームの設定
+		setTitle("SalaPay-ログイン");
 		setSize(900,600);//Frameの左上ｘ座標、ｙ座標、幅、高さを設定
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -31,7 +35,7 @@ public class Log_in extends JFrame implements ActionListener {
 		//コンテナ作成
 		Container contentPane = getContentPane();
 		
-		//遷移用パネル
+		//ログインパネル
 		loginPanel = new JPanel();
 
 		//ログイン画面描画
@@ -55,16 +59,18 @@ public class Log_in extends JFrame implements ActionListener {
 		log_in.setBounds(459,350,100,30);
 
 		//ログインパネルに貼り付け
-		loginPanel.add(titleLabel,BorderLayout.CENTER);
-		loginPanel.add(userLabel,BorderLayout.CENTER);
-		loginPanel.add(passLabel,BorderLayout.CENTER);
-		loginPanel.add(userID,BorderLayout.CENTER);
-		loginPanel.add(pass,BorderLayout.CENTER);
-		loginPanel.add(log_in,BorderLayout.CENTER);
+		loginPanel.add(titleLabel);
+		loginPanel.add(userLabel);
+		loginPanel.add(passLabel);
+		loginPanel.add(userID);
+		loginPanel.add(pass);
+		loginPanel.add(log_in);
 		contentPane.add(loginPanel);
+		
 		//レイアウトマネージャ無効にして配置を自由に
 		loginPanel.setLayout(null);
 	}
+	
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
 		//遷移したいページのインスタンス生成
@@ -74,5 +80,4 @@ public class Log_in extends JFrame implements ActionListener {
 			setVisible(false);
 		}
 	}
-
 }

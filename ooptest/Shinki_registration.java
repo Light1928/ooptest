@@ -19,35 +19,33 @@ import java.awt.event.ActionEvent;
 import javax.swing.Action;
 import javax.swing.JButton;
 
-public class sinnki_registration extends JFrame {
+public class Shinki_registration extends JFrame  {
 
 	private JPanel contentPane;
 
 
-	/**
-	 * Create the frame.
-	 */
-	public sinnki_registration() {
+
+	public Shinki_registration() {
+		setTitle("新規登録");
 		setSize(900,600);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		setBounds(100, 100, 900, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label = new JLabel("新規登録");
-		label.setFont(new Font("MS UI Gothic", Font.BOLD, 55));
-		label.setBounds(295, 53, 232, 99);
-		contentPane.add(label);
+		JLabel titlelabel = new JLabel("新規登録");
+		titlelabel.setFont(new Font("MS UI Gothic", Font.BOLD, 55));
+		titlelabel.setBounds(295, 53, 232, 99);
+		contentPane.add(titlelabel);
 		
-		JLabel lblid = new JLabel("ユーザID");
-		lblid.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		lblid.setBounds(191, 187, 101, 34);
-		contentPane.add(lblid);
+		JLabel userlabel = new JLabel("ユーザID");
+		userlabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		userlabel.setBounds(191, 187, 101, 34);
+		contentPane.add(userlabel);
 		
 		JLabel label_1 = new JLabel("パスワード");
 		label_1.setFont(new Font("MS UI Gothic", Font.BOLD, 20));

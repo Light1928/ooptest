@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 
 
 public class Log_out extends JFrame implements ActionListener {
+	
 	private JPanel logoutPanel;
 	private JLabel titleLabel,passLabel;
 	private JTextField pass;
@@ -24,6 +25,8 @@ public class Log_out extends JFrame implements ActionListener {
 
 	//コンストラクタ
 	Log_out(){
+		
+		//フレームの設定
 		setTitle("ログアウト");
 		setSize(900,600);//Frameの左上ｘ座標、ｙ座標、幅、高さを設定
 		setLocationRelativeTo(null);
@@ -56,6 +59,7 @@ public class Log_out extends JFrame implements ActionListener {
 		logoutPanel.add(pass);
 		logoutPanel.add(log_out);
 		contentPane.add(logoutPanel);
+		
 		//レイアウトマネージャ無効にして配置を自由に
 		logoutPanel.setLayout(null);
 

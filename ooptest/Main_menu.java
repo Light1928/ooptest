@@ -13,11 +13,10 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import java.awt.Font;
 
-public class Main_menu extends JFrame implements ActionListener {
+public class Main_menu extends JFrame  {
 
-	private JPanel contentPane;
-	
-
+	private JPanel contentPane,panel;
+	private JButton tukiselect,shinkiselect,shinkisub,deletesub,tukisub,logoutsub;
 	
 	public Main_menu() {
 		setSize(900,600);
@@ -30,37 +29,55 @@ public class Main_menu extends JFrame implements ActionListener {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JButton tukiselect = new JButton("月選択");
+		 tukiselect = new JButton("月選択");
 		tukiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
 		tukiselect.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		tukiselect.setBounds(245, 259, 154, 70);
 		panel.add(tukiselect);
 		
-		JButton shinkiselect = new JButton("新規登録");
+		 shinkiselect = new JButton("新規登録");
 		shinkiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
 		shinkiselect.setBounds(500, 259, 154, 70);
 		panel.add(shinkiselect);
+		shinkiselect.setActionCommand("新規登録");
+		shinkiselect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Shinki_registration new_Account = new Shinki_registration();
+				if(cmd.equals("新規登録")) {
+					new_Account.setVisible(true);
+					setVisible(false);
+				}
+			}});
 		
-		JButton shinkisub = new JButton("新規登録");
+		 shinkisub = new JButton("新規登録");
+		 shinkisub.setActionCommand("新規登録");
 		shinkisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Shinki_registration new_Account = new Shinki_registration();
+				if(cmd.equals("新規登録")) {
+					new_Account.setVisible(true);
+					setVisible(false);	
 			}
-		});
+		}});
 		shinkisub.setBounds(620, 10, 125, 19);
 		panel.add(shinkisub);
 		
-		JButton deletesub = new JButton("アカウント削除");
+		 deletesub = new JButton("アカウント削除");
 		deletesub.setBounds(750, 10, 125, 19);
 		panel.add(deletesub);
 		
-		JButton tukisub = new JButton("月選択");
+		 tukisub = new JButton("月選択");
 		tukisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -68,20 +85,21 @@ public class Main_menu extends JFrame implements ActionListener {
 		tukisub.setBounds(620, 32, 125, 19);
 		panel.add(tukisub);
 		
-		JButton logoutsub = new JButton("ログアウト");
-		logoutsub.addActionListener(this);
+		 logoutsub = new JButton("ログアウト");
+		 logoutsub.setActionCommand("ログアウト");
+		logoutsub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Log_out logout = new Log_out();
+				if(cmd.equals("ログアウト")) {
+					logout.setVisible(true);
+					setVisible(false);	
+				}
+				}
+			});
 		logoutsub.setActionCommand("ログアウト");
 		logoutsub.setBounds(750, 32, 125, 19);
 		panel.add(logoutsub);
-	}
-	
-	public void actionPerformed(ActionEvent e) {
-		String cmd = e.getActionCommand();
-		//遷移したいページのインスタンス生成
-		Log_out logout = new Log_out();
-		if(cmd.equals("ログアウト")) {
-			logout.setVisible(true);
-			setVisible(false);
-		}
 	}
 }
