@@ -42,9 +42,11 @@ public class Log_in extends JFrame  {
 		//ログイン画面描画
 		titleLabel = new JLabel("SalaPay");
 		titleLabel.setForeground(Color.BLACK);
-		titleLabel.setFont(new Font("MS ゴシック",Font.BOLD,80));
+		titleLabel.setFont(new Font("Helvetica Neue",Font.BOLD,80));
 		userLabel = new JLabel("ユーザID");
+		userLabel.setFont(new Font("Helvetica Neue",Font.BOLD,13));
 		passLabel = new JLabel("パスワード");
+		setFont(new Font("Helvetica Neue",Font.BOLD,13));
 		signupLabel = new JLabel("アカウントをお持ちでない方はこちら");
 		userID = new JTextField(20);
 		userBorder = new LineBorder(new Color(29,161,242), 1, true);
@@ -53,11 +55,11 @@ public class Log_in extends JFrame  {
 		pass = new JPasswordField(20);
 	    passBorder = new LineBorder(new Color(29,161,242), 1, true);
 		pass.setBorder(passBorder);
-		log_in = new JButton("ログイン");
 
+		log_in = new JButton("ログイン");
 		log_in.setForeground(new Color(255,255,255));
 		log_in.setBackground(new Color(29,161,242));
-		log_in.setFont(new Font("MS ゴシック",Font.BOLD,13));
+		log_in.setFont(new Font("Helvetica Neue",Font.BOLD,13));
 		log_in.setActionCommand("ログイン");
 
 		//ボタンを押したら時の処理
@@ -77,7 +79,7 @@ public class Log_in extends JFrame  {
 		sign_up = new JButton("新規登録");
 		sign_up.setForeground(new Color(255,255,255));
 		sign_up.setBackground(new Color(0,181,0));
-		sign_up.setFont(new Font("MS ゴシック",Font.BOLD,13));
+		sign_up.setFont(new Font("Helvetica Neue",Font.BOLD,13));
 		sign_up.setActionCommand("新規登録");
 
 		//ボタンを押した時の処理をMyactionlistenerに渡す
