@@ -27,7 +27,10 @@ public class Log_in extends JFrame implements ActionListener {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//xボタンを押されたら終了
+		
+		//コンテナ作成
 		Container contentPane = getContentPane();
+		
 		//遷移用パネル
 		loginPanel = new JPanel();
 
@@ -41,8 +44,8 @@ public class Log_in extends JFrame implements ActionListener {
 		pass = new JPasswordField(20);
 		log_in = new JButton("ログイン");
 		log_in.setActionCommand("ログイン");
+		
 		//ボタンを押した時の処理をMyactionlistenerに渡す
-	//	log_in.addActionListener(new MyactionListener());
 		log_in.addActionListener(this);
 		titleLabel.setBounds(300,50,600,200);
 		userLabel.setBounds(330,250,100,30);

@@ -34,46 +34,45 @@ public class Main_menu extends JFrame implements ActionListener {
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JButton button = new JButton("月選択");
-		button.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
-		button.addActionListener(new ActionListener() {
+		JButton tukiselect = new JButton("月選択");
+		tukiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
+		tukiselect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		button.setBounds(245, 259, 149, 70);
-		panel.add(button);
+		tukiselect.setBounds(245, 259, 154, 70);
+		panel.add(tukiselect);
 		
-		JButton button_1 = new JButton("新規登録");
-		button_1.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
-		button_1.setBounds(490, 259, 154, 70);
-		panel.add(button_1);
+		JButton shinkiselect = new JButton("新規登録");
+		shinkiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
+		shinkiselect.setBounds(500, 259, 154, 70);
+		panel.add(shinkiselect);
 		
-		JButton button_2 = new JButton("新規登録");
-		button_2.setFont(new Font("MS UI Gothic", Font.PLAIN, 15));
-		button_2.addActionListener(new ActionListener() {
+		JButton shinkisub = new JButton("新規登録");
+		shinkisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		button_2.setBounds(629, 10, 113, 19);
-		panel.add(button_2);
+		shinkisub.setBounds(620, 10, 125, 19);
+		panel.add(shinkisub);
 		
-		JButton button_3 = new JButton("アカウント削除");
-		button_3.setBounds(744, 10, 128, 19);
-		panel.add(button_3);
+		JButton deletesub = new JButton("アカウント削除");
+		deletesub.setBounds(750, 10, 125, 19);
+		panel.add(deletesub);
 		
-		JButton button_4 = new JButton("月選択");
-		button_4.addActionListener(new ActionListener() {
+		JButton tukisub = new JButton("月選択");
+		tukisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		button_4.setBounds(629, 32, 113, 19);
-		panel.add(button_4);
+		tukisub.setBounds(620, 32, 125, 19);
+		panel.add(tukisub);
 		
-		JButton logout = new JButton("ログアウト");
-		logout.addActionListener(this);
-		logout.setActionCommand("ログアウト");
-		logout.setBounds(744, 32, 128, 19);
-		panel.add(logout);
+		JButton logoutsub = new JButton("ログアウト");
+		logoutsub.addActionListener(this);
+		logoutsub.setActionCommand("ログアウト");
+		logoutsub.setBounds(750, 32, 125, 19);
+		panel.add(logoutsub);
 	}
 	
 	public void actionPerformed(ActionEvent e) {

@@ -29,7 +29,10 @@ public class Log_out extends JFrame implements ActionListener {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//xボタンを押されたら終了
+		
+		//コンテナ作成
 		Container contentPane = getContentPane();
+		
 		logoutPanel = new JPanel();
 		titleLabel = new JLabel("ログアウト");
 		titleLabel.setForeground(Color.BLACK);
@@ -39,6 +42,7 @@ public class Log_out extends JFrame implements ActionListener {
 		log_out = new JButton("ログアウト");
 		log_out.setActionCommand("ログアウト");
 		log_out.addActionListener(this);
+		
 //		背景色をつける場合の文法
 		//logoutPanel.setBackground(new Color(255,255,255));
 		titleLabel.setBounds(250,50,600,200);
