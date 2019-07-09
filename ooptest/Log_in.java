@@ -70,7 +70,7 @@ public class Log_in extends JFrame  {
 	    log_in.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		String cmd = e.getActionCommand();
-	    		//遷移したいページのインスタンス生成
+	    		//遷移したいページのインスタンス生成（メインメニューへ）
 	    		Main_menu main_menu = new Main_menu();
 	    		if(cmd.equals("ログイン")) {
 	    			main_menu.setVisible(true);
@@ -90,7 +90,7 @@ public class Log_in extends JFrame  {
 		sign_up.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			String cmd = e.getActionCommand();
-			//遷移したいページのインスタンス生成
+			//遷移したいページのインスタンス生成（新規登録画面へ）
 			Shinki_registration new_Account = new Shinki_registration();
 			if(cmd.equals("新規登録")) {
 				new_Account.setVisible(true);
