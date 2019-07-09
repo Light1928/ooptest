@@ -30,12 +30,14 @@ public class Month extends JFrame implements ActionListener{
 		contentPane.setLayout(null);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
+																 "2014", "2013", "2012", "2011", "2010"}));
 		comboBox.setBounds(100, 135, 101, 35);
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
+																   "7", "8", "9", "10", "11", "12"}));
 		comboBox_1.setBounds(346, 135, 101, 35);
 		contentPane.add(comboBox_1);
 		
