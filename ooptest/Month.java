@@ -16,7 +16,8 @@ import javax.swing.border.EmptyBorder;
 public class Month extends JFrame {
 
 	private JPanel month_Pane;
-	private JButton meisai,shinkisub,deletesub,tukisub,logoutsub;
+	private JLabel yearLabel,monthLabel;
+	private JButton meisai,shinkisub,deletesub,mainsub,logoutsub;
 	private JComboBox year,month;
 	/**
 	 * Create the frame.
@@ -63,23 +64,19 @@ public class Month extends JFrame {
 		}
 		);
 
+		yearLabel = new JLabel("年");
+		yearLabel.setBounds(211, 144, 57, 16);
+		month_Pane.add(yearLabel);
 
-		JLabel lblNewLabel = new JLabel("年");
-		lblNewLabel.setBounds(211, 144, 57, 16);
-		month_Pane.add(lblNewLabel);
+		monthLabel = new JLabel("月");
+		monthLabel.setBounds(459, 144, 57, 16);
+		month_Pane.add(monthLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("月");
-		lblNewLabel_1.setBounds(459, 144, 57, 16);
-		month_Pane.add(lblNewLabel_1);
-
-
-
-
-		 shinkisub = new JButton("新規登録");
-		 shinkisub.setActionCommand("新規登録");
-		 shinkisub.setBounds(620, 10, 125, 19);
-		 shinkisub.setBackground(new Color(255,153,0));
-			month_Pane.add(shinkisub);
+	    shinkisub = new JButton("新規登録");
+		shinkisub.setActionCommand("新規登録");
+		shinkisub.setBounds(620, 10, 125, 19);
+		shinkisub.setBackground(new Color(255,153,0));
+		month_Pane.add(shinkisub);
 
 		shinkisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -99,28 +96,28 @@ public class Month extends JFrame {
 		deletesub.setBounds(750, 10, 125, 19);
 		deletesub.setActionCommand("アカウント削除");
 		deletesub.setBackground(new Color(24,180,0));
+		month_Pane.add(deletesub);
 		deletesub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 			}
 		}
 		);
-		month_Pane.add(deletesub);
 
 
-		 tukisub = new JButton("月選択");
-		 tukisub.setBounds(620, 32, 125, 19);
-		 tukisub.setBackground(new Color(24,180,0));
-		month_Pane.add(tukisub);
-		tukisub.addActionListener(new ActionListener() {
+		mainsub = new JButton("メインメニュー");
+		mainsub.setBounds(620, 32, 125, 19);
+		mainsub.setBackground(new Color(24,180,0));
+		month_Pane.add(mainsub);
+		mainsub.setActionCommand("メインメニュー");
+		mainsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 				//遷移したいページのインスタンス生成
-				Month month = new Month();
-				if(cmd.equals("月選択")) {
-					month.setVisible(true);
+				Main_menu main = new Main_menu();
+				if(cmd.equals("メインメニュー")) {
+					main.setVisible(true);
 					setVisible(false);
-
 				}
 			}
 		}
