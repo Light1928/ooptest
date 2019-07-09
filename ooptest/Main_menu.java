@@ -37,6 +37,8 @@ public class Main_menu extends JFrame  {
 		tukiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
 		tukiselect.setBounds(245, 259, 154, 70);
 		panel.add(tukiselect);
+		
+		//月選択ボタンを押した場合の処理
 		tukiselect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
@@ -50,7 +52,7 @@ public class Main_menu extends JFrame  {
 		}
 		);
 		
-		 shinkiselect = new JButton("新規登録");
+		shinkiselect = new JButton("新規登録");
 		shinkiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
 		shinkiselect.setBounds(500, 259, 154, 70);
 		panel.add(shinkiselect);
@@ -88,15 +90,31 @@ public class Main_menu extends JFrame  {
 		);
 		
 		
-		 deletesub = new JButton("アカウント削除");
+		deletesub = new JButton("アカウント削除");
 		deletesub.setBounds(750, 10, 125, 19);
+		deletesub.setActionCommand("アカウント削除");
+		deletesub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		}
+		);
 		panel.add(deletesub);
+		
 		
 		 tukisub = new JButton("月選択");
 		 tukisub.setBounds(620, 32, 125, 19);
 		panel.add(tukisub);
 		tukisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Month month = new Month();
+				if(cmd.equals("月選択")) {
+					month.setVisible(true);
+					setVisible(false);
+				
+				}
 			}
 		}
 		);
