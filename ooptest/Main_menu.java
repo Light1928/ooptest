@@ -18,25 +18,7 @@ public class Main_menu extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	
 
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Main_menu frame = new Main_menu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public Main_menu() {
 		setSize(900,600);
 		setLocationRelativeTo(null);
