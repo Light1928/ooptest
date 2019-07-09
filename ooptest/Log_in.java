@@ -76,6 +76,7 @@ public class Log_in extends JFrame  {
 		sign_up = new JButton("新規登録");
 		sign_up.setForeground(new Color(255,255,255));
 		sign_up.setBackground(new Color(0,181,0));
+		sign_up.setFont(new Font("MS ゴシック",Font.BOLD,10));
 		sign_up.setActionCommand("新規登録");
 
 		//ボタンを押した時の処理をMyactionlistenerに渡す
