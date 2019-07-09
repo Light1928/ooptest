@@ -56,6 +56,7 @@ public class Month extends JFrame {
 		meisai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
+
 				//明細ページのインスタンス生成
 				Meisai meisai = new Meisai();
 				if(cmd.equals("明細")) {
