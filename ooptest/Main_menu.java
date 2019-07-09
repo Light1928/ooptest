@@ -18,13 +18,12 @@ public class Main_menu extends JFrame  {
 					deletesub,tukisub,logoutsub;
 
 	 Main_menu() {
-		 
+
 		setTitle("メインメニュー");
 		setSize(900,600);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 
 		contentPane = new JPanel();
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -115,7 +114,6 @@ public class Main_menu extends JFrame  {
 			}
 		}
 		);
-
 
 		 tukisub = new JButton("月選択");
 		 tukisub.setBounds(620, 32, 125, 19);
