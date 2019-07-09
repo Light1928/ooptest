@@ -54,7 +54,7 @@ public class Main_menu extends JFrame  {
 		}
 		);
 
-		shinkiselect = new JButton("新規登録");
+	    shinkiselect = new JButton("新規登録");
 		shinkiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
 		shinkiselect.setBounds(500, 259, 154, 70);
 		shinkiselect.setForeground(new Color(255,255,255));
@@ -138,11 +138,12 @@ public class Main_menu extends JFrame  {
 				//移動したいページのインスタンス生成
 				Log_in login = new Log_in();
 				if(cmd.equals("ログアウト") ) {
-					int ans = JOptionPane.showConfirmDialog(null, "ログアウトしますか？","ログアウト",
-							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
+					int ans = JOptionPane.showConfirmDialog(null, "ログアウトしますか？",
+							"ログアウト",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
 					if(ans == 0){
-						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
+						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",
+								JOptionPane.PLAIN_MESSAGE);
 						login.setVisible(true);
 						setVisible(false);
 					}

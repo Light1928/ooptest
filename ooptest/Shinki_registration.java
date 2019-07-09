@@ -96,6 +96,7 @@ public class Shinki_registration extends JFrame  {
 				}
 			}
 		 }
+		 );
 
 
 
