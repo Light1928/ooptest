@@ -19,6 +19,8 @@ public class Month extends JFrame {
 	private JLabel yearLabel,monthLabel;
 	private JButton meisai,shinkisub,deletesub,mainsub,logoutsub;
 	private JComboBox year,month;
+
+
 	/**
 	 * Create the frame.
 	 */
@@ -54,9 +56,11 @@ public class Month extends JFrame {
 		meisai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成
+				//明細ページのインスタンス生成
 				Meisai meisai = new Meisai();
 				if(cmd.equals("明細")) {
+
+					//明細ページに遷移
 					meisai.setVisible(true);
 					setVisible(false);
 				}
@@ -81,11 +85,15 @@ public class Month extends JFrame {
 		shinkisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成
+
+				//新規登録ページのインスタンス生成
 				Shinki_registration new_Account = new Shinki_registration();
 				if(cmd.equals("新規登録")) {
+
+					//新規登録ページに遷移
 					new_Account.setVisible(true);
 					setVisible(false);
+
 				}
 			}
 		}
@@ -113,9 +121,12 @@ public class Month extends JFrame {
 		mainsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成
+
+				//メインメニューページのインスタンス生成
 				Main_menu main = new Main_menu();
 				if(cmd.equals("メインメニュー")) {
+
+					//メインメニューページに遷移
 					main.setVisible(true);
 					setVisible(false);
 				}
@@ -134,14 +145,17 @@ public class Month extends JFrame {
 				String cmd = e.getActionCommand();
 				JFrame frame = new JFrame();
 
-				//移動したいページのインスタンス生成
+				//ログインページのインスタンス生成
 				Log_in login = new Log_in();
 				if(cmd.equals("ログアウト") ) {
 					int ans = JOptionPane.showConfirmDialog(null, "ログアウトしますか？","ログアウト",
 							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
+
 					//0がYes、１がNo
 					if(ans == 0){
 						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
+
+						//ログインページに遷移
 						login.setVisible(true);
 						setVisible(false);
 					}
