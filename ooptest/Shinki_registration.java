@@ -20,7 +20,7 @@ public class Shinki_registration extends JFrame  {
 	private JLabel titlelabel,userlabel,passlabel,namelabel;
 	private JTextField userID,name;
 	private JPasswordField password;
-	private JButton regist,shinkisub,deletesub,tukisub,logoutsub;
+	private JButton regist,mainsub,deletesub,tukisub,logoutsub;
 	private LineBorder userBorder,passBorder,nameBorder;
 
 	public Shinki_registration() {
@@ -102,19 +102,21 @@ public class Shinki_registration extends JFrame  {
 		regist.setBounds(361, 436, 87, 25);
 		contentPane.add(regist);
 
-		 shinkisub = new JButton("新規登録");
-		 shinkisub.setActionCommand("新規登録");
-		 shinkisub.setBounds(620, 10, 125, 19);
-		 shinkisub.setBackground(new Color(255,153,0));
-		 contentPane.add(shinkisub);
-
-		 shinkisub.addActionListener(new ActionListener() {
+		mainsub = new JButton("メインメニュー");
+		mainsub.setBounds(620, 10, 125, 19);
+		mainsub.setBackground(new Color(24,180,0));
+		contentPane.add(mainsub);
+		mainsub.setActionCommand("メインメニュー");
+		mainsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成
-				Shinki_registration new_Account = new Shinki_registration();
-				if(cmd.equals("新規登録")) {
-					new_Account.setVisible(true);
+
+				//メインメニューページのインスタンス生成
+				Main_menu main = new Main_menu();
+				if(cmd.equals("メインメニュー")) {
+
+					//メインメニューページに遷移
+					main.setVisible(true);
 					setVisible(false);
 				}
 			}
