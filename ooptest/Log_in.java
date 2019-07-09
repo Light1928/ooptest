@@ -18,10 +18,10 @@ import javax.swing.border.LineBorder;
 public class Log_in extends JFrame  {
 
 	private Container contentPane;
-	private LineBorder userBorder,passBorder;
 	private JPanel loginPanel;
 	private JLabel titleLabel,userLabel,passLabel,signupLabel;
 	private JTextField userID,pass;
+	private LineBorder userBorder,passBorder;
 	private JButton log_in,sign_up;
 
 	Log_in(){
