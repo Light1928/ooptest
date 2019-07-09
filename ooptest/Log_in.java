@@ -57,6 +57,7 @@ public class Log_in extends JFrame  {
 
 		log_in.setForeground(new Color(255,255,255));
 		log_in.setBackground(new Color(29,161,242));
+		log_in.setFont(new Font("MS ゴシック",Font.BOLD,13));
 		log_in.setActionCommand("ログイン");
 
 		//ボタンを押したら時の処理

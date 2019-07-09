@@ -13,11 +13,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Month extends JFrame implements ActionListener{
+public class Month extends JFrame {
 
-	private JPanel Month_Pane;
-	private JButton shinkisub,deletesub,tukisub,logoutsub;
-
+	private JPanel month_Pane;
+	private JLabel yearLabel,monthLabel;
+	private JButton meisai,shinkisub,deletesub,mainsub,logoutsub;
+	private JComboBox year,month;
 	/**
 	 * Create the frame.
 	 */
@@ -27,47 +28,55 @@ public class Month extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-		Month_Pane = new JPanel();
-		Month_Pane.setBorder(new EmptyBorder(0, 0, 0, 0));
-		setContentPane(Month_Pane);
-		Month_Pane.setLayout(null);
 
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
+
+		month_Pane = new JPanel();
+		month_Pane.setBorder(new EmptyBorder(0, 0, 0, 0));
+		setContentPane(month_Pane);
+		month_Pane.setLayout(null);
+
+		year = new JComboBox();
+		year.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
 																 "2014", "2013", "2012", "2011", "2010"}));
-		comboBox.setBounds(100, 135, 101, 35);
-		Month_Pane.add(comboBox);
+		year.setBounds(100, 135, 101, 35);
+		month_Pane.add(year);
 
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
+		month = new JComboBox();
+		month.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
 																   "7", "8", "9", "10", "11", "12"}));
-		comboBox_1.setBounds(346, 135, 101, 35);
-		Month_Pane.add(comboBox_1);
+		month.setBounds(346, 135, 101, 35);
+		month_Pane.add(month);
 
-		JButton btnNewButton = new JButton("明細");
-		btnNewButton.setBounds(400, 309, 116, 40);
-		btnNewButton.setActionCommand("明細");
-		btnNewButton.addActionListener(this);
-		Month_Pane.add(btnNewButton);
+		meisai = new JButton("明細");
+		meisai.setBounds(400, 309, 116, 40);
+		meisai.setActionCommand("明細");
+		month_Pane.add(meisai);
+		meisai.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Meisai meisai = new Meisai();
+				if(cmd.equals("明細")) {
+					meisai.setVisible(true);
+					setVisible(false);
+				}
+			}
+		}
+		);
 
-		JLabel lblNewLabel = new JLabel("年");
-		lblNewLabel.setBounds(211, 144, 57, 16);
-		Month_Pane.add(lblNewLabel);
+		yearLabel = new JLabel("年");
+		yearLabel.setBounds(211, 144, 57, 16);
+		month_Pane.add(yearLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("月");
-		lblNewLabel_1.setBounds(459, 144, 57, 16);
-		Month_Pane.add(lblNewLabel_1);
+		monthLabel = new JLabel("月");
+		monthLabel.setBounds(459, 144, 57, 16);
+		month_Pane.add(monthLabel);
 
-
-
-
-		 shinkisub = new JButton("新規登録");
-		 shinkisub.setActionCommand("新規登録");
-		 shinkisub.setBounds(620, 10, 125, 19);
-		 shinkisub.setBackground(new Color(255,153,0));
-			Month_Pane.add(shinkisub);
+	    shinkisub = new JButton("新規登録");
+		shinkisub.setActionCommand("新規登録");
+		shinkisub.setBounds(620, 10, 125, 19);
+		shinkisub.setBackground(new Color(255,153,0));
+		month_Pane.add(shinkisub);
 
 		shinkisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -87,28 +96,28 @@ public class Month extends JFrame implements ActionListener{
 		deletesub.setBounds(750, 10, 125, 19);
 		deletesub.setActionCommand("アカウント削除");
 		deletesub.setBackground(new Color(24,180,0));
+		month_Pane.add(deletesub);
 		deletesub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 			}
 		}
 		);
-		Month_Pane.add(deletesub);
 
 
-		 tukisub = new JButton("月選択");
-		 tukisub.setBounds(620, 32, 125, 19);
-		 tukisub.setBackground(new Color(24,180,0));
-		Month_Pane.add(tukisub);
-		tukisub.addActionListener(new ActionListener() {
+		mainsub = new JButton("メインメニュー");
+		mainsub.setBounds(620, 32, 125, 19);
+		mainsub.setBackground(new Color(24,180,0));
+		month_Pane.add(mainsub);
+		mainsub.setActionCommand("メインメニュー");
+		mainsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 				//遷移したいページのインスタンス生成
-				Month month = new Month();
-				if(cmd.equals("月選択")) {
-					month.setVisible(true);
+				Main_menu main = new Main_menu();
+				if(cmd.equals("メインメニュー")) {
+					main.setVisible(true);
 					setVisible(false);
-
 				}
 			}
 		}
@@ -118,7 +127,7 @@ public class Month extends JFrame implements ActionListener{
 		 logoutsub.setActionCommand("ログアウト");
 		 logoutsub.setBounds(750, 32, 125, 19);
 		 logoutsub.setBackground(new Color(255,153,0));
-	     Month_Pane.add(logoutsub);
+	     month_Pane.add(logoutsub);
 
 		 logoutsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -140,12 +149,5 @@ public class Month extends JFrame implements ActionListener{
 			}
 		}
 		);
-
-	}
-
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO 自動生成されたメソッド・スタブ
 	}
 }
