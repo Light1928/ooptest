@@ -12,10 +12,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 
 public class Log_in extends JFrame implements ActionListener {
-	
+	private LineBorder userBorder,passBorder;
 	private JPanel loginPanel;
 	private JLabel titleLabel,userLabel,passLabel;
 	private JTextField userID,pass;
@@ -45,7 +46,12 @@ public class Log_in extends JFrame implements ActionListener {
 		userLabel = new JLabel("ユーザID");
 		passLabel = new JLabel("パスワード");
 		userID = new JTextField(20);
+		userBorder = new LineBorder(new Color(29,161,242), 1, true);
+		userID.setBorder(userBorder);
+		
 		pass = new JPasswordField(20);
+	    passBorder = new LineBorder(new Color(29,161,242), 1, true);
+		pass.setBorder(passBorder);
 		log_in = new JButton("ログイン");
 		
 		log_in.setForeground(new Color(255,255,255));
