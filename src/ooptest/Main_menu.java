@@ -13,15 +13,15 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import java.awt.Font;
 
-public class Main_menu extends JFrame {
+public class Main_menu extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private final Action action = new SwingAction();
+	
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -32,7 +32,7 @@ public class Main_menu extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
@@ -87,16 +87,21 @@ public class Main_menu extends JFrame {
 		button_4.setBounds(629, 32, 113, 19);
 		panel.add(button_4);
 		
-		JButton button_5 = new JButton("ログアウト");
-		button_5.setBounds(744, 32, 128, 19);
-		panel.add(button_5);
+		JButton logout = new JButton("ログアウト");
+		logout.addActionListener(this);
+		logout.setActionCommand("ログアウト");
+		logout.setBounds(744, 32, 128, 19);
+		panel.add(logout);
 	}
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
+	
+	public void actionPerformed(ActionEvent e) {
+		String cmd = e.getActionCommand();
+		//遷移したいページのインスタンス生成
+		Log_out logout = new Log_out();
+		if(cmd.equals("ログアウト")) {
+			logout.setVisible(true);
+			setVisible(false);
 		}
-		public void actionPerformed(ActionEvent e) {
-		}
+		
 	}
 }

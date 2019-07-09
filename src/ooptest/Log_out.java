@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
@@ -34,7 +35,7 @@ public class Log_out extends JFrame implements ActionListener {
 		titleLabel.setForeground(Color.BLACK);
 		titleLabel.setFont(new Font("MS ゴシック",Font.BOLD,80));
 		passLabel = new JLabel("パスワード");
-		pass = new JTextField(20);
+		pass = new JPasswordField(20);
 		log_out = new JButton("ログアウト");
 		log_out.setActionCommand("ログアウト");
 		log_out.addActionListener(this);
@@ -43,13 +44,13 @@ public class Log_out extends JFrame implements ActionListener {
 		titleLabel.setBounds(250,50,600,200);
 		passLabel.setBounds(330,300,100,30);
 		pass.setBounds(410, 300, 150, 30);
-		log_out.setBounds(473,350,100,30);
+		log_out.setBounds(459,350,100,30);
 
 		//ログアウトパネルに貼り付け
-		logoutPanel.add(titleLabel,BorderLayout.CENTER);
-		logoutPanel.add(passLabel,BorderLayout.CENTER);
-		logoutPanel.add(pass,BorderLayout.CENTER);
-		logoutPanel.add(log_out,BorderLayout.CENTER);
+		logoutPanel.add(titleLabel);
+		logoutPanel.add(passLabel);
+		logoutPanel.add(pass);
+		logoutPanel.add(log_out);
 		contentPane.add(logoutPanel);
 		//レイアウトマネージャ無効にして配置を自由に
 		logoutPanel.setLayout(null);
@@ -58,12 +59,17 @@ public class Log_out extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
 		JFrame frame = new JFrame();
+		JOptionPane optionPane = new JOptionPane();
 		//移動したいページのインスタンス生成
 		Log_in login = new Log_in();
-		JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
-		if(cmd.equals("ログアウト")) {
+		if(cmd.equals("ログアウト") ) {
+			JOptionPane.showConfirmDialog(null, "ログアウトしますか？","ログアウト", 
+					JOptionPane.YES_NO_OPTION , JOptionPane.QUESTION_MESSAGE);
+			if(optionPane.getValue().equals(JOptionPane.YES_OPTION)){
+			JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
 			login.setVisible(true);
 			setVisible(false);
+			}
 		}
 	}
 }

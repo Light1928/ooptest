@@ -11,8 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-//
+
 
 public class Log_in extends JFrame implements ActionListener {
 	private JPanel loginPanel;
@@ -37,7 +38,7 @@ public class Log_in extends JFrame implements ActionListener {
 		userLabel = new JLabel("ユーザID");
 		passLabel = new JLabel("パスワード");
 		userID = new JTextField(20);
-		pass = new JTextField(20);
+		pass = new JPasswordField(20);
 		log_in = new JButton("ログイン");
 		log_in.setActionCommand("ログイン");
 		//ボタンを押した時の処理をMyactionlistenerに渡す
@@ -48,7 +49,7 @@ public class Log_in extends JFrame implements ActionListener {
 		passLabel.setBounds(330,300,100,30);
 		userID.setBounds(410, 250, 150, 30);
 		pass.setBounds(410, 300, 150, 30);
-		log_in.setBounds(473,350,100,30);
+		log_in.setBounds(459,350,100,30);
 
 		//ログインパネルに貼り付け
 		loginPanel.add(titleLabel,BorderLayout.CENTER);
@@ -64,9 +65,9 @@ public class Log_in extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
 		//遷移したいページのインスタンス生成
-		Log_out logout = new Log_out();
+		Main_menu main_menu = new Main_menu();
 		if(cmd.equals("ログイン")) {
-			logout.setVisible(true);
+			main_menu.setVisible(true);
 			setVisible(false);
 		}
 	}
