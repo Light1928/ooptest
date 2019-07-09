@@ -74,7 +74,7 @@ public class Shinki_registration extends JFrame  {
 		name.setBounds(298, 362, 333, 34);
 		contentPane.add(name);
 
-		regist = new JButton("登録");//test
+		regist = new JButton("登録");
 		regist.setFont(new Font("Dialog", Font.BOLD, 17));
 
 		 regist.addActionListener(new ActionListener() {
@@ -89,7 +89,8 @@ public class Shinki_registration extends JFrame  {
 							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
 					if(ans == 0){
-						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
+						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",
+													 JOptionPane.PLAIN_MESSAGE);
 						main_menu.setVisible(true);
 						setVisible(false);
 					}
