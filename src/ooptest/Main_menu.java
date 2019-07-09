@@ -102,6 +102,5 @@ public class Main_menu extends JFrame implements ActionListener {
 			logout.setVisible(true);
 			setVisible(false);
 		}
-		
 	}
 }
