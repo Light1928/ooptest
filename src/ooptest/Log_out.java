@@ -4,24 +4,28 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-public class Log_out extends JFrame {
+public class Log_out extends JFrame implements ActionListener {
 	private JPanel logoutPanel;
-	private JLabel titleLabel,userLabel,passLabel;
-	private JTextField userID,pass;
+	private JLabel titleLabel,passLabel;
+	private JTextField pass;
 	private JButton log_out;
 
 	//コンストラクタ
 	Log_out(){
 		setTitle("ログアウト");
-		setBounds(100,100,900,600);//Frameの左上ｘ座標、ｙ座標、幅、高さを設定
+		setSize(900,600);//Frameの左上ｘ座標、ｙ座標、幅、高さを設定
+		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//xボタンを押されたら終了
 		Container contentPane = getContentPane();
@@ -29,29 +33,37 @@ public class Log_out extends JFrame {
 		titleLabel = new JLabel("ログアウト");
 		titleLabel.setForeground(Color.BLACK);
 		titleLabel.setFont(new Font("MS ゴシック",Font.BOLD,80));
-		userLabel = new JLabel("ユーザID");
 		passLabel = new JLabel("パスワード");
-		userID = new JTextField(20);
 		pass = new JTextField(20);
 		log_out = new JButton("ログアウト");
 		log_out.setActionCommand("ログアウト");
-		log_out.addActionListener(new MyactionListener());
+		log_out.addActionListener(this);
+//		背景色をつける場合の文法
+		//logoutPanel.setBackground(new Color(255,255,255));
 		titleLabel.setBounds(250,50,600,200);
-		userLabel.setBounds(330,250,100,30);
 		passLabel.setBounds(330,300,100,30);
-		userID.setBounds(410, 250, 150, 30);
 		pass.setBounds(410, 300, 150, 30);
 		log_out.setBounds(473,350,100,30);
 
 		//ログアウトパネルに貼り付け
 		logoutPanel.add(titleLabel,BorderLayout.CENTER);
-		logoutPanel.add(userLabel,BorderLayout.CENTER);
 		logoutPanel.add(passLabel,BorderLayout.CENTER);
-		logoutPanel.add(userID,BorderLayout.CENTER);
 		logoutPanel.add(pass,BorderLayout.CENTER);
 		logoutPanel.add(log_out,BorderLayout.CENTER);
 		contentPane.add(logoutPanel);
 		//レイアウトマネージャ無効にして配置を自由に
 		logoutPanel.setLayout(null);
+
+	}
+	public void actionPerformed(ActionEvent e) {
+		String cmd = e.getActionCommand();
+		JFrame frame = new JFrame();
+		//移動したいページのインスタンス生成
+		Log_in login = new Log_in();
+		JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
+		if(cmd.equals("ログアウト")) {
+			login.setVisible(true);
+			setVisible(false);
+		}
 	}
 }
