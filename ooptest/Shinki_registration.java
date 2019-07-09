@@ -1,27 +1,25 @@
 package ooptest;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.TextField;
-import java.awt.Button;
 import java.awt.Color;
-import java.awt.event.ActionListener;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.Action;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 public class Shinki_registration extends JFrame  {
 
 	private JPanel contentPane;
+	private JLabel titlelabel,userlabel,passlabel,namelabel;
+	private JTextField userID,name;
+	private JPasswordField password;
+	private JButton regist,shinkisub,deletesub,tukisub,logoutsub;
 	private LineBorder userBorder,passBorder,nameBorder;
 
 	public Shinki_registration() {
@@ -30,86 +28,99 @@ public class Shinki_registration extends JFrame  {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.setBackground(new Color(255,255,255));
-		
-		JLabel titlelabel = new JLabel("新規登録");
+
+		titlelabel = new JLabel("新規登録");
 		titlelabel.setFont(new Font("MS UI Gothic", Font.BOLD, 55));
 		titlelabel.setBounds(295, 53, 232, 99);
 		contentPane.add(titlelabel);
-		
-		JLabel userlabel = new JLabel("ユーザID");
+
+		userlabel = new JLabel("ユーザID");
 		userlabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
 		userlabel.setBounds(191, 187, 101, 34);
 		contentPane.add(userlabel);
-		
-		JLabel label_1 = new JLabel("パスワード");
-		label_1.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		label_1.setBounds(191, 275, 101, 34);
-		contentPane.add(label_1);
-		
-		JLabel label_2 = new JLabel("名前");
-		label_2.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		label_2.setBounds(213, 362, 59, 34);
-		contentPane.add(label_2);
-		
-		JTextField userID = new JTextField(20);
-		 userBorder = new LineBorder(new Color(29,161,242), 1, true);
+
+		passlabel = new JLabel("パスワード");
+		passlabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		passlabel.setBounds(191, 275, 101, 34);
+		contentPane.add(passlabel);
+
+		namelabel = new JLabel("名前");
+		namelabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		namelabel.setBounds(213, 362, 59, 34);
+		contentPane.add(namelabel);
+
+		userID = new JTextField(20);
+		userBorder = new LineBorder(new Color(29,161,242), 1, true);
 		userID.setBorder(userBorder);
 		userID.setBounds(298, 187, 333, 34);
 		contentPane.add(userID);
-		
-		JTextField password = new JTextField();
+
+		password = new JPasswordField();
 		passBorder = new LineBorder(new Color(29,161,242), 1, true);
 		password.setBorder(passBorder);
-		
+
 		password.setBounds(298, 275, 333, 34);
 		contentPane.add(password);
-		
-		JTextField name = new JTextField();
+
+		name = new JTextField();
 		nameBorder = new LineBorder(new Color(29,161,242), 1, true);
 		name.setBorder(nameBorder);
 		name.setBounds(298, 362, 333, 34);
 		contentPane.add(name);
+
+		regist = new JButton("登録");
+		regist.setFont(new Font("Dialog", Font.BOLD, 17));
 		
-		Button registration = new Button("登録");
-		registration.setFont(new Font("Dialog", Font.BOLD, 17));
-		registration.addActionListener(new ActionListener() {
+		regist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		registration.setBounds(361, 436, 87, 25);
-		contentPane.add(registration);
-		
-		JButton button_1 = new JButton("新規登録");
-		button_1.setFont(new Font("MS UI Gothic", Font.PLAIN, 15));
-		button_1.addActionListener(new ActionListener() {
+		regist.setBounds(361, 436, 87, 25);
+		contentPane.add(regist);
+
+		 shinkisub = new JButton("新規登録");
+		 shinkisub.setActionCommand("新規登録");
+		 shinkisub.setBounds(620, 10, 125, 19);
+		 shinkisub.setBackground(new Color(255,153,0));
+		 shinkisub.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Shinki_registration new_Account = new Shinki_registration();
+				if(cmd.equals("新規登録")) {
+					new_Account.setVisible(true);
+					setVisible(false);
+				}
+			}
+		}
+		);
+		shinkisub.setBounds(629, 0, 113, 19);
+		contentPane.add(shinkisub);
+
+		JButton deletesub = new JButton("アカウント削除");
+		deletesub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		button_1.setBounds(629, 0, 113, 19);
-		contentPane.add(button_1);
-		
-		JButton button_2 = new JButton("アカウント削除");
-		button_2.addActionListener(new ActionListener() {
+		deletesub.setBounds(754, 0, 128, 19);
+		contentPane.add(deletesub);
+
+		JButton tukisub = new JButton("月選択");
+		tukisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		button_2.setBounds(754, 0, 128, 19);
-		contentPane.add(button_2);
-		
-		JButton button_3 = new JButton("月選択");
-		button_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		button_3.setBounds(629, 32, 113, 19);
-		contentPane.add(button_3);
-		
-		JButton button_4 = new JButton("ログアウト");
-		button_4.setBounds(754, 32, 128, 19);
-		contentPane.add(button_4);
+		tukisub.setBounds(629, 32, 113, 19);
+		contentPane.add(tukisub);
+
+		logoutsub = new JButton("ログアウト");
+		logoutsub.setBounds(754, 32, 128, 19);
+		contentPane.add(logoutsub);
 	}
 }
