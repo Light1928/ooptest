@@ -40,9 +40,9 @@ public class Meisai extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
-		//JPanel panel = new JPanel();
-		//contentPane.add(panel, BorderLayout.CENTER);
-		//panel.setLayout(null);
+		/*JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);*/
 
 		JLabel lblSalapay = new JLabel("SalaPay");
 		lblSalapay.setHorizontalAlignment(SwingConstants.CENTER);
