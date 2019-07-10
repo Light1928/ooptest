@@ -23,26 +23,14 @@ public class Meisai extends JFrame {
 	private JButton tukiselect,shinkiselect,shinkisub,
 	deletesub,tukisub,logoutsub;
 
-	/**
-	 * Launch the application.
-	 */
-
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public Meisai() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 490);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
-		/*JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);*/
 
 		JLabel lblSalapay = new JLabel("SalaPay");
 		lblSalapay.setHorizontalAlignment(SwingConstants.CENTER);
