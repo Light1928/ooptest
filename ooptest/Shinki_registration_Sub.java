@@ -17,7 +17,7 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 		super();
 		mainsub = new JButton("メインメニュー");
 		mainsub.setBounds(620, 10, 125, 19);
-		mainsub.setBackground(new Color(24,180,0));
+		mainsub.setBackground(new Color(255,153,0));
 		contentPane.add(mainsub);
 		mainsub.setActionCommand("メインメニュー");
 		mainsub.addActionListener(new ActionListener() {

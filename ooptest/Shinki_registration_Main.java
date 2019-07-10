@@ -75,9 +75,11 @@ public class Shinki_registration_Main extends JFrame  {
 		contentPane.add(name);
 
 		regist = new JButton("登録");
-		regist.setFont(new Font("Dialog", Font.BOLD, 17));
+
 		regist.setBounds(361, 436, 87, 25);
 		contentPane.add(regist);
+		regist.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
+
 
 		 regist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

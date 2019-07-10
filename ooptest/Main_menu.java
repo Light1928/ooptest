@@ -36,8 +36,8 @@ public class Main_menu extends JFrame  {
 
 		//月選択ボタンの作成
 		tukiselect = new JButton("月選択");
-		tukiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
 		tukiselect.setBounds(245, 259, 154, 70);
+		tukiselect.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		tukiselect.setForeground(new Color(255,255,255));
 		tukiselect.setBackground(new Color(29,161,242));
 		main_panel.add(tukiselect);
@@ -58,8 +58,8 @@ public class Main_menu extends JFrame  {
 		);
 
 	    shinkiselect = new JButton("新規登録");
-		shinkiselect.setFont(new Font("MS UI Gothic", Font.PLAIN, 25));
-		shinkiselect.setBounds(500, 259, 154, 70);
+	    shinkiselect.setBounds(500, 259, 154, 70);
+		shinkiselect.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		shinkiselect.setForeground(new Color(255,255,255));
 		shinkiselect.setBackground(new Color(29,161,242));
 		main_panel.add(shinkiselect);
