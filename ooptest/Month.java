@@ -1,6 +1,7 @@
 package ooptest;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -48,6 +49,9 @@ public class Month extends JFrame {
 
 		meisai = new JButton("明細");
 		meisai.setBounds(362, 327, 116, 40);
+		meisai.setFont(new Font("Helvetica Neue",Font.BOLD,25));
+		meisai.setForeground(new Color(255,255,255));
+		meisai.setBackground(new Color(29,161,242));
 		meisai.setActionCommand("明細");
 		month_Pane.add(meisai);
 		meisai.addActionListener(new ActionListener() {
@@ -101,7 +105,7 @@ public class Month extends JFrame {
 		deletesub = new JButton("アカウント削除");
 		deletesub.setBounds(750, 10, 125, 19);
 		deletesub.setActionCommand("アカウント削除");
-		deletesub.setBackground(new Color(24,180,0));
+		deletesub.setBackground(new Color(255,153,0));
 		month_Pane.add(deletesub);
 		deletesub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -113,7 +117,7 @@ public class Month extends JFrame {
 
 		mainsub = new JButton("メインメニュー");
 		mainsub.setBounds(620, 32, 125, 19);
-		mainsub.setBackground(new Color(24,180,0));
+		mainsub.setBackground(new Color(255,153,0));
 		month_Pane.add(mainsub);
 		mainsub.setActionCommand("メインメニュー");
 		mainsub.addActionListener(new ActionListener() {
