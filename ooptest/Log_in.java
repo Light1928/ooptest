@@ -93,7 +93,7 @@ public class Log_in extends JFrame  {
 			public void actionPerformed(ActionEvent e) {
 			String cmd = e.getActionCommand();
 			//遷移したいページのインスタンス生成（新規登録画面へ）
-			Shinki_registration new_Account = new Shinki_registration();
+			Shinki_registration_Main new_Account = new Shinki_registration_Main();
 			if(cmd.equals("新規登録")) {
 				new_Account.setVisible(true);
 				setVisible(false);

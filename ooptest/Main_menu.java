@@ -69,7 +69,7 @@ public class Main_menu extends JFrame  {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 				//遷移したいページのインスタンス生成
-				Shinki_registration new_Account = new Shinki_registration();
+				Shinki_registration_Sub new_Account = new Shinki_registration_Sub();
 				if(cmd.equals("新規登録")) {
 					//新規登録画面へ
 					new_Account.setVisible(true);
@@ -91,7 +91,7 @@ public class Main_menu extends JFrame  {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 				//遷移したいページのインスタンス生成
-				Shinki_registration new_Account = new Shinki_registration();
+				Shinki_registration_Sub new_Account = new Shinki_registration_Sub();
 				if(cmd.equals("新規登録")) {
 					//新規登録画面へ
 					new_Account.setVisible(true);

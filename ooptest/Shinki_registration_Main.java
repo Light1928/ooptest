@@ -14,16 +14,16 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-public class Shinki_registration extends JFrame  {
+public class Shinki_registration_Main extends JFrame  {
 
-	private JPanel contentPane;
-	private JLabel titlelabel,userlabel,passlabel,namelabel;
-	private JTextField userID,name;
-	private JPasswordField password;
-	private JButton regist,mainsub,deletesub,tukisub,logoutsub;
-	private LineBorder userBorder,passBorder,nameBorder;
+	protected JPanel contentPane;
+	protected JLabel titlelabel,userlabel,passlabel,namelabel;
+	protected JTextField userID,name;
+	protected JPasswordField password;
+	protected JButton regist;//,mainsub,deletesub,tukisub,logoutsub;
+	protected LineBorder userBorder,passBorder,nameBorder;
 
-	public Shinki_registration() {
+	 Shinki_registration_Main() {
 		setTitle("新規登録");
 		setSize(900,600);
 		setLocationRelativeTo(null);
@@ -102,7 +102,7 @@ public class Shinki_registration extends JFrame  {
 		regist.setBounds(361, 436, 87, 25);
 		contentPane.add(regist);
 
-		mainsub = new JButton("メインメニュー");
+		/*mainsub = new JButton("メインメニュー");
 		mainsub.setBounds(620, 10, 125, 19);
 		mainsub.setBackground(new Color(24,180,0));
 		contentPane.add(mainsub);
@@ -180,6 +180,6 @@ public class Shinki_registration extends JFrame  {
 				}
 			}
 		}
-		);
+		);*/
 	}
 }

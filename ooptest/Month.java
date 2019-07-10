@@ -21,10 +21,7 @@ public class Month extends JFrame {
 	private JComboBox year,month;
 
 
-	/**
-	 * Create the frame.
-	 */
-	public Month() {
+     Month() {
 		setTitle("月選択");
 		setSize(900,600);
 		setLocationRelativeTo(null);
@@ -88,7 +85,7 @@ public class Month extends JFrame {
 				String cmd = e.getActionCommand();
 
 				//新規登録ページのインスタンス生成
-				Shinki_registration new_Account = new Shinki_registration();
+				Shinki_registration_Sub new_Account = new Shinki_registration_Sub();
 				if(cmd.equals("新規登録")) {
 
 					//新規登録ページに遷移
