@@ -196,6 +196,6 @@ public class Meisai extends JFrame {
 			}
 		});
 		btnNewButton.setBounds(444, 372, 101, 25);
-		panel.add(btnNewButton);
+		contentPane.add(btnNewButton);
 	}
 }
