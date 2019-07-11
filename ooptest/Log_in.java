@@ -37,8 +37,8 @@ public class Log_in extends JFrame  {
 		setSize(900,600);//Frameの左上ｘ座標、ｙ座標、幅、高さを設定
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//xボタンを押されたら終了
-		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		contentPane = getContentPane();
 
 		loginPanel = new JPanel();
@@ -75,14 +75,14 @@ public class Log_in extends JFrame  {
 	    log_in.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		String cmd = e.getActionCommand();
-	    		
+
 	    		if(cmd.equals("ログイン")) {
 	    			String userid = userID.getText();
 	    			//passをchar型配列で取得してからString型に変換
 	    			char[] password = pass.getPassword();
 	    			String passwordstr = new String(password);
 	    			String msg ="";
-		
+
 	    			try {
 	    					Class.forName("com.mysql.cj.jdbc.Driver");
 	    						Connection con = DriverManager.getConnection
@@ -90,7 +90,7 @@ public class Log_in extends JFrame  {
 	    							Statement stmt = con.createStatement();
 	    								String sql = "select * from user";
 	    								ResultSet rs = stmt.executeQuery(sql);
-	    								
+
 	    								while(rs.next()) {
 	    									String id = rs.getString("id");
 	    									String pass = rs.getString("password");
@@ -99,7 +99,7 @@ public class Log_in extends JFrame  {
 	    										main_menu.setVisible(true);
 	    										setVisible(false);
 	    										break;
-	    									}else {	  
+	    									}else {
 	    										JOptionPane.showMessageDialog(null,"アカウントが登録されていない、"
 	    												+ "またはアカウント、パスワードが違います","メッセージ",
 	    												JOptionPane.PLAIN_MESSAGE);
@@ -111,7 +111,7 @@ public class Log_in extends JFrame  {
 	    							con.close();
 	    		}catch(ClassNotFoundException d) {
 	    			msg = "ドライバのロードに失敗しました";
-	    			
+
 	    		}catch(Exception a) {
 	    			msg = "ドライバのロードに失敗しました";
 	    		}
