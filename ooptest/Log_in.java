@@ -22,6 +22,7 @@ import javax.swing.border.LineBorder;
 
 public class Log_in extends JFrame  {
 
+	private String db_id,db_password;
 	private Container contentPane;
 	private JPanel loginPanel;
 	private JLabel titleLabel,userLabel,passLabel,signupLabel;
@@ -62,7 +63,7 @@ public class Log_in extends JFrame  {
 		userID.setBorder(userBorder);
 
 		pass = new JPasswordField(30);
-	    passBorder = new LineBorder(new Color(29,161,242), 1, true);
+		passBorder = new LineBorder(new Color(29,161,242), 1, true);
 		pass.setBorder(passBorder);
 
 		log_in = new JButton("ログイン");
@@ -72,50 +73,51 @@ public class Log_in extends JFrame  {
 		log_in.setActionCommand("ログイン");
 
 		//ログインボタンを押したら時の処理
-	    log_in.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    		String cmd = e.getActionCommand();
+		log_in.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
 
-	    		if(cmd.equals("ログイン")) {
-	    			String userid = userID.getText();
-	    			//passをchar型配列で取得してからString型に変換
-	    			char[] password = pass.getPassword();
-	    			String passwordstr = new String(password);
-	    			String msg ="";
-	    			try {
-	    					Class.forName("com.mysql.cj.jdbc.Driver");
-	    						Connection con = DriverManager.getConnection
-	    								("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","");
-	    							Statement stmt = con.createStatement();
-	    								String sql = "select * from user";
-	    								ResultSet rs = stmt.executeQuery(sql);
+				if(cmd.equals("ログイン")) {
+					String userid = userID.getText();
+					//passをchar型配列で取得してからString型に変換
+					char[] passwordchar = pass.getPassword();
+					String passwordstr = new String(passwordchar);
+					String msg ="";
+					try {
+						Class.forName("com.mysql.cj.jdbc.Driver");
+						Connection con = DriverManager.getConnection
+								("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","");
+						Statement stmt = con.createStatement();
+						String sql = "select * from user";
+						ResultSet rs = stmt.executeQuery(sql);
 
-	    								while(rs.next()) {
-	    									String id = rs.getString("id");
-	    									String pass = rs.getString("password");
-	    									if(userid.equals(id) && passwordstr.equals(pass)){
-	    										Main_menu main_menu = new Main_menu();
-	    										main_menu.setVisible(true);
-	    										setVisible(false);
-	    										break;
-	    									}else {
-	    										JOptionPane.showMessageDialog(null,"アカウントが登録されていない、"
-	    												+ "またはユーザID、パスワードが違います","メッセージ",
-	    												JOptionPane.PLAIN_MESSAGE);
-	    										break;
-	    									}
-	    								}
-	    							rs.close();
-	    							stmt.close();
-	    							con.close();
-	    		}catch(Exception ex) {
-	    			msg = "ドライバのロードに失敗しました";
-	    			System.out.println(ex+"\t"+msg);
-	    		}
-	    		}
-	    	}
-	    }
-	);
+						while(rs.next()) {	//１行ずつ取り出す
+							//データベースのIDとpassword
+							db_id = rs.getString("id");
+							db_password = rs.getString("password");
+							if(userid.equals(db_id) && passwordstr.equals(db_password)) break;
+						}
+						if(userid.equals(db_id) && passwordstr.equals(db_password)){
+							Main_menu main_menu = new Main_menu();
+							main_menu.setVisible(true);
+							setVisible(false);
+						}else {
+							JOptionPane.showMessageDialog(null,"アカウントが登録されていない、"
+									+ "またはユーザID、パスワードが違います","メッセージ",
+									JOptionPane.PLAIN_MESSAGE);
+						}
+
+						rs.close();
+						stmt.close();
+						con.close();
+					}catch(Exception ex) {
+						msg = "ドライバのロードに失敗しました";
+						System.out.println(ex+"\t"+msg);
+					}
+				}
+			}
+		}
+		);
 
 		sign_up = new JButton("新規登録");
 		sign_up.setForeground(new Color(255,255,255));
@@ -126,16 +128,16 @@ public class Log_in extends JFrame  {
 		//新規登録ボタンを押した時の処理
 		sign_up.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			String cmd = e.getActionCommand();
-			//遷移したいページのインスタンス生成（新規登録画面へ）
-			Shinki_registration_Main new_Account = new Shinki_registration_Main();
-			if(cmd.equals("新規登録")) {
-				new_Account.setVisible(true);
-				setVisible(false);
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成（新規登録画面へ）
+				Shinki_registration_Main new_Account = new Shinki_registration_Main();
+				if(cmd.equals("新規登録")) {
+					new_Account.setVisible(true);
+					setVisible(false);
+				}
 			}
 		}
-		}
-	);
+		);
 		titleLabel.setBounds(300,50,600,200);
 		userLabel.setBounds(330,250,100,30);
 		passLabel.setBounds(330,300,100,30);
@@ -158,5 +160,4 @@ public class Log_in extends JFrame  {
 		//レイアウトマネージャ無効にして配置を自由に
 		loginPanel.setLayout(null);
 	}
-
 }
