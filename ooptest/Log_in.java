@@ -5,10 +5,15 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -20,7 +25,8 @@ public class Log_in extends JFrame  {
 	private Container contentPane;
 	private JPanel loginPanel;
 	private JLabel titleLabel,userLabel,passLabel,signupLabel;
-	private JTextField userID,pass;
+	private JTextField userID;
+	private JPasswordField pass;
 	private LineBorder userBorder,passBorder;
 	private JButton log_in,sign_up;
 
@@ -32,11 +38,9 @@ public class Log_in extends JFrame  {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//xボタンを押されたら終了
-
-		//コンテナ作成
+		
 		contentPane = getContentPane();
 
-		//ログインパネル
 		loginPanel = new JPanel();
 		loginPanel.setBackground(new Color(255,255,255));
 
@@ -71,12 +75,46 @@ public class Log_in extends JFrame  {
 	    log_in.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		String cmd = e.getActionCommand();
-	    		//遷移したいページのインスタンス生成
-	    		Main_menu main_menu = new Main_menu();
+	    		
 	    		if(cmd.equals("ログイン")) {
-	    			//メインメニューへ
-	    			main_menu.setVisible(true);
-	    			setVisible(false);
+	    			String userid = userID.getText();
+	    			//passをchar型配列で取得してからString型に変換
+	    			char[] password = pass.getPassword();
+	    			String passwordstr = new String(password);
+	    			String msg ="";
+		
+	    			try {
+	    					Class.forName("com.mysql.cj.jdbc.Driver");
+	    						Connection con = DriverManager.getConnection
+	    								("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","");
+	    							Statement stmt = con.createStatement();
+	    								String sql = "select * from user";
+	    								ResultSet rs = stmt.executeQuery(sql);
+	    								
+	    								while(rs.next()) {
+	    									String id = rs.getString("id");
+	    									String pass = rs.getString("password");
+	    									if(userid.equals(id) && passwordstr.equals(pass)){
+	    										Main_menu main_menu = new Main_menu();
+	    										main_menu.setVisible(true);
+	    										setVisible(false);
+	    										break;
+	    									}else {	  
+	    										JOptionPane.showMessageDialog(null,"アカウントが登録されていない、"
+	    												+ "またはアカウント、パスワードが違います","メッセージ",
+	    												JOptionPane.PLAIN_MESSAGE);
+	    										break;
+	    									}
+	    								}
+	    							rs.close();
+	    							stmt.close();
+	    							con.close();
+	    		}catch(ClassNotFoundException d) {
+	    			msg = "ドライバのロードに失敗しました";
+	    			
+	    		}catch(Exception a) {
+	    			msg = "ドライバのロードに失敗しました";
+	    		}
 	    		}
 	    	}
 	    }
@@ -110,7 +148,6 @@ public class Log_in extends JFrame  {
 		log_in.setBounds(459,350,100,30);
 		sign_up.setBounds(459,410,100,30);
 
-		//ログインパネルに貼り付け
 		loginPanel.add(titleLabel);
 		loginPanel.add(userLabel);
 		loginPanel.add(passLabel);
