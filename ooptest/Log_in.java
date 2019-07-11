@@ -82,7 +82,6 @@ public class Log_in extends JFrame  {
 	    			char[] password = pass.getPassword();
 	    			String passwordstr = new String(password);
 	    			String msg ="";
-
 	    			try {
 	    					Class.forName("com.mysql.cj.jdbc.Driver");
 	    						Connection con = DriverManager.getConnection
@@ -109,11 +108,9 @@ public class Log_in extends JFrame  {
 	    							rs.close();
 	    							stmt.close();
 	    							con.close();
-	    		}catch(ClassNotFoundException d) {
+	    		}catch(Exception ex) {
 	    			msg = "ドライバのロードに失敗しました";
-
-	    		}catch(Exception a) {
-	    			msg = "ドライバのロードに失敗しました";
+	    			System.out.println(ex+"\t"+msg);
 	    		}
 	    		}
 	    	}
