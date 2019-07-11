@@ -27,4 +27,5 @@ create database SalaPay;
       foreign key(id) references user(id),
       foreign key(year,month) references money(year,month));
 
+(おうどん管理者に設定予定)
 insert into user Values("1111","2222","木村"),("2222","3333","白石"),("3333","4444","阿部");
