@@ -57,11 +57,11 @@ public class Log_in extends JFrame  {
 
 		signupLabel = new JLabel("アカウントをお持ちでない方はこちら");
 
-		userID = new JTextField(20);
+		userID = new JTextField(30);
 		userBorder = new LineBorder(new Color(29,161,242), 1, true);
 		userID.setBorder(userBorder);
 
-		pass = new JPasswordField(20);
+		pass = new JPasswordField(30);
 	    passBorder = new LineBorder(new Color(29,161,242), 1, true);
 		pass.setBorder(passBorder);
 
@@ -101,7 +101,7 @@ public class Log_in extends JFrame  {
 	    										break;
 	    									}else {
 	    										JOptionPane.showMessageDialog(null,"アカウントが登録されていない、"
-	    												+ "またはアカウント、パスワードが違います","メッセージ",
+	    												+ "またはユーザID、パスワードが違います","メッセージ",
 	    												JOptionPane.PLAIN_MESSAGE);
 	    										break;
 	    									}
