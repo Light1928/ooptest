@@ -87,11 +87,12 @@ public class Log_in extends JFrame  {
 						Class.forName("com.mysql.cj.jdbc.Driver");
 						Connection con = DriverManager.getConnection
 								("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","root");
-						Statement stmt = con.createStatement();
-						String sql = "select * from user";
-						ResultSet rs = stmt.executeQuery(sql);
-
-						while(rs.next()) {	//１行ずつ取り出す
+						
+						String sql = "select * from user where id = ?, password = ?";
+						Statement stmt = con.PreparedStatement(sql);
+				
+						stmt.setString(1,userid);
+						/*while(rs.next()) {	//１行ずつ取り出す
 							//データベースのIDとpassword
 							db_id = rs.getString("id");
 							db_password = rs.getString("password");
@@ -105,7 +106,7 @@ public class Log_in extends JFrame  {
 							JOptionPane.showMessageDialog(null,"アカウントが登録されていない、"
 									+ "またはユーザID、パスワードが違います","メッセージ",
 									JOptionPane.PLAIN_MESSAGE);
-						}
+						}*/
 
 						rs.close();
 						stmt.close();
