@@ -24,13 +24,14 @@ public class Month extends JFrame {
 
      Month() {
 		setTitle("月選択");
-		setSize(900,600);
+		setSize(1100,800);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
 		month_Pane = new JPanel();
+		month_Pane.setBackground(new Color(255,255,255));
 		month_Pane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(month_Pane);
 		month_Pane.setLayout(null);

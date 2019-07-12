@@ -1,12 +1,12 @@
 package ooptest;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import java.awt.Color;
 
 
 public class Shinki_registration_Sub extends Shinki_registration_Main {
@@ -45,10 +45,10 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 			public void actionPerformed(ActionEvent e) {
 			String cmd = e.getActionCommand();
 			//遷移したいページのインスタンス生成
-			Delete_account new_Account = new Delete_account();
+			Delete_account delete = new Delete_account();
 			if(cmd.equals("アカウント削除")) {
 				//新規登録画面へ
-				new_Account.setVisible(true);
+				delete.setVisible(true);
 				setVisible(false);
 			}
 
@@ -56,7 +56,7 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 		}
 		);
 
-		contentPane.add(deletesub);
+		
 
 		 tukisub = new JButton("月選択");
 		 tukisub.setBounds(620, 32, 125, 19);

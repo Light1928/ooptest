@@ -8,19 +8,21 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Main_menu extends JFrame  {
 
 	private JPanel contentPane,main_panel;
-	private JButton tukiselect,shinkiselect,shinkisub,
+	private JLabel login_name;
+	private JButton tukiselect,data_inputselect,shinkisub,
 					deletesub,tukisub,logoutsub;
 
 	 Main_menu() {
 
 		setTitle("メインメニュー");
-		setSize(900,600);
+		setSize(1100,800);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,27 +59,32 @@ public class Main_menu extends JFrame  {
 		}
 		);
 
-	    shinkiselect = new JButton("新規登録");
-	    shinkiselect.setBounds(500, 259, 154, 70);
-		shinkiselect.setFont(new Font("Helvetica Neue",Font.BOLD,25));
-		shinkiselect.setForeground(new Color(255,255,255));
-		shinkiselect.setBackground(new Color(29,161,242));
-		main_panel.add(shinkiselect);
-		shinkiselect.setActionCommand("新規登録");
+	    data_inputselect = new JButton("データ入力");
+	    data_inputselect.setBounds(500, 259, 154, 70);
+		data_inputselect.setFont(new Font("Helvetica Neue",Font.BOLD,25));
+		data_inputselect.setForeground(new Color(255,255,255));
+		data_inputselect.setBackground(new Color(29,161,242));
+		main_panel.add(data_inputselect);
+		data_inputselect.setActionCommand("データ入力");
 
-		shinkiselect.addActionListener(new ActionListener() {
+		data_inputselect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 				//遷移したいページのインスタンス生成
-				Shinki_registration_Sub new_Account = new Shinki_registration_Sub();
-				if(cmd.equals("新規登録")) {
+				Data_input data_In = new Data_input();
+				if(cmd.equals("データ入力")) {
 					//新規登録画面へ
-					new_Account.setVisible(true);
+					data_In.setVisible(true);
 					setVisible(false);
 				}
 			}
 		}
 		);
+	/*	Log_in login = new Log_in("ユーザー名");
+		login_name = new JLabel(login.getUserid());
+		login_name.setFont(new Font("Helvetica Neue",Font.PLAIN,13));
+		login_name.setBounds(300,300,100,30);
+		main_panel.add(login_name);*/
 
 		//サブボタン作成  新規・削除・月選択・ログアウト
 		 shinkisub = new JButton("新規登録");

@@ -1,31 +1,28 @@
 package ooptest;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
-import java.awt.Panel;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import java.awt.Font;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Meisai extends JFrame {
 
 	private JPanel contentPane;
-	private JButton tukiselect,shinkiselect,shinkisub,
-	deletesub,tukisub,logoutsub;
+	private JLabel titlenameLabel,nameLabel,normal,night,
+				   over,normal_time,night_time,over_time,
+			normal_money,night_money,over_money,total_money;
+	private JButton shinkisub,deletesub,tukisub,logoutsub,back;
 
 
 	public Meisai() {
-		setSize(900,600);
+		setSize(1100,800);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,67 +32,67 @@ public class Meisai extends JFrame {
 		setContentPane(contentPane);
 
 
-		JLabel lblSalapay = new JLabel("SalaPay");
-		lblSalapay.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSalapay.setBounds(266, 33, 322, 75);
-		lblSalapay.setFont(new Font("MS ゴシック",Font.BOLD,80));
-		contentPane.add(lblSalapay);
+		titlenameLabel = new JLabel("SalaPay");
+		titlenameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		titlenameLabel.setBounds(266, 33, 322, 75);
+		titlenameLabel.setFont(new Font("MS ゴシック",Font.BOLD,80));
+		contentPane.add(titlenameLabel);
 
-		JLabel label = new JLabel("名前：");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setFont(new Font("MS UI Gothic", Font.PLAIN, 21));
-		label.setBounds(286, 169, 312, 29);
-		contentPane.add(label);
+		nameLabel = new JLabel("名前：");
+		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		nameLabel.setFont(new Font("MS UI Gothic", Font.PLAIN, 21));
+		nameLabel.setBounds(286, 169, 312, 29);
+		contentPane.add(nameLabel);
 
-		JLabel lblNewLabel = new JLabel("基本時給：");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(208, 222, 134, 29);
-		contentPane.add(lblNewLabel);
+		normal = new JLabel("基本時給：");
+		normal.setHorizontalAlignment(SwingConstants.CENTER);
+		normal.setBounds(208, 222, 134, 29);
+		contentPane.add(normal);
 
-		JLabel label_1 = new JLabel("深夜時給：");
-		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setBounds(371, 222, 134, 29);
-		contentPane.add(label_1);
+		night = new JLabel("深夜時給：");
+		night.setHorizontalAlignment(SwingConstants.CENTER);
+		night.setBounds(371, 222, 134, 29);
+		contentPane.add(night);
 
-		JLabel label_2 = new JLabel("残業時給：");
-		label_2.setHorizontalAlignment(SwingConstants.CENTER);
-		label_2.setBounds(549, 222, 134, 29);
-		contentPane.add(label_2);
+		over = new JLabel("残業時給：");
+		over.setHorizontalAlignment(SwingConstants.CENTER);
+		over.setBounds(549, 222, 134, 29);
+		contentPane.add(over);
 
-		JLabel label_3 = new JLabel("基本時間：");
-		label_3.setHorizontalAlignment(SwingConstants.CENTER);
-		label_3.setBounds(208, 288, 134, 29);
-		contentPane.add(label_3);
+		normal_time = new JLabel("基本時間：");
+		normal_time.setHorizontalAlignment(SwingConstants.CENTER);
+		normal_time.setBounds(208, 288, 134, 29);
+		contentPane.add(normal_time);
 
-		JLabel label_4 = new JLabel("深夜時間：");
-		label_4.setHorizontalAlignment(SwingConstants.CENTER);
-		label_4.setBounds(371, 288, 134, 29);
-		contentPane.add(label_4);
+		night_time = new JLabel("深夜時間：");
+		night_time.setHorizontalAlignment(SwingConstants.CENTER);
+		night_time.setBounds(371, 288, 134, 29);
+		contentPane.add(night_time);
 
-		JLabel label_5 = new JLabel("残業時間：");
-		label_5.setHorizontalAlignment(SwingConstants.CENTER);
-		label_5.setBounds(549, 288, 134, 29);
-		contentPane.add(label_5);
+		over_time = new JLabel("残業時間：");
+		over_time.setHorizontalAlignment(SwingConstants.CENTER);
+		over_time.setBounds(549, 288, 134, 29);
+		contentPane.add(over_time);
 
-		JLabel label_6 = new JLabel("基本給料：");
-		label_6.setHorizontalAlignment(SwingConstants.CENTER);
-		label_6.setBounds(208, 356, 134, 29);
-		contentPane.add(label_6);
+		normal_money = new JLabel("基本給料：");
+		normal_money.setHorizontalAlignment(SwingConstants.CENTER);
+		normal_money.setBounds(208, 356, 134, 29);
+		contentPane.add(normal_money);
 
-		JLabel label_7 = new JLabel("深夜給料：");
-		label_7.setHorizontalAlignment(SwingConstants.CENTER);
-		label_7.setBounds(371, 356, 134, 29);
-		contentPane.add(label_7);
+		night_money = new JLabel("深夜給料：");
+		night_money.setHorizontalAlignment(SwingConstants.CENTER);
+		night_money.setBounds(371, 356, 134, 29);
+		contentPane.add(night_money);
 
-		JLabel label_8 = new JLabel("残業給料：");
-		label_8.setHorizontalAlignment(SwingConstants.CENTER);
-		label_8.setBounds(549, 356, 134, 29);
-		contentPane.add(label_8);
+		over_money = new JLabel("残業給料：");
+		over_money.setHorizontalAlignment(SwingConstants.CENTER);
+		over_money.setBounds(549, 356, 134, 29);
+		contentPane.add(over_money);
 
-		JLabel label_9 = new JLabel("総支給額：");
-		label_9.setHorizontalAlignment(SwingConstants.CENTER);
-		label_9.setBounds(208, 413, 317, 50);
-		contentPane.add(label_9);
+		total_money = new JLabel("総支給額：");
+		total_money.setHorizontalAlignment(SwingConstants.CENTER);
+		total_money.setBounds(208, 413, 317, 50);
+		contentPane.add(total_money);
 
 		//サブボタン作成  新規・削除・月選択・ログアウト
 		 shinkisub = new JButton("新規登録");
@@ -188,12 +185,12 @@ public class Meisai extends JFrame {
 		}
 		);
 
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.setBounds(549, 426, 101, 25);
-		contentPane.add(btnNewButton);
-		
-		
-		btnNewButton.addActionListener(new ActionListener() {
+		back = new JButton("Back");
+		back.setBounds(549, 426, 101, 25);
+		contentPane.add(back);
+
+
+		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 				//遷移したいページのインスタンス生成）　
@@ -205,6 +202,6 @@ public class Meisai extends JFrame {
 				}
 			}
 		});
-		
+
 	}
 }

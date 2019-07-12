@@ -1,74 +1,88 @@
 package ooptest;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class Delete_account extends JFrame {
 
 	private JPanel deletePane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JButton shinkisub,deletesub,tukisub,logoutsub;
+	private JLabel titleLabel,userLabel,passLabel;
+	private JTextField userID;
+	private JPasswordField pass;
+	private JButton delete,shinkisub,mainsub,tukisub,logoutsub;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Delete_account frame = new Delete_account();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public Delete_account() {
+		setTitle("アカウント削除");
+		setSize(1100,800);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 656, 507);
 		deletePane = new JPanel();
+		deletePane.setBackground(new Color(255,255,255));
 		deletePane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(deletePane);
 		deletePane.setLayout(null);
 
-		textField = new JTextField();
-		textField.setBounds(220, 104, 106, 22);
-		deletePane.add(textField);
-		textField.setColumns(10);
+		titleLabel = new JLabel();
+		titleLabel.setBounds(357,95,601,200);
+		titleLabel.setForeground(Color.BLACK);
+		titleLabel.setFont(new Font("Helvetica Neue",Font.BOLD,100));
+		deletePane.add(titleLabel);
 
-		textField_1 = new JTextField();
-		textField_1.setBounds(220, 206, 106, 22);
-		deletePane.add(textField_1);
-		textField_1.setColumns(10);
+		userID = new JTextField();
+		userID.setBounds(220, 104, 106, 22);
+		deletePane.add(userID);
+		userID.setColumns(10);
 
-		JButton button = new JButton("削除");
-		button.setBounds(356, 340, 101, 25);
-		deletePane.add(button);
+		pass = new JPasswordField();
+		pass.setBounds(220, 206, 106, 22);
+		deletePane.add(pass);
+		pass.setColumns(10);
 
-		JLabel lblId = new JLabel("ID");
-		lblId.setBounds(151, 107, 57, 16);
-		deletePane.add(lblId);
+		delete = new JButton("削除");
+		delete.setBounds(356, 340, 101, 25);
+		deletePane.add(delete);
+		delete.setActionCommand("削除");
+		delete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成
+				Log_in login = new Log_in();
+				if(cmd.equals("削除") ) {
+					int ans = JOptionPane.showConfirmDialog(null, "本当に削除しますか？",
+							"削除",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
+					//0がYes、１がNo
+					if(ans == 0){
+						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
+								JOptionPane.PLAIN_MESSAGE);
+						//ログイン画面へ
+						login.setVisible(true);
+						setVisible(false);
+					}
+				}
+			}
+		}
+		);
 
-		JLabel lblPass = new JLabel("pass");
-		lblPass.setBounds(151, 209, 57, 16);
-		deletePane.add(lblPass);
+		userLabel = new JLabel("ID");
+		userLabel.setBounds(151, 107, 57, 16);
+		deletePane.add(userLabel);
+
+		passLabel = new JLabel("pass");
+		passLabel.setBounds(151, 209, 57, 16);
+		deletePane.add(passLabel);
 
 		//サブボタン作成  新規・削除・月選択・ログアウト
 		 shinkisub = new JButton("新規登録");
@@ -93,18 +107,25 @@ public class Delete_account extends JFrame {
 		);
 
 		//削除サブボタンを押した場合の処理
-		deletesub = new JButton("アカウント削除");
-		deletesub.setBounds(750, 10, 125, 19);
-		deletesub.setActionCommand("アカウント削除");
-		deletesub.setBackground(new Color(255,153,0));
-		deletePane.add(deletesub);
+		 mainsub = new JButton("メインメニュー");
+		 mainsub.setBounds(750, 10, 125, 19);
+			mainsub.setBackground(new Color(255,153,0));
+			deletePane.add(mainsub);
+			mainsub.setActionCommand("メインメニュー");
+			mainsub.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					String cmd = e.getActionCommand();
 
-		deletesub.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
+					//メインメニューページのインスタンス生成
+					Main_menu main = new Main_menu();
+					if(cmd.equals("メインメニュー")) {
+						//メインメニューページに遷移
+						main.setVisible(true);
+						setVisible(false);
+					}
+				}
 			}
-		}
-		);
+			);
 
 		 tukisub = new JButton("月選択");
 		 tukisub.setBounds(620, 32, 125, 19);

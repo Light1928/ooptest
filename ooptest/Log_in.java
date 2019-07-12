@@ -7,8 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,7 +22,7 @@ import javax.swing.border.LineBorder;
 
 public class Log_in extends JFrame  {
 
-	private String db_id,db_password;
+	private String passwordstr;
 	private Container contentPane;
 	private JPanel loginPanel;
 	private JLabel titleLabel,userLabel,passLabel,signupLabel;
@@ -30,12 +30,12 @@ public class Log_in extends JFrame  {
 	private JPasswordField pass;
 	private LineBorder userBorder,passBorder;
 	private JButton log_in,sign_up;
-
+	private boolean permission;
 	Log_in(){
 
 		//フレームの設定
 		setTitle("SalaPay-ログイン");
-		setSize(900,600);//Frameの左上ｘ座標、ｙ座標、幅、高さを設定
+		setSize(1100,800);//Frameの左上ｘ座標、ｙ座標、幅、高さを設定
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,62 +44,79 @@ public class Log_in extends JFrame  {
 
 		loginPanel = new JPanel();
 		loginPanel.setBackground(new Color(255,255,255));
+		//レイアウトマネージャ無効にして配置を自由に
+		loginPanel.setLayout(null);
 
 		//ログイン画面描画
 		titleLabel = new JLabel("SalaPay");
 		titleLabel.setForeground(Color.BLACK);
-		titleLabel.setFont(new Font("Helvetica Neue",Font.BOLD,80));
+		titleLabel.setFont(new Font("Helvetica Neue",Font.BOLD,100));
+		titleLabel.setBounds(370,95,601,200);
+		loginPanel.add(titleLabel);
+		contentPane.add(loginPanel);
 
 		userLabel = new JLabel("ユーザID");
-		userLabel.setFont(new Font("Helvetica Neue",Font.BOLD,13));
+		userLabel.setFont(new Font("Helvetica Neue",Font.BOLD,16));
+		userLabel.setBounds(424,333,100,30);
+		loginPanel.add(userLabel);
 
 		passLabel = new JLabel("パスワード");
-		setFont(new Font("Helvetica Neue",Font.BOLD,13));
+		passLabel.setFont(new Font("Helvetica Neue", Font.BOLD, 16));
+		passLabel.setBounds(424,390,100,30);
+		loginPanel.add(passLabel);
 
 		signupLabel = new JLabel("アカウントをお持ちでない方はこちら");
+		signupLabel.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
+		signupLabel.setBounds(450,495,250,30);
+		loginPanel.add(signupLabel);
 
 		userID = new JTextField(30);
 		userBorder = new LineBorder(new Color(29,161,242), 1, true);
 		userID.setBorder(userBorder);
+		userID.setBounds(536, 334, 150, 30);
+		loginPanel.add(userID);
 
 		pass = new JPasswordField(30);
 		passBorder = new LineBorder(new Color(29,161,242), 1, true);
+		pass.setBounds(536, 391, 150, 30);
 		pass.setBorder(passBorder);
+		loginPanel.add(pass);
 
 		log_in = new JButton("ログイン");
 		log_in.setForeground(new Color(255,255,255));
 		log_in.setBackground(new Color(29,161,242));
-		log_in.setFont(new Font("Helvetica Neue",Font.BOLD,13));
+		log_in.setFont(new Font("Helvetica Neue", Font.BOLD, 15));
+		log_in.setBounds(570,446,117,35);
+		loginPanel.add(log_in);
+
 		log_in.setActionCommand("ログイン");
 
 		//ログインボタンを押したら時の処理
 		log_in.addActionListener(new ActionListener() {
+			private String userid;
+
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 
 				if(cmd.equals("ログイン")) {
-					String userid = userID.getText();
+				    this.userid = userID.getText();
 					//passをchar型配列で取得してからString型に変換
 					char[] passwordchar = pass.getPassword();
-					String passwordstr = new String(passwordchar);
+				    passwordstr = new String(passwordchar);
 					String msg ="";
 					try {
 						Class.forName("com.mysql.cj.jdbc.Driver");
 						Connection con = DriverManager.getConnection
-								("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","root");
-						
-						String sql = "select * from user where id = ?, password = ?";
+								("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","");
+
+						String sql = "select * from user where id = ? and password = ?" ;
 						PreparedStatement stmt = con.prepareStatement(sql);
-				
 						stmt.setString(1,userid);
 						stmt.setString(2,passwordstr);
-						/*while(rs.next()) {	//１行ずつ取り出す
-							//データベースのIDとpassword
-							db_id = rs.getString("id");
-							db_password = rs.getString("password");
-							if(userid.equals(db_id) && passwordstr.equals(db_password)) break;
-						}
-						if(userid.equals(db_id) && passwordstr.equals(db_password)){
+						ResultSet rs = stmt.executeQuery();
+						boolean ans = rs.next();
+						permission = rs.getBoolean(1);
+						if(ans == true) {
 							Main_menu main_menu = new Main_menu();
 							main_menu.setVisible(true);
 							setVisible(false);
@@ -107,7 +124,7 @@ public class Log_in extends JFrame  {
 							JOptionPane.showMessageDialog(null,"アカウントが登録されていない、"
 									+ "またはユーザID、パスワードが違います","メッセージ",
 									JOptionPane.PLAIN_MESSAGE);
-						}*/
+						}
 
 						rs.close();
 						stmt.close();
@@ -125,6 +142,8 @@ public class Log_in extends JFrame  {
 		sign_up.setForeground(new Color(255,255,255));
 		sign_up.setBackground(new Color(0,181,0));
 		sign_up.setFont(new Font("Helvetica Neue",Font.BOLD,13));
+		sign_up.setBounds(570,537,117,35);
+		loginPanel.add(sign_up);
 		sign_up.setActionCommand("新規登録");
 
 		//新規登録ボタンを押した時の処理
@@ -140,26 +159,8 @@ public class Log_in extends JFrame  {
 			}
 		}
 		);
-		titleLabel.setBounds(300,50,600,200);
-		userLabel.setBounds(330,250,100,30);
-		passLabel.setBounds(330,300,100,30);
-		signupLabel.setBounds(330,380,250,30);
-		userID.setBounds(410, 250, 150, 30);
-		pass.setBounds(410, 300, 150, 30);
-		log_in.setBounds(459,350,100,30);
-		sign_up.setBounds(459,410,100,30);
 
-		loginPanel.add(titleLabel);
-		loginPanel.add(userLabel);
-		loginPanel.add(passLabel);
-		loginPanel.add(signupLabel);
-		loginPanel.add(userID);
-		loginPanel.add(pass);
-		loginPanel.add(log_in);
-		loginPanel.add(sign_up);
-		contentPane.add(loginPanel);
-
-		//レイアウトマネージャ無効にして配置を自由に
-		loginPanel.setLayout(null);
 	}
+	
+	
 }

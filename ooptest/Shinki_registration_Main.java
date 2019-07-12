@@ -25,7 +25,7 @@ public class Shinki_registration_Main extends JFrame  {
 
 	 Shinki_registration_Main() {
 		setTitle("新規登録");
-		setSize(900,600);
+		setSize(1100,800);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
