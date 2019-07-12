@@ -89,9 +89,10 @@ public class Log_in extends JFrame  {
 								("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","root");
 						
 						String sql = "select * from user where id = ?, password = ?";
-						Statement stmt = con.PreparedStatement(sql);
+						PreparedStatement stmt = con.prepareStatement(sql);
 				
 						stmt.setString(1,userid);
+						stmt.setString(2,passwordstr);
 						/*while(rs.next()) {	//１行ずつ取り出す
 							//データベースのIDとpassword
 							db_id = rs.getString("id");
