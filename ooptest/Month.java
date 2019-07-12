@@ -109,6 +109,14 @@ public class Month extends JFrame {
 		month_Pane.add(deletesub);
 		deletesub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			String cmd = e.getActionCommand();
+			//遷移したいページのインスタンス生成
+			Delete_account new_Account = new Delete_account();
+			if(cmd.equals("アカウント削除")) {
+				//新規登録画面へ
+				new_Account.setVisible(true);
+				setVisible(false);
+			}
 
 			}
 		}

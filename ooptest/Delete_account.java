@@ -2,89 +2,80 @@ package ooptest;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
-public class Main_menu extends JFrame  {
+public class Delete_account extends JFrame {
 
-	private JPanel contentPane,main_panel;
-	private JButton tukiselect,shinkiselect,shinkisub,
-					deletesub,tukisub,logoutsub;
+	private JPanel deletePane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JButton shinkisub,deletesub,tukisub,logoutsub;
 
-	 Main_menu() {
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Delete_account frame = new Delete_account();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
-		setTitle("メインメニュー");
-		setSize(900,600);
-		setLocationRelativeTo(null);
-		setResizable(false);
+	/**
+	 * Create the frame.
+	 */
+	public Delete_account() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 656, 507);
+		deletePane = new JPanel();
+		deletePane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(deletePane);
+		deletePane.setLayout(null);
 
-		contentPane = new JPanel();
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		textField = new JTextField();
+		textField.setBounds(220, 104, 106, 22);
+		deletePane.add(textField);
+		textField.setColumns(10);
 
-		main_panel = new JPanel();
-		main_panel.setBackground(new Color(255,255,255));
-		contentPane.add(main_panel);
-		main_panel.setLayout(null);
+		textField_1 = new JTextField();
+		textField_1.setBounds(220, 206, 106, 22);
+		deletePane.add(textField_1);
+		textField_1.setColumns(10);
 
-		//月選択ボタンの作成
-		tukiselect = new JButton("月選択");
-		tukiselect.setBounds(245, 259, 154, 70);
-		tukiselect.setFont(new Font("Helvetica Neue",Font.BOLD,25));
-		tukiselect.setForeground(new Color(255,255,255));
-		tukiselect.setBackground(new Color(29,161,242));
-		main_panel.add(tukiselect);
+		JButton button = new JButton("削除");
+		button.setBounds(356, 340, 101, 25);
+		deletePane.add(button);
 
-		//月選択ボタンを押した場合の処理
-		tukiselect.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成
-				Month month = new Month();
-				if(cmd.equals("月選択")) {
-					//月選択画面へ
-					month.setVisible(true);
-					setVisible(false);
-				}
-			}
-		}
-		);
+		JLabel lblId = new JLabel("ID");
+		lblId.setBounds(151, 107, 57, 16);
+		deletePane.add(lblId);
 
-	    shinkiselect = new JButton("新規登録");
-	    shinkiselect.setBounds(500, 259, 154, 70);
-		shinkiselect.setFont(new Font("Helvetica Neue",Font.BOLD,25));
-		shinkiselect.setForeground(new Color(255,255,255));
-		shinkiselect.setBackground(new Color(29,161,242));
-		main_panel.add(shinkiselect);
-		shinkiselect.setActionCommand("新規登録");
-
-		shinkiselect.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成
-				Shinki_registration_Sub new_Account = new Shinki_registration_Sub();
-				if(cmd.equals("新規登録")) {
-					//新規登録画面へ
-					new_Account.setVisible(true);
-					setVisible(false);
-				}
-			}
-		}
-		);
+		JLabel lblPass = new JLabel("pass");
+		lblPass.setBounds(151, 209, 57, 16);
+		deletePane.add(lblPass);
 
 		//サブボタン作成  新規・削除・月選択・ログアウト
 		 shinkisub = new JButton("新規登録");
 		 shinkisub.setActionCommand("新規登録");
 		 shinkisub.setBounds(620, 10, 125, 19);
 		 shinkisub.setBackground(new Color(255,153,0));
-		 main_panel.add(shinkisub);
+		 deletePane.add(shinkisub);
 
 		 //新規サブボタンを押した場合の処理
 		 shinkisub.addActionListener(new ActionListener() {
@@ -106,18 +97,10 @@ public class Main_menu extends JFrame  {
 		deletesub.setBounds(750, 10, 125, 19);
 		deletesub.setActionCommand("アカウント削除");
 		deletesub.setBackground(new Color(255,153,0));
-		main_panel.add(deletesub);
+		deletePane.add(deletesub);
 
 		deletesub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成）　
-				Delete_account delete = new Delete_account();
-				if(cmd.equals("アカウント削除")) {
-					//月選択画面へ
-					delete.setVisible(true);
-					setVisible(false);
-				}
 
 			}
 		}
@@ -126,7 +109,7 @@ public class Main_menu extends JFrame  {
 		 tukisub = new JButton("月選択");
 		 tukisub.setBounds(620, 32, 125, 19);
 		 tukisub.setBackground(new Color(255,153,0));
-		 main_panel.add(tukisub);
+		 deletePane.add(tukisub);
 
 		 //月サブボタンを押した場合の処理
 		 tukisub.addActionListener(new ActionListener() {
@@ -147,7 +130,7 @@ public class Main_menu extends JFrame  {
 		 logoutsub.setActionCommand("ログアウト");
 		 logoutsub.setBounds(750, 32, 125, 19);
 		 logoutsub.setBackground(new Color(255,153,0));
-	     main_panel.add(logoutsub);
+	     deletePane.add(logoutsub);
 
 	     //ログアウトサブボタンを押した場合の処理
 		 logoutsub.addActionListener(new ActionListener() {
@@ -172,4 +155,5 @@ public class Main_menu extends JFrame  {
 		}
 		);
 	}
+
 }

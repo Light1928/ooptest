@@ -36,18 +36,26 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 		}
 		);
 
-
 		deletesub = new JButton("アカウント削除");
 		deletesub.setBounds(750, 10, 125, 19);
 		deletesub.setActionCommand("アカウント削除");
 		deletesub.setBackground(new Color(255,153,0));
-
+		contentPane.add(deletesub);
 		deletesub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			String cmd = e.getActionCommand();
+			//遷移したいページのインスタンス生成
+			Delete_account new_Account = new Delete_account();
+			if(cmd.equals("アカウント削除")) {
+				//新規登録画面へ
+				new_Account.setVisible(true);
+				setVisible(false);
+			}
 
 			}
 		}
 		);
+
 		contentPane.add(deletesub);
 
 		 tukisub = new JButton("月選択");
