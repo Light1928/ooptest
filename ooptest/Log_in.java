@@ -86,7 +86,7 @@ public class Log_in extends JFrame  {
 					try {
 						Class.forName("com.mysql.cj.jdbc.Driver");
 						Connection con = DriverManager.getConnection
-								("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","");
+								("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","root");
 						Statement stmt = con.createStatement();
 						String sql = "select * from user";
 						ResultSet rs = stmt.executeQuery(sql);
