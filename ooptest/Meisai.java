@@ -183,19 +183,22 @@ public class Meisai extends JFrame {
 		);
 
 		JButton btnNewButton = new JButton("Back");
+		btnNewButton.setBounds(444, 372, 101, 25);
+		contentPane.add(btnNewButton);
+		
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 				//遷移したいページのインスタンス生成）　
 				Month month = new Month();
-				if(cmd.equals("月選択")) {
+				if(cmd.equals("Back")) {
 					//月選択画面へ
 					month.setVisible(true);
 					setVisible(false);
 				}
 			}
 		});
-		btnNewButton.setBounds(444, 372, 101, 25);
-		contentPane.add(btnNewButton);
+		
 	}
 }
