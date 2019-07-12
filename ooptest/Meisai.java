@@ -25,9 +25,12 @@ public class Meisai extends JFrame {
 
 	
 	public Meisai() {
+		setLocationRelativeTo(null);
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 490);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255,255,255));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
@@ -181,7 +184,15 @@ public class Meisai extends JFrame {
 
 		JButton btnNewButton = new JButton("Back");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成）　
+				Month month = new Month();
+				if(cmd.equals("月選択")) {
+					//月選択画面へ
+					month.setVisible(true);
+					setVisible(false);
+				}
 			}
 		});
 		btnNewButton.setBounds(444, 372, 101, 25);
