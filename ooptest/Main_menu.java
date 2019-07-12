@@ -110,6 +110,14 @@ public class Main_menu extends JFrame  {
 
 		deletesub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+				//遷移したいページのインスタンス生成）　
+				Delete_account delete = new Delete_account();
+				if(cmd.equals("アカウント削除")) {
+					//月選択画面へ
+					delete.setVisible(true);
+					setVisible(false);
+				}
 
 			}
 		}
