@@ -79,7 +79,7 @@ public class Main_menu extends JFrame  {
 			}
 		}
 		);
-	
+
 		login_name = new JLabel(Log_in.username+" 様");
 		login_name.setFont(new Font("Helvetica Neue",Font.PLAIN,15));
 		login_name.setBounds(20,5,125,19);
@@ -119,12 +119,15 @@ public class Main_menu extends JFrame  {
 				String cmd = e.getActionCommand();
 				//遷移したいページのインスタンス生成）　
 				Delete_account delete = new Delete_account();
-				if(cmd.equals("アカウント削除")) {
+				if(cmd.equals("アカウント削除") && Log_in.permission == true) {
 					//月選択画面へ
 					delete.setVisible(true);
 					setVisible(false);
-				}
+				}else {
+					JOptionPane.showMessageDialog(null,"権限がないためアクセスを拒否します","メッセージ",
+							JOptionPane.PLAIN_MESSAGE);
 
+				}
 			}
 		}
 		);
@@ -159,7 +162,6 @@ public class Main_menu extends JFrame  {
 		 logoutsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				JFrame frame = new JFrame();
 				//遷移したいページのインスタンス生成
 				Log_in login = new Log_in();
 				if(cmd.equals("ログアウト") ) {
@@ -167,7 +169,7 @@ public class Main_menu extends JFrame  {
 							"ログアウト",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
 					if(ans == 0){
-						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",
+						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
 								JOptionPane.PLAIN_MESSAGE);
 						//ログイン画面へ
 						login.setVisible(true);

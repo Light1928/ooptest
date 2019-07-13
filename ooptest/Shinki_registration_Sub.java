@@ -10,9 +10,9 @@ import javax.swing.JOptionPane;
 
 
 public class Shinki_registration_Sub extends Shinki_registration_Main {
-	
+
 	private JButton mainsub,deletesub,tukisub,logoutsub;
-	
+
 	 Shinki_registration_Sub(){
 		super();
 		mainsub = new JButton("メインメニュー");
@@ -46,17 +46,20 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 			String cmd = e.getActionCommand();
 			//遷移したいページのインスタンス生成
 			Delete_account delete = new Delete_account();
-			if(cmd.equals("アカウント削除")) {
+			if(cmd.equals("アカウント削除") && Log_in.permission == true) {
 				//新規登録画面へ
 				delete.setVisible(true);
 				setVisible(false);
+			}else {
+				JOptionPane.showMessageDialog(null,"権限がないためアクセスを拒否します","メッセージ",
+						JOptionPane.PLAIN_MESSAGE);
 			}
 
 			}
 		}
 		);
 
-		
+
 
 		 tukisub = new JButton("月選択");
 		 tukisub.setBounds(620, 32, 125, 19);

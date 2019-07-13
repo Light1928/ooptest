@@ -126,10 +126,13 @@ public class Meisai extends JFrame {
 				String cmd = e.getActionCommand();
 				//遷移したいページのインスタンス生成
 				Delete_account new_Account = new Delete_account();
-				if(cmd.equals("アカウント削除")) {
+				if(cmd.equals("アカウント削除") && Log_in.permission == true) {
 					//新規登録画面へ
 					new_Account.setVisible(true);
 					setVisible(false);
+				}else {
+					JOptionPane.showMessageDialog(null,"権限がないためアクセスを拒否します","メッセージ",
+							JOptionPane.PLAIN_MESSAGE);
 				}
 
 				}
