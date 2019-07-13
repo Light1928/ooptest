@@ -5,10 +5,6 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,7 +18,8 @@ import javax.swing.border.LineBorder;
 
 public class Log_in extends JFrame  {
 
-	private String passwordstr;
+	static String userid,passwordstr,username;
+	static boolean ans;
 	private Container contentPane;
 	private JPanel loginPanel;
 	private JLabel titleLabel,userLabel,passLabel,signupLabel;
@@ -30,7 +27,7 @@ public class Log_in extends JFrame  {
 	private JPasswordField pass;
 	private LineBorder userBorder,passBorder;
 	private JButton log_in,sign_up;
-	private boolean permission;
+
 	Log_in(){
 
 		//フレームの設定
@@ -93,45 +90,25 @@ public class Log_in extends JFrame  {
 
 		//ログインボタンを押したら時の処理
 		log_in.addActionListener(new ActionListener() {
-			private String userid;
+			//private String userid;
 
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 
 				if(cmd.equals("ログイン")) {
-				    this.userid = userID.getText();
+				    userid = userID.getText();
 					//passをchar型配列で取得してからString型に変換
 					char[] passwordchar = pass.getPassword();
 				    passwordstr = new String(passwordchar);
-					String msg ="";
-					try {
-						Class.forName("com.mysql.cj.jdbc.Driver");
-						Connection con = DriverManager.getConnection
-								("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","");
-
-						String sql = "select * from user where id = ? and password = ?" ;
-						PreparedStatement stmt = con.prepareStatement(sql);
-						stmt.setString(1,userid);
-						stmt.setString(2,passwordstr);
-						ResultSet rs = stmt.executeQuery();
-						boolean ans = rs.next();
-						permission = rs.getBoolean(1);
-						if(ans == true) {
-							Main_menu main_menu = new Main_menu();
-							main_menu.setVisible(true);
-							setVisible(false);
-						}else {
-							JOptionPane.showMessageDialog(null,"アカウントが登録されていない、"
-									+ "またはユーザID、パスワードが違います","メッセージ",
-									JOptionPane.PLAIN_MESSAGE);
-						}
-
-						rs.close();
-						stmt.close();
-						con.close();
-					}catch(Exception ex) {
-						msg = "ドライバのロードに失敗しました";
-						System.out.println(ex+"\t"+msg);
+				   boolean ans = Mysql.ans();
+				    if(ans == true) {
+						Main_menu main_menu = new Main_menu();
+						main_menu.setVisible(true);
+						setVisible(false);
+					}else {
+						JOptionPane.showMessageDialog(null,"アカウントが登録されていない、"
+								+ "またはユーザID、パスワードが違います","メッセージ",
+								JOptionPane.PLAIN_MESSAGE);
 					}
 				}
 			}
@@ -161,6 +138,5 @@ public class Log_in extends JFrame  {
 		);
 
 	}
-	
-	
+
 }

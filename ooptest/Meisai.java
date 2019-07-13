@@ -166,7 +166,6 @@ public class Meisai extends JFrame {
 		 logoutsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				JFrame frame = new JFrame();
 				//遷移したいページのインスタンス生成
 				Log_in login = new Log_in();
 				if(cmd.equals("ログアウト") ) {
@@ -174,7 +173,7 @@ public class Meisai extends JFrame {
 							"ログアウト",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
 					if(ans == 0){
-						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",
+						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
 								JOptionPane.PLAIN_MESSAGE);
 						//ログイン画面へ
 						login.setVisible(true);

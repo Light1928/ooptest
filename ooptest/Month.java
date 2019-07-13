@@ -154,8 +154,6 @@ public class Month extends JFrame {
 		 logoutsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				JFrame frame = new JFrame();
-
 				//ログインページのインスタンス生成
 				Log_in login = new Log_in();
 				if(cmd.equals("ログアウト") ) {
@@ -164,7 +162,7 @@ public class Month extends JFrame {
 
 					//0がYes、１がNo
 					if(ans == 0){
-						JOptionPane.showMessageDialog(frame,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
+						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",JOptionPane.PLAIN_MESSAGE);
 
 						//ログインページに遷移
 						login.setVisible(true);
