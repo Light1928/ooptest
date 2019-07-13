@@ -17,7 +17,7 @@ import javax.swing.border.LineBorder;
 
 
 public class Log_in extends JFrame  {
-
+	
 	static String userid,passwordstr,username;
 	static boolean ans;
 	private Container contentPane;

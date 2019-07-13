@@ -16,10 +16,11 @@ import javax.swing.border.LineBorder;
 
 public class Shinki_registration_Main extends JFrame  {
 
+	static String new_name;
 	protected JPanel contentPane;
 	protected JLabel titlelabel,userlabel,passlabel,namelabel;
 	protected JTextField userID,name;
-	protected JPasswordField password;
+	protected JPasswordField pass;
 	protected JButton regist,login;
 	protected LineBorder userBorder,passBorder,nameBorder;
 
@@ -29,6 +30,7 @@ public class Shinki_registration_Main extends JFrame  {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
 		contentPane = new JPanel();
 		setContentPane(contentPane);
@@ -61,12 +63,11 @@ public class Shinki_registration_Main extends JFrame  {
 		userID.setBounds(508, 300, 333, 34);
 		contentPane.add(userID);
 
-		password = new JPasswordField();
+		pass = new JPasswordField();
 		passBorder = new LineBorder(new Color(29,161,242), 1, true);
-		password.setBorder(passBorder);
-
-		password.setBounds(508, 386, 333, 34);
-		contentPane.add(password);
+		pass.setBorder(passBorder);
+		pass.setBounds(508, 386, 333, 34);
+		contentPane.add(pass);
 
 		name = new JTextField();
 		nameBorder = new LineBorder(new Color(29,161,242), 1, true);
@@ -75,27 +76,35 @@ public class Shinki_registration_Main extends JFrame  {
 		contentPane.add(name);
 
 		regist = new JButton("登録");
-
 		regist.setBounds(624, 567, 110, 40);
 		contentPane.add(regist);
 		regist.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
+		regist.setActionCommand("登録");
 		regist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				
+
 				if(cmd.equals("登録") ) {
+
+					Log_in.userid = userID.getText();
+					new_name = name.getText();
+					char[] passwordchar = pass.getPassword();
+					Log_in.passwordstr = new String(passwordchar);
 					int ans = JOptionPane.showConfirmDialog(null, "登録しますか？","新規登録",
 							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
 					if(ans == 0){
+						boolean sqlans = Mysql.new_ans();
+						if(sqlans == true) {
 						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
 													 JOptionPane.PLAIN_MESSAGE);
+					}
 					}
 				}
 			}
 		 }
-		 
-				);
+
+	     );
 		login = new JButton("ログイン画面へ");
 		login.setFont(new Font("Helvetica Neue", Font.BOLD, 13));
 		login.setActionCommand("ログイン");
@@ -107,15 +116,13 @@ public class Shinki_registration_Main extends JFrame  {
 					login.setVisible(true);
 					setVisible(false);
 				}
-				
+
 			}
-		});
+		}
+		);
 		login.setBounds(361, 567, 110, 40);
 		contentPane.add(login);
 
+	 }
 
-		 
-		
-
-}
 }
