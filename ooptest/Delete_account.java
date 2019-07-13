@@ -58,18 +58,24 @@ public class Delete_account extends JFrame {
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-				//遷移したいページのインスタンス生成
-				Log_in login = new Log_in();
+
 				if(cmd.equals("削除") ) {
+					Log_in.userid = userID.getText();
+					char[] passwordchar = pass.getPassword();
+					Log_in.passwordstr = new String(passwordchar);
 					int ans = JOptionPane.showConfirmDialog(null, "本当に削除しますか？",
 							"削除",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
 					if(ans == 0){
+						boolean sqlans = Mysql.ans(2);
+						if(sqlans == true) {
 						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
 								JOptionPane.PLAIN_MESSAGE);
 						//ログイン画面へ
+						Log_in login = new Log_in();
 						login.setVisible(true);
 						setVisible(false);
+						}
 					}
 				}
 			}

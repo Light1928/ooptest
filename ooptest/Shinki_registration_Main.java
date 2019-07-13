@@ -94,7 +94,7 @@ public class Shinki_registration_Main extends JFrame  {
 							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
 					if(ans == 0){
-						boolean sqlans = Mysql.new_ans();
+						boolean sqlans = Mysql.ans(1);
 						if(sqlans == true) {
 						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
 													 JOptionPane.PLAIN_MESSAGE);
@@ -103,8 +103,8 @@ public class Shinki_registration_Main extends JFrame  {
 				}
 			}
 		 }
-
 	     );
+
 		login = new JButton("ログイン画面へ");
 		login.setFont(new Font("Helvetica Neue", Font.BOLD, 13));
 		login.setActionCommand("ログイン");

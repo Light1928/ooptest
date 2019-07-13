@@ -20,7 +20,6 @@ public class Main_menu extends JFrame  {
 					deletesub,tukisub,logoutsub;
 
 	 Main_menu() {
-
 		setTitle("メインメニュー");
 		setSize(1100,800);
 		setLocationRelativeTo(null);
@@ -80,11 +79,11 @@ public class Main_menu extends JFrame  {
 			}
 		}
 		);
-	/*	Log_in login = new Log_in("ユーザー名");
-		login_name = new JLabel(login.getUserid());
-		login_name.setFont(new Font("Helvetica Neue",Font.PLAIN,13));
-		login_name.setBounds(300,300,100,30);
-		main_panel.add(login_name);*/
+	
+		login_name = new JLabel(Log_in.username+" 様");
+		login_name.setFont(new Font("Helvetica Neue",Font.PLAIN,15));
+		login_name.setBounds(20,5,125,19);
+		main_panel.add(login_name);
 
 		//サブボタン作成  新規・削除・月選択・ログアウト
 		 shinkisub = new JButton("新規登録");

@@ -17,9 +17,9 @@ import javax.swing.border.LineBorder;
 
 
 public class Log_in extends JFrame  {
-	
+
 	static String userid,passwordstr,username;
-	static boolean ans;
+	static boolean ans,permission;
 	private Container contentPane;
 	private JPanel loginPanel;
 	private JLabel titleLabel,userLabel,passLabel,signupLabel;
@@ -100,7 +100,7 @@ public class Log_in extends JFrame  {
 					//passをchar型配列で取得してからString型に変換
 					char[] passwordchar = pass.getPassword();
 				    passwordstr = new String(passwordchar);
-				   boolean ans = Mysql.ans();
+				   boolean ans = Mysql.ans(0);
 				    if(ans == true) {
 						Main_menu main_menu = new Main_menu();
 						main_menu.setVisible(true);
