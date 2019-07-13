@@ -85,7 +85,6 @@ public class Shinki_registration_Main extends JFrame  {
 				String cmd = e.getActionCommand();
 
 				if(cmd.equals("登録") ) {
-
 					Log_in.userid = userID.getText();
 					new_name = name.getText();
 					char[] passwordchar = pass.getPassword();
@@ -93,12 +92,18 @@ public class Shinki_registration_Main extends JFrame  {
 					int ans = JOptionPane.showConfirmDialog(null, "登録しますか？","新規登録",
 							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
-					if(ans == 0){
+					if(ans == 0) {
 						boolean sqlans = Mysql.ans(1);
-						if(sqlans == true) {
+						if(sqlans == true && Log_in.record == 1) {
 						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
 													 JOptionPane.PLAIN_MESSAGE);
-					}
+						}else {
+							userID.setText(null);
+							pass.setText(null);
+							name.setText(null);
+							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されています","メッセージ",
+								 JOptionPane.PLAIN_MESSAGE);
+						}
 					}
 				}
 			}
@@ -107,6 +112,8 @@ public class Shinki_registration_Main extends JFrame  {
 
 		login = new JButton("ログイン画面へ");
 		login.setFont(new Font("Helvetica Neue", Font.BOLD, 13));
+		login.setBounds(361, 567, 110, 40);
+		contentPane.add(login);
 		login.setActionCommand("ログイン");
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -120,8 +127,7 @@ public class Shinki_registration_Main extends JFrame  {
 			}
 		}
 		);
-		login.setBounds(361, 567, 110, 40);
-		contentPane.add(login);
+
 
 	 }
 

@@ -18,6 +18,7 @@ import javax.swing.border.LineBorder;
 
 public class Log_in extends JFrame  {
 
+	static int record;
 	static String userid,passwordstr,username;
 	static boolean ans,permission;
 	private Container contentPane;
@@ -106,6 +107,8 @@ public class Log_in extends JFrame  {
 						main_menu.setVisible(true);
 						setVisible(false);
 					}else {
+						userID.setText(null);
+						pass.setText(null);
 						JOptionPane.showMessageDialog(null,"アカウントが登録されていない、"
 								+ "またはユーザID、パスワードが違います","メッセージ",
 								JOptionPane.PLAIN_MESSAGE);

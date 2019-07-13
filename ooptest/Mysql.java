@@ -36,7 +36,7 @@ public class Mysql {
 			 stmt.setString(1, Log_in.userid);
 			 stmt.setString(2, Log_in.passwordstr);
 			 stmt.setString(3,Shinki_registration_Main.new_name);
-			 stmt.executeUpdate();
+			 Log_in.record = stmt.executeUpdate();
 			 Log_in.ans = true;
 			 stmt.close();
 		     con.close();
@@ -45,7 +45,7 @@ public class Mysql {
 			PreparedStatement stmt = con.prepareStatement(sql2);
 			stmt.setString(1,Log_in.userid);
 			stmt.setString(2, Log_in.passwordstr);
-			stmt.executeUpdate();
+			Log_in.record = stmt.executeUpdate();
 			Log_in.ans = true;
 			stmt.close();
 			con.close();

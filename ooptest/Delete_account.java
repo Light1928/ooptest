@@ -68,13 +68,15 @@ public class Delete_account extends JFrame {
 					//0がYes、１がNo
 					if(ans == 0){
 						boolean sqlans = Mysql.ans(2);
-						if(sqlans == true) {
+						if(sqlans == true && Log_in.record == 1) {
 						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
 								JOptionPane.PLAIN_MESSAGE);
-						//ログイン画面へ
-						Log_in login = new Log_in();
-						login.setVisible(true);
-						setVisible(false);
+						}else {
+							userID.setText(null);
+							pass.setText(null);
+							JOptionPane.showMessageDialog(null,"削除できませんでした","メッセージ",
+									JOptionPane.PLAIN_MESSAGE);
+
 						}
 					}
 				}
