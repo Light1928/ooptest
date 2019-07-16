@@ -2,23 +2,25 @@ package ooptest;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Data_input extends JFrame {
-
+	private JButton regist;
 	private JComboBox year,month,day;
 	private JPanel contentPane;
 	private JLabel titleLabel;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField normal_money,night_money,over_money;
+	
 
 
 	public Data_input() {
@@ -56,20 +58,20 @@ public class Data_input extends JFrame {
 		label_4.setBounds(276, 187, 81, 22);
 		contentPane.add(label_4);
 
-		textField = new JTextField();
-		textField.setBounds(419, 251, 123, 28);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		normal_money = new JTextField();
+		normal_money.setBounds(419, 251, 123, 28);
+		contentPane.add(normal_money);
+		normal_money.setColumns(10);
 
-		textField_1 = new JTextField();
-		textField_1.setBounds(419, 312, 123, 29);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		night_money = new JTextField();
+		night_money.setBounds(419, 312, 123, 29);
+		contentPane.add(night_money);
+		night_money.setColumns(10);
 
-		textField_2 = new JTextField();
-		textField_2.setBounds(419, 373, 123, 29);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		over_money = new JTextField();
+		over_money.setBounds(419, 373, 123, 29);
+		contentPane.add(over_money));
+		over_money.setColumns(10);
 
 		JComboBox year = new JComboBox();
 		year.setBounds(421, 190, 32, 22);
@@ -118,13 +120,54 @@ public class Data_input extends JFrame {
 		label_8.setBounds(276, 431, 81, 28);
 		contentPane.add(label_8);
 
-		textField_3 = new JTextField();
-		textField_3.setBounds(419, 434, 123, 29);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		normal_money_3 = new JTextField();
+		normal_money_3.setBounds(419, 434, 123, 29);
+		contentPane.add(normal_money_3);
+		normal_money_3.setColumns(10);
 
 		titleLabel = new JLabel("データ入力");
 		titleLabel.setForeground(Color.BLACK);
 		titleLabel.setFont(new Font("MS ゴシック",Font.BOLD,80));
+		
+		regist = new JButton("登録");
+		regist.setForeground(Color.BLACK);
+		regist.setFont(new Font("Helvetica Neue",Font.BOLD,30));
+		regist.setBounds(300,500,100,30);
+		regist.setActionCommand("登録");
+		contentPane.add(regist);
+		regist.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+
+				if(cmd.equals("登録") ) {
+					String year1 = (String)year.getSelectedItem();
+					String month1 = (String)month.getSelectedItem();
+					String day1 = (String)day.getSelectedItem();
+					
+					Log_in.userid = userID.getText();
+					new_name = name.getText();
+					char[] passwordchar = pass.getPassword();
+					Log_in.passwordstr = new String(passwordchar);
+					int ans = JOptionPane.showConfirmDialog(null, "登録しますか？","新規登録",
+							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
+					//0がYes、１がNo
+					if(ans == 0) {
+						boolean sqlans = Mysql.ans(1);
+						if(sqlans == true && Log_in.record == 1) {
+						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
+													 JOptionPane.PLAIN_MESSAGE);
+						}else {
+							userID.setText(null);
+							pass.setText(null);
+							name.setText(null);
+							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されています","メッセージ",
+								 JOptionPane.PLAIN_MESSAGE);
+						}
+					}
+				}
+			}
+		 }
+	     );
+
 	}
 }
