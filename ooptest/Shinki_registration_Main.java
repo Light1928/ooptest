@@ -101,7 +101,7 @@ public class Shinki_registration_Main extends JFrame  {
 							userID.setText(null);
 							pass.setText(null);
 							name.setText(null);
-							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されています","メッセージ",
+							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されている、または登録条件を満たしていません","メッセージ",
 								 JOptionPane.PLAIN_MESSAGE);
 						}
 					}
