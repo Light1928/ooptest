@@ -37,7 +37,7 @@ public class Main_menu extends JFrame  {
 
 		//月選択ボタンの作成
 		tukiselect = new JButton("月選択");
-		tukiselect.setBounds(245, 259, 154, 70);
+		tukiselect.setBounds(294, 306, 209, 108);
 		tukiselect.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		tukiselect.setForeground(new Color(255,255,255));
 		tukiselect.setBackground(new Color(29,161,242));
@@ -59,7 +59,7 @@ public class Main_menu extends JFrame  {
 		);
 
 	    data_inputselect = new JButton("データ入力");
-	    data_inputselect.setBounds(500, 259, 154, 70);
+	    data_inputselect.setBounds(603, 306, 209, 108);
 		data_inputselect.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		data_inputselect.setForeground(new Color(255,255,255));
 		data_inputselect.setBackground(new Color(29,161,242));
@@ -88,7 +88,7 @@ public class Main_menu extends JFrame  {
 		//サブボタン作成  新規・削除・月選択・ログアウト
 		 shinkisub = new JButton("新規登録");
 		 shinkisub.setActionCommand("新規登録");
-		 shinkisub.setBounds(620, 10, 125, 19);
+		 shinkisub.setBounds(827, 10, 125, 19);
 		 shinkisub.setBackground(new Color(255,153,0));
 		 main_panel.add(shinkisub);
 
@@ -109,7 +109,7 @@ public class Main_menu extends JFrame  {
 
 		//削除サブボタンを押した場合の処理
 		deletesub = new JButton("アカウント削除");
-		deletesub.setBounds(750, 10, 125, 19);
+		deletesub.setBounds(957, 10, 125, 19);
 		deletesub.setActionCommand("アカウント削除");
 		deletesub.setBackground(new Color(255,153,0));
 		main_panel.add(deletesub);
@@ -133,7 +133,7 @@ public class Main_menu extends JFrame  {
 		);
 
 		 tukisub = new JButton("月選択");
-		 tukisub.setBounds(620, 32, 125, 19);
+		 tukisub.setBounds(827, 32, 125, 19);
 		 tukisub.setBackground(new Color(255,153,0));
 		 main_panel.add(tukisub);
 
@@ -154,7 +154,7 @@ public class Main_menu extends JFrame  {
 
 		 logoutsub = new JButton("ログアウト");
 		 logoutsub.setActionCommand("ログアウト");
-		 logoutsub.setBounds(750, 32, 125, 19);
+		 logoutsub.setBounds(957, 32, 125, 19);
 		 logoutsub.setBackground(new Color(255,153,0));
 	     main_panel.add(logoutsub);
 
