@@ -119,7 +119,7 @@ public class Data_input extends JFrame {
 		label_8.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
 		label_8.setBounds(276, 431, 81, 28);
 		contentPane.add(label_8);
-
+//
 		normal_money_3 = new JTextField();
 		normal_money_3.setBounds(419, 434, 123, 29);
 		contentPane.add(normal_money_3);
