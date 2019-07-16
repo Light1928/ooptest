@@ -39,17 +39,17 @@ public class Month extends JFrame {
 		year = new JComboBox();
 		year.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
 																 "2014", "2013", "2012", "2011", "2010"}));
-		year.setBounds(246, 135, 101, 35);
+		year.setBounds(318, 232, 125, 55);
 		month_Pane.add(year);
 
 		month = new JComboBox();
 		month.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
 																   "7", "8", "9", "10", "11", "12"}));
-		month.setBounds(477, 135, 101, 35);
+		month.setBounds(605, 232, 125, 55);
 		month_Pane.add(month);
 
 		meisai = new JButton("明細");
-		meisai.setBounds(362, 327, 116, 40);
+		meisai.setBounds(445, 506, 164, 62);
 		meisai.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		meisai.setForeground(new Color(255,255,255));
 		meisai.setBackground(new Color(29,161,242));
@@ -72,16 +72,16 @@ public class Month extends JFrame {
 		);
 
 		yearLabel = new JLabel("年");
-		yearLabel.setBounds(359, 144, 57, 16);
+		yearLabel.setBounds(455, 247, 57, 28);
 		month_Pane.add(yearLabel);
 
 		monthLabel = new JLabel("月");
-		monthLabel.setBounds(620, 144, 57, 16);
+		monthLabel.setBounds(742, 247, 57, 24);
 		month_Pane.add(monthLabel);
 
 	    shinkisub = new JButton("新規登録");
 		shinkisub.setActionCommand("新規登録");
-		shinkisub.setBounds(620, 10, 125, 19);
+		shinkisub.setBounds(827, 10, 125, 19);
 		shinkisub.setBackground(new Color(255,153,0));
 		month_Pane.add(shinkisub);
 
@@ -104,7 +104,7 @@ public class Month extends JFrame {
 
 
 		deletesub = new JButton("アカウント削除");
-		deletesub.setBounds(750, 10, 125, 19);
+		deletesub.setBounds(957, 10, 125, 19);
 		deletesub.setActionCommand("アカウント削除");
 		deletesub.setBackground(new Color(255,153,0));
 		month_Pane.add(deletesub);
@@ -128,7 +128,7 @@ public class Month extends JFrame {
 
 
 		mainsub = new JButton("メインメニュー");
-		mainsub.setBounds(620, 32, 125, 19);
+		mainsub.setBounds(827, 32, 125, 19);
 		mainsub.setBackground(new Color(255,153,0));
 		month_Pane.add(mainsub);
 		mainsub.setActionCommand("メインメニュー");
@@ -150,7 +150,7 @@ public class Month extends JFrame {
 
 		 logoutsub = new JButton("ログアウト");
 		 logoutsub.setActionCommand("ログアウト");
-		 logoutsub.setBounds(750, 32, 125, 19);
+		 logoutsub.setBounds(957, 32, 125, 19);
 		 logoutsub.setBackground(new Color(255,153,0));
 	     month_Pane.add(logoutsub);
 
