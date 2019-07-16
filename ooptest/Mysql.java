@@ -15,7 +15,7 @@ public class Mysql {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection
-					("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","");
+					("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","root");
 
 			if(flag == 0) {
 			PreparedStatement stmt = con.prepareStatement(sql);
