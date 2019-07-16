@@ -18,7 +18,7 @@ public class Data_input extends JFrame {
 	private JButton regist;
 	private JComboBox year,month,day;
 	private JPanel contentPane;
-	private JLabel titleLabel;
+	private JLabel titleLabel,dataIn,normal,normaltime,night,over;
 	private JTextField normal_money,night_money,over_money;
 	
 
@@ -33,20 +33,20 @@ public class Data_input extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel label = new JLabel("データ入力");
-		label.setFont(new Font("MS UI Gothic", Font.PLAIN, 50));
-		label.setBounds(318, 74, 274, 63);
-		contentPane.add(label);
+		dataIn = new JLabel("データ入力");
+		dataIn.setFont(new Font("MS UI Gothic", Font.PLAIN, 50));
+		dataIn.setBounds(318, 74, 274, 63);
+		contentPane.add(dataIn);
 
-		JLabel label_1 = new JLabel("通常時給");
-		label_1.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
-		label_1.setBounds(276, 248, 97, 29);
-		contentPane.add(label_1);
+	 normal = new JLabel("通常時給");
+		normal.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
+		normal.setBounds(276, 248, 97, 29);
+		contentPane.add(normal);
 
-		JLabel label_2 = new JLabel("勤務時間");
-		label_2.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
-		label_2.setBounds(276, 310, 81, 27);
-		contentPane.add(label_2);
+		 normaltime = new JLabel("勤務時間");
+		normaltime.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
+		normaltime.setBounds(276, 310, 81, 27);
+		contentPane.add(normaltime);
 
 		JLabel label_3 = new JLabel("労働時間");
 		label_3.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
@@ -70,7 +70,7 @@ public class Data_input extends JFrame {
 
 		over_money = new JTextField();
 		over_money.setBounds(419, 373, 123, 29);
-		contentPane.add(over_money));
+		contentPane.add(over_money);
 		over_money.setColumns(10);
 
 		JComboBox year = new JComboBox();
@@ -115,12 +115,12 @@ public class Data_input extends JFrame {
 		contentPane.add(label_7);
 
 
-		JLabel label_8 = new JLabel("残業時間");
-		label_8.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
-		label_8.setBounds(276, 431, 81, 28);
-		contentPane.add(label_8);
+		 over = new JLabel("残業時間");
+		over.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
+		over.setBounds(276, 431, 81, 28);
+		contentPane.add(over);
 //
-		normal_money_3 = new JTextField();
+		JTextField normal_money_3 = new JTextField();
 		normal_money_3.setBounds(419, 434, 123, 29);
 		contentPane.add(normal_money_3);
 		normal_money_3.setColumns(10);
@@ -135,39 +135,39 @@ public class Data_input extends JFrame {
 		regist.setBounds(300,500,100,30);
 		regist.setActionCommand("登録");
 		contentPane.add(regist);
-		regist.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String cmd = e.getActionCommand();
-
-				if(cmd.equals("登録") ) {
-					String year1 = (String)year.getSelectedItem();
-					String month1 = (String)month.getSelectedItem();
-					String day1 = (String)day.getSelectedItem();
-					
-					Log_in.userid = userID.getText();
-					new_name = name.getText();
-					char[] passwordchar = pass.getPassword();
-					Log_in.passwordstr = new String(passwordchar);
-					int ans = JOptionPane.showConfirmDialog(null, "登録しますか？","新規登録",
-							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
-					//0がYes、１がNo
-					if(ans == 0) {
-						boolean sqlans = Mysql.ans(1);
-						if(sqlans == true && Log_in.record == 1) {
-						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
-													 JOptionPane.PLAIN_MESSAGE);
-						}else {
-							userID.setText(null);
-							pass.setText(null);
-							name.setText(null);
-							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されています","メッセージ",
-								 JOptionPane.PLAIN_MESSAGE);
-						}
-					}
-				}
-			}
-		 }
-	     );
+//		regist.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				String cmd = e.getActionCommand();
+//
+//				if(cmd.equals("登録") ) {
+//					String year1 = (String)year.getSelectedItem();
+//					String month1 = (String)month.getSelectedItem();
+//					String day1 = (String)day.getSelectedItem();
+//					
+//					Log_in.userid = userID.getText();
+//					new_name = name.getText();
+//					char[] passwordchar = pass.getPassword();
+//					Log_in.passwordstr = new String(passwordchar);
+//					int ans = JOptionPane.showConfirmDialog(null, "登録しますか？","新規登録",
+//							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
+//					//0がYes、１がNo
+//					if(ans == 0) {
+//						boolean sqlans = Mysql.ans(1);
+//						if(sqlans == true && Log_in.record == 1) {
+//						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
+//													 JOptionPane.PLAIN_MESSAGE);
+//						}else {
+//							userID.setText(null);
+//							pass.setText(null);
+//							name.setText(null);
+//							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されています","メッセージ",
+//								 JOptionPane.PLAIN_MESSAGE);
+//						}
+//					}
+//				}
+//			}
+//		 }
+//	     );
 
 	}
 }
