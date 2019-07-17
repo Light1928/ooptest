@@ -22,7 +22,7 @@ public class Meisai extends JFrame {
 
 
 	public Meisai() {
-		setTitle("明細");
+		setTitle("給与明細");
 		setSize(1100,800);
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -199,7 +199,10 @@ public class Meisai extends JFrame {
 		);
 
 		back = new JButton("Back");
-		back.setBounds(695, 627, 125, 41);
+		back.setBounds(827, 726, 125, 41);
+		back.setFont(new Font("Helvetica Neue",Font.BOLD,25));
+		back.setForeground(new Color(255,255,255));
+		back.setBackground(new Color(29,161,242));
 		contentPane.add(back);
 
 
