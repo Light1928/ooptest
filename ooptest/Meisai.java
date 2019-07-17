@@ -35,19 +35,19 @@ public class Meisai extends JFrame {
 
 		titlenameLabel = new JLabel("給与明細");
 		titlenameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		titlenameLabel.setBounds(353, 99, 377, 115);
+		titlenameLabel.setBounds(353, 56, 377, 115);
 		titlenameLabel.setFont(new Font("MS ゴシック",Font.BOLD,80));
 		contentPane.add(titlenameLabel);
 
 		nameLabel = new JLabel("名前：");
 		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		nameLabel.setFont(new Font("MS UI Gothic", Font.BOLD, 21));
-		nameLabel.setBounds(353, 267, 95, 29);
+		nameLabel.setBounds(353, 247, 95, 29);
 		contentPane.add(nameLabel);
 
 		normal = new JLabel("基本時給：");
 		normal.setHorizontalAlignment(SwingConstants.CENTER);
-		normal.setBounds(274, 336, 134, 29);
+		normal.setBounds(230, 336, 134, 29);
 		normal.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(normal);
 
@@ -59,13 +59,13 @@ public class Meisai extends JFrame {
 
 		over = new JLabel("残業時給：");
 		over.setHorizontalAlignment(SwingConstants.CENTER);
-		over.setBounds(636, 342, 134, 29);
+		over.setBounds(670, 336, 134, 29);
 		over.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(over);
 
 		normal_time = new JLabel("基本時間：");
 		normal_time.setHorizontalAlignment(SwingConstants.CENTER);
-		normal_time.setBounds(274, 433, 134, 29);
+		normal_time.setBounds(230, 433, 134, 29);
 		normal_time.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(normal_time);
 
@@ -77,13 +77,13 @@ public class Meisai extends JFrame {
 
 		over_time = new JLabel("残業時間：");
 		over_time.setHorizontalAlignment(SwingConstants.CENTER);
-		over_time.setBounds(636, 433, 134, 29);
+		over_time.setBounds(670, 433, 134, 29);
 		over_time.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(over_time);
 
 		normal_money = new JLabel("基本給料：");
 		normal_money.setHorizontalAlignment(SwingConstants.CENTER);
-		normal_money.setBounds(274, 527, 134, 29);
+		normal_money.setBounds(230, 527, 134, 29);
 		normal_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(normal_money);
 
@@ -95,13 +95,13 @@ public class Meisai extends JFrame {
 
 		over_money = new JLabel("残業給料：");
 		over_money.setHorizontalAlignment(SwingConstants.CENTER);
-		over_money.setBounds(636, 527, 134, 29);
+		over_money.setBounds(670, 527, 134, 29);
 		over_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(over_money);
 
 		total_money = new JLabel("総支給額：");
 		total_money.setHorizontalAlignment(SwingConstants.CENTER);
-		total_money.setBounds(389, 622, 199, 50);
+		total_money.setBounds(411, 607, 199, 50);
 		total_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(total_money);
 
