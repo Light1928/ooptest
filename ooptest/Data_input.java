@@ -137,6 +137,11 @@ public class Data_input extends JFrame {
 		regist.setBounds(487,585,100,30);
 		regist.setActionCommand("登録");
 		contentPane.add(regist);
+		regist.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cmd = e.getActionCommand();
+			}
+		});
 /*		regist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
