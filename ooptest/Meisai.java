@@ -22,6 +22,7 @@ public class Meisai extends JFrame {
 
 
 	public Meisai() {
+		setTitle("明細");
 		setSize(1100,800);
 		setLocationRelativeTo(null);
 		setResizable(false);
