@@ -68,7 +68,7 @@ public class Delete_account extends JFrame {
 					//0がYes、１がNo
 					if(ans == 0){
 						boolean sqlans = Mysql.ans(2);
-						if(sqlans == true && Log_in.record == 1) {
+						if(sqlans == true ) {
 						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
 								JOptionPane.PLAIN_MESSAGE);
 						}else {

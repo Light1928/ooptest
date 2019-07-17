@@ -11,7 +11,7 @@ public class Mysql {
 		String msg = "";
 		String sql = "select * from user where id = ? and password = ?" ;
 		String sql1 = "insert into user values(?,?,?,false)";
-		String sql2 = "delete from user where id = ? and password = ?";
+		String sql2 =  "delete from time where id = ?";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection
@@ -44,8 +44,21 @@ public class Mysql {
 		}else if(flag == 2) {
 			PreparedStatement stmt = con.prepareStatement(sql2);
 			stmt.setString(1,Log_in.userid);
-			stmt.setString(2, Log_in.passwordstr);
-			Log_in.record = stmt.executeUpdate();
+					
+			
+			
+			stmt.addBatch();
+			sql2 = "delete from money where id = ?";
+			stmt=con.prepareStatement(sql2);
+			
+			stmt.setString(1,Log_in.userid);
+			stmt.addBatch();
+			sql2 ="delete from user where id = ? and password = ?";
+			stmt=con.prepareStatement(sql2);
+			stmt.setString(1,Log_in.userid);
+			stmt.setString(2,Log_in.passwordstr);
+			stmt.addBatch();
+			stmt.executeBatch();
 			Log_in.ans = true;
 			stmt.close();
 			con.close();
