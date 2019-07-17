@@ -39,22 +39,22 @@ public class Shinki_registration_Main extends JFrame  {
 
 		titlelabel = new JLabel("新規登録");
 		titlelabel.setFont(new Font("MS UI Gothic", Font.BOLD, 55));
-		titlelabel.setBounds(447, 117, 232, 99);
+		titlelabel.setBounds(424, 117, 232, 99);
 		contentPane.add(titlelabel);
 
 		userlabel = new JLabel("ユーザID");
 		userlabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		userlabel.setBounds(361, 297, 101, 34);
+		userlabel.setBounds(350, 297, 101, 34);
 		contentPane.add(userlabel);
 
 		passlabel = new JLabel("パスワード");
 		passlabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		passlabel.setBounds(361, 386, 101, 34);
+		passlabel.setBounds(350, 386, 101, 34);
 		contentPane.add(passlabel);
 
 		namelabel = new JLabel("名前");
 		namelabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		namelabel.setBounds(392, 467, 59, 34);
+		namelabel.setBounds(364, 467, 59, 34);
 		contentPane.add(namelabel);
 
 		userID = new JTextField(20);
@@ -76,7 +76,7 @@ public class Shinki_registration_Main extends JFrame  {
 		contentPane.add(name);
 
 		regist = new JButton("登録");
-		regist.setBounds(624, 567, 110, 40);
+		regist.setBounds(600, 567, 143, 54);
 		contentPane.add(regist);
 		regist.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
 		regist.setActionCommand("登録");
@@ -101,7 +101,7 @@ public class Shinki_registration_Main extends JFrame  {
 							userID.setText(null);
 							pass.setText(null);
 							name.setText(null);
-							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されている、または登録条件を満たしていません","メッセージ",
+							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されています","メッセージ",
 								 JOptionPane.PLAIN_MESSAGE);
 						}
 					}
@@ -112,7 +112,7 @@ public class Shinki_registration_Main extends JFrame  {
 
 		login = new JButton("ログイン画面へ");
 		login.setFont(new Font("Helvetica Neue", Font.BOLD, 13));
-		login.setBounds(361, 567, 110, 40);
+		login.setBounds(328, 567, 143, 54);
 		contentPane.add(login);
 		login.setActionCommand("ログイン");
 		login.addActionListener(new ActionListener() {
