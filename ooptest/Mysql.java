@@ -54,7 +54,7 @@ public class Mysql {
 		   stmt=con.prepareStatement(sql2);
 			stmt.setString(1,Log_in.userid);
 			stmt.setString(2,Log_in.passwordstr);
-		
+		//
 			stmt.executeUpdate();
 			Log_in.ans = true;
 			stmt.close();
