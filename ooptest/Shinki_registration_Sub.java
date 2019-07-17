@@ -16,7 +16,7 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 	 Shinki_registration_Sub(){
 		super();
 		mainsub = new JButton("メインメニュー");
-		mainsub.setBounds(620, 10, 125, 19);
+		mainsub.setBounds(827, 10, 125, 19);
 		mainsub.setBackground(new Color(255,153,0));
 		contentPane.add(mainsub);
 		mainsub.setActionCommand("メインメニュー");
@@ -37,7 +37,7 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 		);
 
 		deletesub = new JButton("アカウント削除");
-		deletesub.setBounds(750, 10, 125, 19);
+		deletesub.setBounds(957, 10, 125, 19);
 		deletesub.setActionCommand("アカウント削除");
 		deletesub.setBackground(new Color(255,153,0));
 		contentPane.add(deletesub);
@@ -62,7 +62,7 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 
 
 		 tukisub = new JButton("月選択");
-		 tukisub.setBounds(620, 32, 125, 19);
+		 tukisub.setBounds(827, 32, 125, 19);
 		 tukisub.setBackground(new Color(255,153,0));
 		 contentPane.add(tukisub);
 		 tukisub.addActionListener(new ActionListener() {
@@ -77,10 +77,11 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 			}
 		}
 		);
+		 
 
 		 logoutsub = new JButton("ログアウト");
 		 logoutsub.setActionCommand("ログアウト");
-		 logoutsub.setBounds(750, 32, 125, 19);
+		 logoutsub.setBounds(957, 32, 125, 19);
 		 logoutsub.setBackground(new Color(255,153,0));
 		 contentPane.add(logoutsub);
 
@@ -100,6 +101,8 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 								JOptionPane.PLAIN_MESSAGE);
 						login.setVisible(true);
 						setVisible(false);
+						
+		
 					}
 				}
 			}
