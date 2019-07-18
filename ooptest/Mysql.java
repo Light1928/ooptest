@@ -6,16 +6,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class Mysql {
-//
+
+
 	public static boolean ans(int flag) {
 		String msg = "";
 		String sql = "select * from user where id = ? and password = ?" ;
 		String sql1 = "insert into user values(?,?,?,false)";
 		String sql2 =  "delete from money where id = ?";
+		String sql3 = "insert into time values(?,?,?,?,?,?)";
+		String sql4 = "insert into money value(?,?,?,?,?)";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection
-					("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","root");
+					("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","");
 
 			if(flag == 0) {
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -44,7 +47,7 @@ public class Mysql {
 		}else if(flag == 2) {
 			PreparedStatement stmt = con.prepareStatement(sql2);
 			stmt.setString(1,Log_in.userid);
-						
+
 			Log_in.record = stmt.executeUpdate();
 			sql2 = "delete from time where id = ?";
 			stmt=con.prepareStatement(sql2);
@@ -59,6 +62,28 @@ public class Mysql {
 			Log_in.ans = true;
 			stmt.close();
 			con.close();
+		}else if(flag == 3) {
+			PreparedStatement stmt = con.prepareStatement(sql3);
+			stmt.setString(1, Log_in.userid);
+			stmt.setString(2,Data_input.yeardata);
+			stmt.setString(3, Data_input.monthdata1);
+			stmt.setString(4, Data_input.daydata1);
+			stmt.setString(5, Data_input.starttime);
+			stmt.setString(6,Data_input.endtime);
+
+			stmt.executeUpdate();
+			stmt =con.prepareStatement(sql4);
+			stmt.setString(1,Log_in.userid);
+			stmt.setString(2, Data_input.yeardata);
+			stmt.setString(3, Data_input.monthdata1);
+			stmt.setString(4,Data_input.daydata1);
+			stmt.setString(5,Data_input.money);
+			stmt.executeUpdate();
+			Log_in.ans=true;
+			stmt.close();
+			con.close();
+
+
 		}
 
 		}catch(Exception ex) {

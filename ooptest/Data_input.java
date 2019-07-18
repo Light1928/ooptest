@@ -15,11 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Data_input extends JFrame {
+
+	static String yeardata,monthdata1,daydata1,money,starttime,endtime;
+
 	private JButton regist,shinkisub,deletesub,mainsub,logoutsub;
 	private JComboBox year,month,day;
 	private JPanel contentPane;
 	private JLabel titleLabel,dataIn,normal,normaltime,night,over;
-	private JTextField normal_money,night_money,over_money;
+	private JTextField normal_money,start_time,end_time;
 
 
 
@@ -45,12 +48,12 @@ public class Data_input extends JFrame {
 		normal.setBounds(348, 283, 97, 29);
 		contentPane.add(normal);
 
-		 normaltime = new JLabel("勤務時間");
+		 normaltime = new JLabel("出勤時間");
 		normaltime.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
 		normaltime.setBounds(348, 349, 81, 27);
 		contentPane.add(normaltime);
 
-		JLabel label_3 = new JLabel("労働時間");
+		JLabel label_3 = new JLabel("退勤時間");
 		label_3.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
 		label_3.setBounds(348, 414, 87, 26);
 		contentPane.add(label_3);
@@ -65,35 +68,38 @@ public class Data_input extends JFrame {
 		contentPane.add(normal_money);
 		normal_money.setColumns(10);
 
-		night_money = new JTextField();
-		night_money.setBounds(562, 351, 123, 29);
-		contentPane.add(night_money);
-		night_money.setColumns(10);
+		start_time = new JTextField();
+		start_time.setBounds(562, 351, 123, 29);
+		contentPane.add(start_time);
+		start_time.setColumns(10);
 
-		over_money = new JTextField();
-		over_money.setBounds(562, 428, 123, 29);
-		contentPane.add(over_money);
-		over_money.setColumns(10);
+		end_time = new JTextField();
+		end_time.setBounds(562, 428, 123, 29);
+		contentPane.add(end_time);
+		end_time.setColumns(10);
 
-		JComboBox year = new JComboBox();
+		 year = new JComboBox();
 		year.setBounds(421, 190, 32, 22);
 		year = new JComboBox();
 		year.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
 																 "2014", "2013", "2012", "2011", "2010"}));
 		contentPane.add(year);
 
-		JComboBox month = new JComboBox();
+
+		 month = new JComboBox();
 		month.setBounds(486, 190, 32, 22);
 		month = new JComboBox();
 		month.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
 																   "7", "8", "9", "10", "11", "12"}));
 		contentPane.add(month);
+		String monthdata = (String)month.getSelectedItem();
 
 		day = new JComboBox();
 		day.setBounds(686, 204, 46, 29);
 		day.setModel(new DefaultComboBoxModel(new String[] {"1","2","3","4","5","6","7","8","9","10","11","12",
 				"13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31",}));
 		contentPane.add(day);
+		String daydata = (String)day.getSelectedItem();
 
 
 
@@ -122,10 +128,10 @@ public class Data_input extends JFrame {
 		over.setBounds(354, 487, 81, 28);
 		contentPane.add(over);
 
-		JTextField normal_money_3 = new JTextField();
-		normal_money_3.setBounds(562, 490, 123, 29);
-		contentPane.add(normal_money_3);
-		normal_money_3.setColumns(10);
+//		JTextField normal_money_3 = new JTextField();
+//		normal_money_3.setBounds(562, 490, 123, 29);
+//		contentPane.add(normal_money_3);
+//		normal_money_3.setColumns(10);
 
 		titleLabel = new JLabel("データ入力");
 		titleLabel.setForeground(Color.BLACK);
@@ -140,41 +146,27 @@ public class Data_input extends JFrame {
 		regist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-			}
-		});
-/*		regist.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String cmd = e.getActionCommand();
-
-				if(cmd.equals("登録") ) {
-					String year1 = (String)year.getSelectedItem();
-					String month1 = (String)month.getSelectedItem();
-					String day1 = (String)day.getSelectedItem();
-
-					Log_in.userid = userID.getText();
-					new_name = name.getText();
-					char[] passwordchar = pass.getPassword();
-					Log_in.passwordstr = new String(passwordchar);
-					int ans = JOptionPane.showConfirmDialog(null, "登録しますか？","新規登録",
-							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
-					//0がYes、１がNo
-					if(ans == 0) {
-						boolean sqlans = Mysql.ans(1);
-						if(sqlans == true && Log_in.record == 1) {
-						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
-													 JOptionPane.PLAIN_MESSAGE);
-						}else {
-							userID.setText(null);
-							pass.setText(null);
-							name.setText(null);
-							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されています","メッセージ",
-								 JOptionPane.PLAIN_MESSAGE);
-						}
-					}
+				if(cmd.contentEquals("登録")) {
+					starttime= start_time.getText();
+					endtime=end_time.getText();
+					 yeardata = (String)year.getSelectedItem();;
+					 monthdata1 = (String)month.getSelectedItem();
+					 daydata1 = (String)day.getSelectedItem();
+					 money = normal_money.getText();
+					 int ans =JOptionPane.showConfirmDialog(null, "登録しますか？","データ入力"
+								,JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE);
+					 if(ans == 0) {
+						 boolean sqlans = Mysql.ans(3);
+						 if(sqlans ==true) {
+							 JOptionPane.showMessageDialog(null, cmd+"しました","メッセージ",
+									 JOptionPane.PLAIN_MESSAGE);
+						 }
+					 }
 				}
 			}
-		 }
-	     );*/
+		}
+		);
+
 
 	    shinkisub = new JButton("新規登録");
 		shinkisub.setActionCommand("新規登録");
