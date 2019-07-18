@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 
 public class Mysql {
 
-
 	public static boolean ans(int flag) {
 		String msg = "";
 		String sql = "select * from user where id = ? and password = ?" ;
