@@ -17,7 +17,11 @@ public class Meisai extends JFrame {
 	private JPanel contentPane;
 	private JLabel titlenameLabel,nameLabel,normal,night,
 				   over,normal_time,night_time,over_time,
-			normal_money,night_money,over_money,total_money;
+			normal_money,night_money,over_money,total_money,
+
+
+			name,normalmoney,overmoney,normaltime,nighttime,overtime,
+			totalnormalmoney,totalnightmoney,totalovermoney,totalmoney;
 	private JButton shinkisub,deletesub,tukisub,logoutsub,back;
 
 
@@ -104,6 +108,44 @@ public class Meisai extends JFrame {
 		total_money.setBounds(411, 607, 199, 50);
 		total_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(total_money);
+
+		name = new JLabel(Log_in.username);
+		name.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
+		name.setBounds(450,210,300,115);
+		contentPane.add(name);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		//サブボタン作成  新規・削除・月選択・ログアウト
 		 shinkisub = new JButton("新規登録");
