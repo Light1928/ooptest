@@ -21,7 +21,7 @@ public class Data_input extends JFrame {
 	private JButton regist,shinkisub,deletesub,mainsub,logoutsub;
 	private JComboBox year,month,day;
 	private JPanel contentPane;
-	private JLabel titleLabel,dataIn,normal,normaltime,night,over,leaving_work,date,year_label,month_label,day_label;
+	private JLabel titleLabel,dataIn,normal,normaltime,night,over,leaving_work,date,year_label,month_label,day_label,login_name;
 	private JTextField normal_money,start_time,end_time;
 	private JTextField textField;
 
@@ -172,7 +172,10 @@ public class Data_input extends JFrame {
 			}
 		}
 		);
-
+		login_name = new JLabel(Log_in.username+" 様");
+		login_name.setFont(new Font("Helvetica Neue",Font.PLAIN,15));
+		login_name.setBounds(20,5,125,19);
+		contentPane.add(login_name);
 
 	    shinkisub = new JButton("新規登録");
 		shinkisub.setActionCommand("新規登録");
