@@ -55,11 +55,11 @@ public class Meisai extends JFrame {
 		normal.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(normal);
 
-		night = new JLabel("深夜時給：");
-		night.setHorizontalAlignment(SwingConstants.CENTER);
-		night.setBounds(438, 336, 134, 29);
-		night.setFont(new Font("MS UI Gothic",Font.BOLD,21));
-		contentPane.add(night);
+//		night = new JLabel("深夜時給：");
+//		night.setHorizontalAlignment(SwingConstants.CENTER);
+//		night.setBounds(438, 336, 134, 29);
+//		night.setFont(new Font("MS UI Gothic",Font.BOLD,21));
+//		contentPane.add(night);
 
 		over = new JLabel("残業時給：");
 		over.setHorizontalAlignment(SwingConstants.CENTER);
@@ -73,11 +73,11 @@ public class Meisai extends JFrame {
 		normal_time.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(normal_time);
 
-		night_time = new JLabel("深夜時間：");
-		night_time.setHorizontalAlignment(SwingConstants.CENTER);
-		night_time.setBounds(438, 433, 134, 29);
-		night_time.setFont(new Font("MS UI Gothic",Font.BOLD,21));
-		contentPane.add(night_time);
+//		night_time = new JLabel("深夜時間：");
+//		night_time.setHorizontalAlignment(SwingConstants.CENTER);
+//		night_time.setBounds(438, 433, 134, 29);
+//		night_time.setFont(new Font("MS UI Gothic",Font.BOLD,21));
+//		contentPane.add(night_time);
 
 		over_time = new JLabel("残業時間：");
 		over_time.setHorizontalAlignment(SwingConstants.CENTER);
@@ -91,11 +91,11 @@ public class Meisai extends JFrame {
 		normal_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(normal_money);
 
-		night_money = new JLabel("深夜給料：");
-		night_money.setHorizontalAlignment(SwingConstants.CENTER);
-		night_money.setBounds(438, 527, 134, 29);
-		night_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
-		contentPane.add(night_money);
+//		night_money = new JLabel("深夜給料：");
+//		night_money.setHorizontalAlignment(SwingConstants.CENTER);
+//		night_money.setBounds(438, 527, 134, 29);
+//		night_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
+//		contentPane.add(night_money);
 
 		over_money = new JLabel("残業給料：");
 		over_money.setHorizontalAlignment(SwingConstants.CENTER);

@@ -5,9 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Mysql {
+import com.mysql.cj.protocol.Resultset;
 
+public class Mysql {
+	
 	public static boolean ans(int flag) {
+		double total_money;
 		String msg = "";
 		String sql = "select * from user where id = ? and password = ?" ;
 		String sql1 = "insert into user values(?,?,?,false)";
@@ -87,17 +90,43 @@ public class Mysql {
 
 		}else if(flag == 4) {
 			PreparedStatement stmt = con.prepareStatement(sql5);
+			PreparedStatement stmt2 = con.prepareStatement(sql6);
 			//空のコンストラクタ実行
 			Month month = new Month("SQL");
 			stmt.setString(1,Log_in.userid);
 			stmt.setString(2,month.getYeardata());
 			stmt.setString(3,month.getMonthdata());
 			ResultSet rs = stmt.executeQuery();
+			stmt2.setString(1, Log_in.userid);
+			stmt2.setString(2, month.getYeardata());
+			stmt2.setString(3, month.getMonthdata());
+			ResultSet rs2 = stmt2.executeQuery();
 			while(rs.next()) {
+				rs2.next();
 			//列の値を取得し文字列からint型にキャスト
-			int start_time = Integer.parseInt(rs.getString("start_time"));
-			int end_time = Integer.parseInt(rs.getString("end_time"));
+			double start_time = Integer.parseInt(rs.getString("start_time"));
+			double end_time = Integer.parseInt(rs.getString("end_time"));
+			double normal_money = Integer.parseInt(rs2.getString("normal_money"));
+			double total_time = end_time - start_time;
+			//0900 - 1645 = 745 745 / 100 = 7
+			total_time /= 100;
+			total_money = total_time * normal_money;
+			//労働時間が８時間越えていたら
+				if(total_time > 800) {
+					//残業時間を求めて代入
+					double over_time = total_time - 800;
+					double over_money = normal_money * 1.25;
+					//1000円
+				double salary = over_time * over_money;	
+				total_money += salary;
+				}
 			}
+			Log_in.ans = true;
+			rs2.close();
+			rs.close();
+			stmt2.close();
+			stmt.close();
+			con.close();
 		}
 
 		}catch(Exception ex) {
