@@ -1,6 +1,7 @@
 package ooptest;
 
 import java.awt.Color;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +18,7 @@ import javax.swing.border.EmptyBorder;
 public class Delete_account extends JFrame {
 
 	private JPanel deletePane;
-	private JLabel titleLabel,userLabel,passLabel;
+	private JLabel userLabel,passLabel;
 	private JTextField userID;
 	private JPasswordField pass;
 	private JButton delete,shinkisub,mainsub,tukisub,logoutsub;
@@ -35,26 +36,23 @@ public class Delete_account extends JFrame {
 		setContentPane(deletePane);
 		deletePane.setLayout(null);
 
-		titleLabel = new JLabel();
-		titleLabel.setBounds(357,95,601,200);
-		titleLabel.setForeground(Color.BLACK);
-		titleLabel.setFont(new Font("Helvetica Neue",Font.BOLD,100));
-		deletePane.add(titleLabel);
-
 		userID = new JTextField();
-		userID.setBounds(220, 104, 106, 22);
+		userID.setBounds(473, 284, 106, 24);
 		deletePane.add(userID);
 		userID.setColumns(10);
 
 		pass = new JPasswordField();
-		pass.setBounds(220, 206, 106, 22);
+		pass.setBounds(473, 350, 106, 25);
 		deletePane.add(pass);
 		pass.setColumns(10);
 
 		delete = new JButton("削除");
-		delete.setBounds(356, 340, 101, 25);
-		deletePane.add(delete);
+		delete.setBounds(478, 494, 101, 25);
+		delete.setFont(new Font("Helvetica Neue",Font.BOLD,25));
+		delete.setForeground(new Color(255,255,255));
+		delete.setBackground(new Color(29,161,242));
 		delete.setActionCommand("削除");
+		deletePane.add(delete);
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
@@ -85,17 +83,19 @@ public class Delete_account extends JFrame {
 		);
 
 		userLabel = new JLabel("ID");
-		userLabel.setBounds(151, 107, 57, 16);
+		userLabel.setBounds(357, 284, 57, 33);
+		userLabel.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		deletePane.add(userLabel);
 
 		passLabel = new JLabel("pass");
-		passLabel.setBounds(151, 209, 57, 16);
+		passLabel.setBounds(357, 342, 57, 33);
+		passLabel.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		deletePane.add(passLabel);
 
 		//サブボタン作成  新規・削除・月選択・ログアウト
 		 shinkisub = new JButton("新規登録");
 		 shinkisub.setActionCommand("新規登録");
-		 shinkisub.setBounds(620, 10, 125, 19);
+		 shinkisub.setBounds(827, 10, 125, 19);
 		 shinkisub.setBackground(new Color(255,153,0));
 		 deletePane.add(shinkisub);
 
@@ -116,7 +116,7 @@ public class Delete_account extends JFrame {
 
 		//削除サブボタンを押した場合の処理
 		 mainsub = new JButton("メインメニュー");
-		 mainsub.setBounds(750, 10, 125, 19);
+		 mainsub.setBounds(827, 32, 125, 19);
 			mainsub.setBackground(new Color(255,153,0));
 			deletePane.add(mainsub);
 			mainsub.setActionCommand("メインメニュー");
@@ -136,7 +136,7 @@ public class Delete_account extends JFrame {
 			);
 
 		 tukisub = new JButton("月選択");
-		 tukisub.setBounds(620, 32, 125, 19);
+		 tukisub.setBounds(957, 32, 125, 19);
 		 tukisub.setBackground(new Color(255,153,0));
 		 deletePane.add(tukisub);
 
@@ -157,9 +157,14 @@ public class Delete_account extends JFrame {
 
 		 logoutsub = new JButton("ログアウト");
 		 logoutsub.setActionCommand("ログアウト");
-		 logoutsub.setBounds(750, 32, 125, 19);
+		 logoutsub.setBounds(957, 10, 125, 19);
 		 logoutsub.setBackground(new Color(255,153,0));
 	     deletePane.add(logoutsub);
+
+	     JLabel label = new JLabel("アカウント削除");
+	     label.setFont(new Font("MS UI Gothic", Font.BOLD, 50));
+	     label.setBounds(357, 98, 334, 64);
+	     deletePane.add(label);
 
 	     //ログアウトサブボタンを押した場合の処理
 		 logoutsub.addActionListener(new ActionListener() {
@@ -184,5 +189,4 @@ public class Delete_account extends JFrame {
 		}
 		);
 	}
-
 }
