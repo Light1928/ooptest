@@ -18,7 +18,6 @@ create database SalaPay;
            day varchar(2),
            start_time varchar(4),
            end_time varchar(4),
-     primary key(year,month),
      foreign key(id) references user(id));
 
 create table money(
@@ -27,8 +26,7 @@ create table money(
          month varchar(2) ,
          day varchar(2),
          normal_money varchar(5),
-     foreign key(id) references user(id),
-     foreign key(year,month) references time(year,month));
+     foreign key(id) references user(id));
 
 
      //樋上に管理者権限の付与
