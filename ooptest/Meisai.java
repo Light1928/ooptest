@@ -20,8 +20,8 @@ public class Meisai extends JFrame {
 			normal_money,night_money,over_money,total_money,
 
 
-			name,normalmoney,overmoney,normaltime,nighttime,overtime,
-			totalnormalmoney,totalnightmoney,totalovermoney,totalmoney;
+			name,normalmoney,overmoney,normaltime,overtime,
+			totalnormalmoney,totalovermoney,totalmoney;
 	private JButton shinkisub,deletesub,tukisub,logoutsub,back;
 
 //
@@ -48,24 +48,33 @@ public class Meisai extends JFrame {
 		nameLabel.setFont(new Font("MS UI Gothic", Font.BOLD, 21));
 		nameLabel.setBounds(353, 247, 95, 29);
 		contentPane.add(nameLabel);
+		
+		name = new JLabel(Log_in.username);
+		name.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
+		name.setBounds(450,210,300,115);
+		contentPane.add(name);
 
-		normal = new JLabel("基本時給：");
-		normal.setHorizontalAlignment(SwingConstants.CENTER);
-		normal.setBounds(230, 336, 134, 29);
-		normal.setFont(new Font("MS UI Gothic",Font.BOLD,21));
-		contentPane.add(normal);
+//		normal = new JLabel("基本時給：");
+//		normal.setHorizontalAlignment(SwingConstants.CENTER);
+//		normal.setBounds(230, 336, 134, 29);
+//		normal.setFont(new Font("MS UI Gothic",Font.BOLD,21));
+//		contentPane.add(normal);
 
+		normalmoney = new JLabel(String.valueOf(Mysql.normal_money));
+		normalmoney.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
+		normalmoney.setBounds(480,210,300,115);
+		contentPane.add(normalmoney);
 //		night = new JLabel("深夜時給：");
 //		night.setHorizontalAlignment(SwingConstants.CENTER);
 //		night.setBounds(438, 336, 134, 29);
 //		night.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 //		contentPane.add(night);
 
-		over = new JLabel("残業時給：");
-		over.setHorizontalAlignment(SwingConstants.CENTER);
-		over.setBounds(670, 336, 134, 29);
-		over.setFont(new Font("MS UI Gothic",Font.BOLD,21));
-		contentPane.add(over);
+//		over = new JLabel("残業時給：");
+//		over.setHorizontalAlignment(SwingConstants.CENTER);
+//		over.setBounds(670, 336, 134, 29);
+//		over.setFont(new Font("MS UI Gothic",Font.BOLD,21));
+//		contentPane.add(over);
 
 		normal_time = new JLabel("基本時間：");
 		normal_time.setHorizontalAlignment(SwingConstants.CENTER);
@@ -109,10 +118,7 @@ public class Meisai extends JFrame {
 		total_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(total_money);
 
-		name = new JLabel(Log_in.username);
-		name.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
-		name.setBounds(450,210,300,115);
-		contentPane.add(name);
+		
 		
 		
 	//	normalmoney = new JLabel
