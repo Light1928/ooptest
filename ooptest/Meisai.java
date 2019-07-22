@@ -54,11 +54,11 @@ public class Meisai extends JFrame {
 		name.setBounds(450,210,300,115);
 		contentPane.add(name);
 
-//		normal = new JLabel("基本時給：");
-//		normal.setHorizontalAlignment(SwingConstants.CENTER);
-//		normal.setBounds(230, 336, 134, 29);
-//		normal.setFont(new Font("MS UI Gothic",Font.BOLD,21));
-//		contentPane.add(normal);
+		normal = new JLabel("基本時給：");
+		normal.setHorizontalAlignment(SwingConstants.CENTER);
+		normal.setBounds(230, 336, 134, 29);
+		normal.setFont(new Font("MS UI Gothic",Font.BOLD,21));
+		contentPane.add(normal);
 
 		normalmoney = new JLabel(String.valueOf(Mysql.normal_money));
 		normalmoney.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
