@@ -21,7 +21,7 @@ public class Data_input extends JFrame {
 	private JButton regist,shinkisub,deletesub,mainsub,logoutsub;
 	private JComboBox year,month,day;
 	private JPanel contentPane;
-	private JLabel titleLabel,dataIn,normal,normaltime,night,over;
+	private JLabel titleLabel,dataIn,normal,normaltime,night,over,leaving_work,date,year_label,month_label,day_label;
 	private JTextField normal_money,start_time,end_time;
 	private JTextField textField;
 
@@ -49,20 +49,20 @@ public class Data_input extends JFrame {
 		normal.setBounds(348, 283, 97, 29);
 		contentPane.add(normal);
 
-		 normaltime = new JLabel("出勤時間");
+		normaltime = new JLabel("出勤時間");
 		normaltime.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
 		normaltime.setBounds(348, 349, 97, 27);
 		contentPane.add(normaltime);
 
-		JLabel label_3 = new JLabel("退勤時間");
-		label_3.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		label_3.setBounds(348, 414, 87, 26);
-		contentPane.add(label_3);
+		leaving_work = new JLabel("退勤時間");
+		leaving_work.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		leaving_work.setBounds(348, 414, 87, 26);
+		contentPane.add(leaving_work);
 
-		JLabel label_4 = new JLabel("年月日");
-		label_4.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		label_4.setBounds(348, 204, 81, 22);
-		contentPane.add(label_4);
+		date = new JLabel("年月日");
+		date.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		date.setBounds(348, 204, 81, 22);
+		contentPane.add(date);
 
 		normal_money = new JTextField();
 		normal_money.setBounds(562, 286, 123, 28);
@@ -111,20 +111,20 @@ public class Data_input extends JFrame {
 
 
 
-		JLabel label_5 = new JLabel("年");
-		label_5.setBounds(525, 210, 28, 16);
-		label_5.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		contentPane.add(label_5);
+		year_label = new JLabel("年");
+		year_label.setBounds(525, 210, 28, 16);
+		year_label.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		contentPane.add(year_label);
 
-		JLabel label_6 = new JLabel("月");
-		label_6.setBounds(647, 204, 22, 28);
-		label_6.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		contentPane.add(label_6);
+		month_label = new JLabel("月");
+		month_label.setBounds(647, 204, 22, 28);
+		month_label.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		contentPane.add(month_label);
 
-		JLabel label_7 = new JLabel("日");
-		label_7.setBounds(740, 204, 22, 30);
-		label_7.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		contentPane.add(label_7);
+		day_label = new JLabel("日");
+		day_label.setBounds(740, 204, 22, 30);
+		day_label.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		contentPane.add(day_label);
 
 
 		 over = new JLabel("残業時間");
