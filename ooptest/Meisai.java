@@ -24,7 +24,7 @@ public class Meisai extends JFrame {
 			totalnormalmoney,totalnightmoney,totalovermoney,totalmoney;
 	private JButton shinkisub,deletesub,tukisub,logoutsub,back;
 
-
+//
 	public Meisai() {
 		setTitle("給与明細");
 		setSize(1100,800);
