@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class Month extends JFrame {
-
+	private String yeardata,monthdata;
 	private JPanel month_Pane;
 	private JLabel yearLabel,monthLabel;
 	private JButton meisai,shinkisub,deletesub,mainsub,logoutsub;
@@ -40,12 +40,14 @@ public class Month extends JFrame {
 		year.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
 																 "2014", "2013", "2012", "2011", "2010"}));
 		year.setBounds(318, 232, 125, 55);
+		yeardata = (String)year.getSelectedItem();
 		month_Pane.add(year);
 
 		month = new JComboBox();
 		month.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
 																   "7", "8", "9", "10", "11", "12"}));
 		month.setBounds(605, 232, 125, 55);
+		 monthdata = (String)month.getSelectedItem();
 		month_Pane.add(month);
 
 		meisai = new JButton("明細");
@@ -176,4 +178,13 @@ public class Month extends JFrame {
 		}
 		);
 	}
+     Month(String title){}
+     
+     public String getYeardata() {
+    	 return this.yeardata;
+     }
+     
+     public  String getMonthdata() {
+    	 return this.monthdata;
+     }
 }

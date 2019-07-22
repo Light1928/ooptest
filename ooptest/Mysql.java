@@ -14,10 +14,12 @@ public class Mysql {
 		String sql2 =  "delete from money where id = ?";
 		String sql3 = "insert into time values(?,?,?,?,?,?)";
 		String sql4 = "insert into money value(?,?,?,?,?)";
+		String sql5 = " select * from time where id = ? and year = ? and month = ? order by day asc ";
+		String sql6 = "select * from money where id = ? and year = ? and month = ? order by day asc";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection
-					("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","");
+					("jdbc:mysql://localhost/SalaPay?serverTimezone=JST","root","root");
 
 			if(flag == 0) {
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -83,6 +85,19 @@ public class Mysql {
 			con.close();
 
 
+		}else if(flag == 4) {
+			PreparedStatement stmt = con.prepareStatement(sql5);
+			//空のコンストラクタ実行
+			Month month = new Month("SQL");
+			stmt.setString(1,Log_in.userid);
+			stmt.setString(2,month.getYeardata());
+			stmt.setString(3,month.getMonthdata());
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+			//列の値を取得し文字列からint型にキャスト
+			int start_time = Integer.parseInt(rs.getString("start_time"));
+			int end_time = Integer.parseInt(rs.getString("end_time"));
+			}
 		}
 
 		}catch(Exception ex) {

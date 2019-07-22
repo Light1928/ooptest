@@ -113,6 +113,9 @@ public class Meisai extends JFrame {
 		name.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
 		name.setBounds(450,210,300,115);
 		contentPane.add(name);
+		
+		
+	//	normalmoney = new JLabel
 
 
 
