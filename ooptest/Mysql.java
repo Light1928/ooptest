@@ -8,8 +8,10 @@ import java.sql.ResultSet;
 import com.mysql.cj.protocol.Resultset;
 
 public class Mysql {
+	static double normal_money;
 	
 	public static boolean ans(int flag) {
+		
 		double total_money;
 		String msg = "";
 		String sql = "select * from user where id = ? and password = ?" ;
@@ -106,7 +108,7 @@ public class Mysql {
 			//列の値を取得し文字列からint型にキャスト
 			double start_time = Integer.parseInt(rs.getString("start_time"));
 			double end_time = Integer.parseInt(rs.getString("end_time"));
-			double normal_money = Integer.parseInt(rs2.getString("normal_money"));
+			 normal_money = Integer.parseInt(rs2.getString("normal_money"));
 			double total_time = end_time - start_time;
 			//0900 - 1645 = 745 745 / 100 = 7
 			total_time /= 100;
@@ -135,5 +137,6 @@ public class Mysql {
 		}
 		return Log_in.ans;
 	}
+	
 
 }
