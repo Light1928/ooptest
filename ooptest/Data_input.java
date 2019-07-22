@@ -23,6 +23,7 @@ public class Data_input extends JFrame {
 	private JPanel contentPane;
 	private JLabel titleLabel,dataIn,normal,normaltime,night,over;
 	private JTextField normal_money,start_time,end_time;
+	private JTextField textField;
 
 
 
@@ -39,27 +40,27 @@ public class Data_input extends JFrame {
 		contentPane.setLayout(null);
 
 		dataIn = new JLabel("データ入力");
-		dataIn.setFont(new Font("MS UI Gothic", Font.PLAIN, 50));
-		dataIn.setBounds(438, 82, 231, 64);
+		dataIn.setFont(new Font("MS UI Gothic", Font.BOLD, 50));
+		dataIn.setBounds(438, 82, 247, 64);
 		contentPane.add(dataIn);
 
 	 normal = new JLabel("通常時給");
-		normal.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
+		normal.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
 		normal.setBounds(348, 283, 97, 29);
 		contentPane.add(normal);
 
 		 normaltime = new JLabel("出勤時間");
-		normaltime.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
-		normaltime.setBounds(348, 349, 81, 27);
+		normaltime.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		normaltime.setBounds(348, 349, 97, 27);
 		contentPane.add(normaltime);
 
 		JLabel label_3 = new JLabel("退勤時間");
-		label_3.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
+		label_3.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
 		label_3.setBounds(348, 414, 87, 26);
 		contentPane.add(label_3);
 
 		JLabel label_4 = new JLabel("年月日");
-		label_4.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
+		label_4.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
 		label_4.setBounds(348, 204, 81, 22);
 		contentPane.add(label_4);
 
@@ -111,21 +112,24 @@ public class Data_input extends JFrame {
 
 
 		JLabel label_5 = new JLabel("年");
-		label_5.setBounds(525, 210, 17, 16);
+		label_5.setBounds(525, 210, 28, 16);
+		label_5.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
 		contentPane.add(label_5);
 
 		JLabel label_6 = new JLabel("月");
-		label_6.setBounds(647, 216, 22, 16);
+		label_6.setBounds(647, 204, 22, 28);
+		label_6.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
 		contentPane.add(label_6);
 
 		JLabel label_7 = new JLabel("日");
-		label_7.setBounds(740, 215, 22, 19);
+		label_7.setBounds(740, 204, 22, 30);
+		label_7.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
 		contentPane.add(label_7);
 
 
 		 over = new JLabel("残業時間");
-		over.setFont(new Font("MS UI Gothic", Font.PLAIN, 20));
-		over.setBounds(354, 487, 81, 28);
+		over.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		over.setBounds(354, 487, 91, 28);
 		contentPane.add(over);
 
 //		JTextField normal_money_3 = new JTextField();
@@ -140,6 +144,8 @@ public class Data_input extends JFrame {
 		regist = new JButton("登録");
 		regist.setForeground(Color.BLACK);
 		regist.setFont(new Font("Helvetica Neue",Font.BOLD,30));
+		regist.setForeground(new Color(255,255,255));
+		regist.setBackground(new Color(29,161,242));
 		regist.setBounds(487,585,100,30);
 		regist.setActionCommand("登録");
 		contentPane.add(regist);
@@ -242,6 +248,11 @@ public class Data_input extends JFrame {
 		 logoutsub.setBounds(957, 32, 125, 19);
 		 logoutsub.setBackground(new Color(255,153,0));
 		 contentPane.add(logoutsub);
+
+		 textField = new JTextField();
+		 textField.setBounds(563, 487, 122, 28);
+		 contentPane.add(textField);
+		 textField.setColumns(10);
 
 		 logoutsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
