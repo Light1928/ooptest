@@ -1,17 +1,21 @@
 package ooptest;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 
 public class Shinki_registration_Sub extends Shinki_registration_Main {
 
 	private JButton mainsub,deletesub,tukisub,logoutsub;
+	private JLabel login_name;
+	
 
 	 Shinki_registration_Sub(){
 		super();
@@ -102,6 +106,11 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 						login.setVisible(true);
 						setVisible(false);
 						
+						
+						login_name = new JLabel(Log_in.username+" 様");
+						login_name.setFont(new Font("Helvetica Neue",Font.PLAIN,15));
+						login_name.setBounds(20,5,125,19);
+						contentPane.add(login_name);
 		
 					}
 				}
