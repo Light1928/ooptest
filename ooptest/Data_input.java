@@ -139,7 +139,7 @@ public class Data_input extends JFrame {
 		regist.setFont(new Font("Helvetica Neue",Font.BOLD,30));
 		regist.setForeground(new Color(255,255,255));
 		regist.setBackground(new Color(29,161,242));
-		regist.setBounds(487,585,100,30);
+		regist.setBounds(487,585,100,39);
 		regist.setActionCommand("登録");
 		contentPane.add(regist);
 		regist.addActionListener(new ActionListener() {
