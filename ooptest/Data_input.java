@@ -45,17 +45,17 @@ public class Data_input extends JFrame {
 
 	 normal = new JLabel("通常時給");
 		normal.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		normal.setBounds(373, 302, 97, 29);
+		normal.setBounds(384, 302, 97, 29);
 		contentPane.add(normal);
 
 		normaltime = new JLabel("出勤時間");
 		normaltime.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		normaltime.setBounds(373, 396, 97, 27);
+		normaltime.setBounds(384, 396, 97, 27);
 		contentPane.add(normaltime);
 
 		leaving_work = new JLabel("退勤時間");
 		leaving_work.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		leaving_work.setBounds(373, 493, 87, 26);
+		leaving_work.setBounds(384, 493, 87, 26);
 		contentPane.add(leaving_work);
 
 		date = new JLabel("年月日");
@@ -64,17 +64,17 @@ public class Data_input extends JFrame {
 		contentPane.add(date);
 
 		normal_money = new JTextField();
-		normal_money.setBounds(562, 305, 123, 28);
+		normal_money.setBounds(581, 305, 123, 28);
 		contentPane.add(normal_money);
 		normal_money.setColumns(10);
 
 		start_time = new JTextField();
-		start_time.setBounds(562, 398, 123, 29);
+		start_time.setBounds(581, 398, 123, 29);
 		contentPane.add(start_time);
 		start_time.setColumns(10);
 
 		end_time = new JTextField();
-		end_time.setBounds(562, 495, 123, 29);
+		end_time.setBounds(581, 495, 123, 29);
 		contentPane.add(end_time);
 		end_time.setColumns(10);
 
