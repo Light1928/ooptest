@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class Month extends JFrame {
-	private String yeardata,monthdata;
+	static String yeardata,monthdata;
 	private JPanel month_Pane;
 	private JLabel yearLabel,monthLabel,login_name;
 	private JButton meisai,shinkisub,deletesub,mainsub,logoutsub;
@@ -68,15 +68,18 @@ public class Month extends JFrame {
 				String cmd = e.getActionCommand();
 
 				//明細ページのインスタンス生成
-				Meisai meisai = new Meisai();
+				
 				if(cmd.equals("明細")) {
 					yeardata = (String)year.getSelectedItem();
 					monthdata = (String)month.getSelectedItem();
 					boolean ans = Mysql.ans(4);
-
+					if(ans == true) {
+						
 					//明細ページに遷移
+					Meisai meisai = new Meisai();
 					meisai.setVisible(true);
 					setVisible(false);
+					}
 				}
 			}
 		}
@@ -187,13 +190,5 @@ public class Month extends JFrame {
 		}
 		);
 	}
-     Month(String title){}
-     
-     public String getYeardata() {
-    	 return this.yeardata;
-     }
-     
-     public  String getMonthdata() {
-    	 return this.monthdata;
-     }
+   
 }

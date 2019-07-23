@@ -5,22 +5,30 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.mysql.cj.protocol.Resultset;
+
 
 public class Mysql {
-	static double normal_money,normal_time,normal_salary,over_time,over_salary,total;
+	static double normal_money,normal_time,total_normal_time,normal_salary,over_time,over_salary,salary,total;
 	
 	public static boolean ans(int flag) {
 		
-	
+		normal_money = 0;
+		normal_time = 0;
+		total_normal_time = 0;
+		normal_salary = 0;
+		over_time = 0;
+		over_salary = 0;
+		total = 0;
+		
+		
 		String msg = "";
 		String sql = "select * from user where id = ? and password = ?" ;
 		String sql1 = "insert into user values(?,?,?,false)";
 		String sql2 =  "delete from money where id = ?";
 		String sql3 = "insert into time values(?,?,?,?,?,?)";
 		String sql4 = "insert into money value(?,?,?,?,?)";
-		String sql5 = " select * from time where id = ? and year = ? and month = ? order by day asc ";
-		String sql6 = "select * from money where id = ? and year = ? and month = ? order by day asc";
+		String sql5 = " select * from time where id = ? and year = ? and month = ? order by day asc";
+		String sql6 = " select * from money where id = ? and year = ? and month = ? order by day asc";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection
@@ -88,42 +96,49 @@ public class Mysql {
 			Log_in.ans=true;
 			stmt.close();
 			con.close();
-//
+
 
 		}else if(flag == 4) {
+
 			PreparedStatement stmt = con.prepareStatement(sql5);
 			PreparedStatement stmt2 = con.prepareStatement(sql6);
 			//空のコンストラクタ実行
-			Month month = new Month("SQL");
+			
 			stmt.setString(1,Log_in.userid);
-			stmt.setString(2,month.getYeardata());
-			stmt.setString(3,month.getMonthdata());
+			stmt.setString(2,Month.yeardata);
+			stmt.setString(3,Month.monthdata);
+
 			ResultSet rs = stmt.executeQuery();
 			stmt2.setString(1, Log_in.userid);
-			stmt2.setString(2, month.getYeardata());
-			stmt2.setString(3, month.getMonthdata());
+			stmt2.setString(2,Month.yeardata);
+			stmt2.setString(3,Month.monthdata);
+
 			ResultSet rs2 = stmt2.executeQuery();
+
 			while(rs.next()) {
 				rs2.next();
 			//列の値を取得し文字列からint型にキャスト
-			double start_time = Integer.parseInt(rs.getString("start_time"));
-			double end_time = Integer.parseInt(rs.getString("end_time"));
-			 normal_money = Integer.parseInt(rs2.getString("normal_money"));
-			 normal_time = end_time - start_time;
+			double start_time = Double.parseDouble(rs.getString("start_time"));
+			double end_time = Double.parseDouble(rs.getString("end_time"));
+			normal_money = Double.parseDouble(rs2.getString("normal_money"));
+			normal_time = end_time - start_time;
 			//0900 - 1645 = 745 745 / 100 = 7
-			normal_time /= 100;
+			normal_time = normal_time / 100;
+			total_normal_time += normal_time;
+			total = total + normal_time * normal_money;
 			
-			total = normal_time * normal_money;
-			//労働時間が８時間越えていたら
-				if(normal_time > 800) {
+			
+		//	労働時間が８時間越えていたら
+				if(normal_time > 8) {
 					//残業時間を求めて代入
-					 over_time = normal_time - 800;
+					 over_time = over_time + normal_time;
 					double over_money = normal_money * 1.25;
 					//1000円
-				double salary = over_time * over_money;	
+				 salary = over_time * over_money;	
 				total += salary;
 				}
 			}
+			System.out.println(over_time);
 			Log_in.ans = true;
 			rs2.close();
 			rs.close();
