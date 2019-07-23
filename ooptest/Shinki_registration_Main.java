@@ -44,39 +44,39 @@ public class Shinki_registration_Main extends JFrame  {
 
 		userlabel = new JLabel("ユーザID");
 		userlabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		userlabel.setBounds(236, 297, 101, 34);
+		userlabel.setBounds(333, 297, 101, 34);
 		contentPane.add(userlabel);
 
 		passlabel = new JLabel("パスワード");
 		passlabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		passlabel.setBounds(236, 383, 101, 34);
+		passlabel.setBounds(333, 383, 101, 34);
 		contentPane.add(passlabel);
 
 		namelabel = new JLabel("名前");
-		namelabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		namelabel.setBounds(236, 467, 59, 34);
+		namelabel.setFont(new Font("MS UI Gothic", Font.BOLD, 22));
+		namelabel.setBounds(344, 467, 59, 34);
 		contentPane.add(namelabel);
 
 		userID = new JTextField(20);
 		userBorder = new LineBorder(new Color(29,161,242), 1, true);
 		userID.setBorder(userBorder);
-		userID.setBounds(381, 300, 333, 34);
+		userID.setBounds(460, 300, 299, 34);
 		contentPane.add(userID);
 
 		pass = new JPasswordField();
 		passBorder = new LineBorder(new Color(29,161,242), 1, true);
 		pass.setBorder(passBorder);
-		pass.setBounds(381, 386, 333, 34);
+		pass.setBounds(460, 386, 299, 34);
 		contentPane.add(pass);
 
 		name = new JTextField();
 		nameBorder = new LineBorder(new Color(29,161,242), 1, true);
 		name.setBorder(nameBorder);
-		name.setBounds(381, 470, 333, 34);
+		name.setBounds(460, 470, 299, 34);
 		contentPane.add(name);
 
 		regist = new JButton("登録");
-		regist.setBounds(571, 577, 143, 54);
+		regist.setBounds(603, 573, 143, 54);
 		regist.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
 		regist.setForeground(new Color(255,255,255));
 		regist.setBackground(new Color(29,161,242));
@@ -114,7 +114,7 @@ public class Shinki_registration_Main extends JFrame  {
 
 		login = new JButton("ログイン画面へ");
 		login.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
-		login.setBounds(236, 577, 209, 54);
+		login.setBounds(357, 573, 209, 54);
 		login.setForeground(new Color(255,255,255));
 		login.setBackground(new Color(29,161,242));
 		login.setActionCommand("ログイン");
