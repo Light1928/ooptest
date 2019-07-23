@@ -22,6 +22,7 @@ public class Month extends JFrame {
 	private JComboBox year,month;
 
 
+	
      Month() {
 		setTitle("月選択");
 		setSize(1100,800);
