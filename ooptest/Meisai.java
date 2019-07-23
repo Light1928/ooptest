@@ -48,7 +48,7 @@ public class Meisai extends JFrame {
 		nameLabel.setFont(new Font("MS UI Gothic", Font.BOLD, 21));
 		nameLabel.setBounds(263, 239, 95, 29);
 		contentPane.add(nameLabel);
-		
+
 		name = new JLabel(Log_in.username);
 		name.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
 		name.setBounds(353,222,234,67);
@@ -60,8 +60,8 @@ public class Meisai extends JFrame {
 		normal.setFont(new Font("Helvetica Neue",Font.BOLD,21));
 		contentPane.add(normal);
 
-		
-		
+
+
 		normal_time = new JLabel("基本時間 ：");
 		normal_time.setHorizontalAlignment(SwingConstants.CENTER);
 		normal_time.setBounds(169, 400, 159, 41);
@@ -95,35 +95,35 @@ public class Meisai extends JFrame {
 		total_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(total_money);
 
-		
+
 		normalmoney = new JLabel(String.format("%,d",(int)(Mysql.normal_money))+"円");
 		normalmoney.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
 		normalmoney.setBounds(350,351,124,41);
 		contentPane.add(normalmoney);
-		
-		
-		
+
+
+
 		normaltime =new JLabel(String.format("%,d",(int)(Mysql.total_normal_time))+"時間");
 		normaltime.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
 		normaltime.setBounds(350,395,146,50);
 		contentPane.add(normaltime);
-		
-		
-		totalnormalmoney = new JLabel(String.format("%,d",(int)(Mysql.total))+"円");
+
+
+		totalnormalmoney = new JLabel(String.format("%,d",(int)(Mysql.normal_total))+"円");
 		totalnormalmoney.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
 		totalnormalmoney.setBounds(350,450,146,50);
 		contentPane.add(totalnormalmoney);
-		
+
 		overtime = new JLabel(String.format("%,d",(int)(Mysql.over_time))+"時間");
 		overtime.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
 		overtime.setBounds(350,500,146,50);
 		contentPane.add(overtime);
-		
-		totalovermoney = new JLabel(String.format("%,d",(int)(Mysql.salary))+"円");
+
+		totalovermoney = new JLabel(String.format("%,d",(int)(Mysql.salary_total))+"円");
 		totalovermoney.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
 		totalovermoney.setBounds(350,550,146,50);
 		contentPane.add(totalovermoney);
-		
+
 		totalmoney = new JLabel(String.format("%,d",(int)(Mysql.total))+"円");
 		totalmoney.setFont(new Font("Helvetic Neue",Font.PLAIN,21));
 		totalmoney.setBounds(600,550,146,50);

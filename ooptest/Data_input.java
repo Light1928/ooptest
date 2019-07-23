@@ -21,7 +21,7 @@ public class Data_input extends JFrame {
 	private JButton regist,shinkisub,deletesub,mainsub,logoutsub;
 	private JComboBox year,month,day;
 	private JPanel contentPane;
-	private JLabel titleLabel,dataIn,normal,normaltime,night,leaving_work,date,year_label,month_label,day_label,login_name;
+	private JLabel titleLabel,dataIn,normal,normaltime,leaving_work,date,year_label,month_label,day_label,login_name;
 	private JTextField normal_money,start_time,end_time;
 
 
@@ -33,7 +33,6 @@ public class Data_input extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		contentPane = new JPanel();
-	//	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(255,255,255));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -125,10 +124,6 @@ public class Data_input extends JFrame {
 		day_label.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
 		contentPane.add(day_label);
 
-//		JTextField normal_money_3 = new JTextField();
-//		normal_money_3.setBounds(562, 490, 123, 29);
-//		contentPane.add(normal_money_3);
-//		normal_money_3.setColumns(10);
 
 		titleLabel = new JLabel("データ入力");
 		titleLabel.setForeground(Color.BLACK);
