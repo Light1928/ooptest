@@ -21,7 +21,6 @@ public class Month extends JFrame {
 	private JButton meisai,shinkisub,deletesub,mainsub,logoutsub;
 	private JComboBox year,month;
 
-
 	
      Month() {
 		setTitle("月選択");
