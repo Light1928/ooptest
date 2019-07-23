@@ -60,9 +60,45 @@ public class Meisai extends JFrame {
 		normal.setFont(new Font("Helvetica Neue",Font.BOLD,21));
 		contentPane.add(normal);
 
+		
+		
+		normal_time = new JLabel("基本時間 ：");
+		normal_time.setHorizontalAlignment(SwingConstants.CENTER);
+		normal_time.setBounds(204, 411, 124, 41);
+		normal_time.setFont(new Font("Helvetica Neue",Font.BOLD,21));
+		contentPane.add(normal_time);
+
+
+		over_time = new JLabel("残業時間 ：");
+		over_time.setHorizontalAlignment(SwingConstants.CENTER);
+		over_time.setBounds(204, 511, 124, 41);
+		over_time.setFont(new Font("Helvetica Neue",Font.BOLD,21));
+		contentPane.add(over_time);
+
+		normal_money = new JLabel("基本給料 ：");
+		normal_money.setHorizontalAlignment(SwingConstants.CENTER);
+		normal_money.setBounds(204, 461, 124, 41);
+		normal_money.setFont(new Font("Helvetica Neue",Font.BOLD,21));
+		contentPane.add(normal_money);
+
+
+
+		over_money = new JLabel("残業給料 ：");
+		over_money.setHorizontalAlignment(SwingConstants.CENTER);
+		over_money.setBounds(204, 561, 123, 41);
+		over_money.setFont(new Font("Helvetica Neue",Font.BOLD,21));
+		contentPane.add(over_money);
+
+		total_money = new JLabel("総支給額：");
+		total_money.setHorizontalAlignment(SwingConstants.CENTER);
+		total_money.setBounds(428, 550, 159, 50);
+		total_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
+		contentPane.add(total_money);
+
+		
 		normalmoney = new JLabel(String.format("%,d",(int)(Mysql.normal_money))+"円");
 		normalmoney.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
-		normalmoney.setBounds(350,351,146,50);
+		normalmoney.setBounds(350,351,124,41);
 		contentPane.add(normalmoney);
 		
 		
@@ -78,55 +114,20 @@ public class Meisai extends JFrame {
 		totalnormalmoney.setBounds(350,450,146,50);
 		contentPane.add(totalnormalmoney);
 		
-		overtime = new JLabel(String.format("%,d",(int)(Mysql.over_time)));
+		overtime = new JLabel(String.format("%,d",(int)(Mysql.over_time))+"時間");
 		overtime.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
 		overtime.setBounds(350,500,146,50);
 		contentPane.add(overtime);
 		
-		totalovermoney = new JLabel(String.format("%,d",(int)(Mysql.salary)));
+		totalovermoney = new JLabel(String.format("%,d",(int)(Mysql.salary))+"円");
 		totalovermoney.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
 		totalovermoney.setBounds(350,550,146,50);
 		contentPane.add(totalovermoney);
 		
-		totalmoney = new JLabel(String.format("%,d",(int)(Mysql.total)));
+		totalmoney = new JLabel(String.format("%,d",(int)(Mysql.total))+"円");
 		totalmoney.setFont(new Font("Helvetic Neue",Font.PLAIN,21));
 		totalmoney.setBounds(600,550,146,50);
 		contentPane.add(totalmoney);
-		
-		
-		normal_time = new JLabel("基本時間 ：");
-		normal_time.setHorizontalAlignment(SwingConstants.CENTER);
-		normal_time.setBounds(194, 411, 134, 29);
-		normal_time.setFont(new Font("MS UI Gothic",Font.BOLD,21));
-		contentPane.add(normal_time);
-
-
-		over_time = new JLabel("残業時間 ：");
-		over_time.setHorizontalAlignment(SwingConstants.CENTER);
-		over_time.setBounds(194, 511, 134, 29);
-		over_time.setFont(new Font("MS UI Gothic",Font.BOLD,21));
-		contentPane.add(over_time);
-
-		normal_money = new JLabel("基本給料 ：");
-		normal_money.setHorizontalAlignment(SwingConstants.CENTER);
-		normal_money.setBounds(194, 461, 134, 29);
-		normal_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
-		contentPane.add(normal_money);
-
-
-
-		over_money = new JLabel("残業給料 ：");
-		over_money.setHorizontalAlignment(SwingConstants.CENTER);
-		over_money.setBounds(194, 561, 134, 29);
-		over_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
-		contentPane.add(over_money);
-
-		total_money = new JLabel("総支給額：");
-		total_money.setHorizontalAlignment(SwingConstants.CENTER);
-		total_money.setBounds(428, 550, 159, 50);
-		total_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
-		contentPane.add(total_money);
-
 
 		//サブボタン作成  新規・削除・月選択・ログアウト
 		 shinkisub = new JButton("新規登録");

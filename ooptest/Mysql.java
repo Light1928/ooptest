@@ -138,7 +138,7 @@ public class Mysql {
 				total += salary;
 				}
 			}
-			System.out.println(over_time);
+	
 			Log_in.ans = true;
 			rs2.close();
 			rs.close();
