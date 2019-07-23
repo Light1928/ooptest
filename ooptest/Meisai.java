@@ -56,7 +56,7 @@ public class Meisai extends JFrame {
 
 		normal = new JLabel("基本時給 ：");
 		normal.setHorizontalAlignment(SwingConstants.CENTER);
-		normal.setBounds(196, 351, 132, 41);
+		normal.setBounds(169, 351, 159, 41);
 		normal.setFont(new Font("Helvetica Neue",Font.BOLD,21));
 		contentPane.add(normal);
 
@@ -64,20 +64,20 @@ public class Meisai extends JFrame {
 		
 		normal_time = new JLabel("基本時間 ：");
 		normal_time.setHorizontalAlignment(SwingConstants.CENTER);
-		normal_time.setBounds(196, 400, 132, 41);
+		normal_time.setBounds(169, 400, 159, 41);
 		normal_time.setFont(new Font("Helvetica Neue",Font.BOLD,21));
 		contentPane.add(normal_time);
 
 
 		over_time = new JLabel("残業時間 ：");
 		over_time.setHorizontalAlignment(SwingConstants.CENTER);
-		over_time.setBounds(196, 505, 132, 41);
+		over_time.setBounds(169, 505, 159, 41);
 		over_time.setFont(new Font("Helvetica Neue",Font.BOLD,21));
 		contentPane.add(over_time);
 
 		normal_money = new JLabel("基本給料 ：");
 		normal_money.setHorizontalAlignment(SwingConstants.CENTER);
-		normal_money.setBounds(196, 455, 132, 41);
+		normal_money.setBounds(169, 455, 159, 41);
 		normal_money.setFont(new Font("Helvetica Neue",Font.BOLD,21));
 		contentPane.add(normal_money);
 
@@ -85,7 +85,7 @@ public class Meisai extends JFrame {
 
 		over_money = new JLabel("残業給料 ：");
 		over_money.setHorizontalAlignment(SwingConstants.CENTER);
-		over_money.setBounds(196, 555, 131, 41);
+		over_money.setBounds(169, 555, 158, 41);
 		over_money.setFont(new Font("Helvetica Neue",Font.BOLD,21));
 		contentPane.add(over_money);
 
