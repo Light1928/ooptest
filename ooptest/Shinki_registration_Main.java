@@ -44,42 +44,44 @@ public class Shinki_registration_Main extends JFrame  {
 
 		userlabel = new JLabel("ユーザID");
 		userlabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		userlabel.setBounds(350, 297, 101, 34);
+		userlabel.setBounds(236, 297, 101, 34);
 		contentPane.add(userlabel);
 
 		passlabel = new JLabel("パスワード");
 		passlabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		passlabel.setBounds(350, 386, 101, 34);
+		passlabel.setBounds(236, 383, 101, 34);
 		contentPane.add(passlabel);
 
 		namelabel = new JLabel("名前");
 		namelabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		namelabel.setBounds(364, 467, 59, 34);
+		namelabel.setBounds(236, 467, 59, 34);
 		contentPane.add(namelabel);
 
 		userID = new JTextField(20);
 		userBorder = new LineBorder(new Color(29,161,242), 1, true);
 		userID.setBorder(userBorder);
-		userID.setBounds(508, 300, 333, 34);
+		userID.setBounds(381, 300, 333, 34);
 		contentPane.add(userID);
 
 		pass = new JPasswordField();
 		passBorder = new LineBorder(new Color(29,161,242), 1, true);
 		pass.setBorder(passBorder);
-		pass.setBounds(508, 386, 333, 34);
+		pass.setBounds(381, 386, 333, 34);
 		contentPane.add(pass);
 
 		name = new JTextField();
 		nameBorder = new LineBorder(new Color(29,161,242), 1, true);
 		name.setBorder(nameBorder);
-		name.setBounds(508, 470, 333, 34);
+		name.setBounds(381, 470, 333, 34);
 		contentPane.add(name);
 
 		regist = new JButton("登録");
-		regist.setBounds(600, 567, 143, 54);
-		contentPane.add(regist);
+		regist.setBounds(571, 577, 143, 54);
 		regist.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
+		regist.setForeground(new Color(255,255,255));
+		regist.setBackground(new Color(29,161,242));
 		regist.setActionCommand("登録");
+		contentPane.add(regist);
 		regist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
@@ -111,10 +113,12 @@ public class Shinki_registration_Main extends JFrame  {
 	     );
 
 		login = new JButton("ログイン画面へ");
-		login.setFont(new Font("Helvetica Neue", Font.BOLD, 13));
-		login.setBounds(328, 567, 143, 54);
-		contentPane.add(login);
+		login.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
+		login.setBounds(236, 577, 209, 54);
+		login.setForeground(new Color(255,255,255));
+		login.setBackground(new Color(29,161,242));
 		login.setActionCommand("ログイン");
+		contentPane.add(login);
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
