@@ -37,17 +37,17 @@ public class Delete_account extends JFrame {
 		deletePane.setLayout(null);
 
 		userID = new JTextField();
-		userID.setBounds(473, 284, 106, 24);
+		userID.setBounds(508, 306, 201, 33);
 		deletePane.add(userID);
 		userID.setColumns(10);
 
 		pass = new JPasswordField();
-		pass.setBounds(473, 350, 106, 25);
+		pass.setBounds(508, 420, 201, 34);
 		deletePane.add(pass);
 		pass.setColumns(10);
 
 		delete = new JButton("削除");
-		delete.setBounds(478, 494, 106, 33);
+		delete.setBounds(488, 561, 106, 33);
 		delete.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		delete.setForeground(new Color(255,255,255));
 		delete.setBackground(new Color(29,161,242));
@@ -82,14 +82,14 @@ public class Delete_account extends JFrame {
 		}
 		);
 
-		userLabel = new JLabel("ID");
-		userLabel.setBounds(357, 284, 57, 33);
+		userLabel = new JLabel("ユーザID");
+		userLabel.setBounds(375, 306, 119, 33);
 		userLabel.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		deletePane.add(userLabel);
 
 		passLabel = new JLabel("pass");
-		passLabel.setBounds(357, 342, 57, 33);
-		passLabel.setFont(new Font("Helvetica Neue",Font.BOLD,25));
+		passLabel.setBounds(395, 421, 70, 33);
+		passLabel.setFont(new Font("Helvetica Neue",Font.BOLD,27));
 		deletePane.add(passLabel);
 
 		//サブボタン作成  新規・削除・月選択・ログアウト
@@ -163,7 +163,7 @@ public class Delete_account extends JFrame {
 
 	     JLabel label = new JLabel("アカウント削除");
 	     label.setFont(new Font("MS UI Gothic", Font.BOLD, 50));
-	     label.setBounds(357, 98, 334, 64);
+	     label.setBounds(375, 123, 334, 64);
 	     deletePane.add(label);
 
 	     //ログアウトサブボタンを押した場合の処理
