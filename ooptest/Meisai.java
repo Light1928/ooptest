@@ -56,7 +56,7 @@ public class Meisai extends JFrame {
 
 		normal = new JLabel("基本時給：");
 		normal.setHorizontalAlignment(SwingConstants.CENTER);
-		normal.setBounds(224, 356, 134, 41);
+		normal.setBounds(204, 356, 124, 41);
 		normal.setFont(new Font("Helvetica Neue",Font.BOLD,21));
 		contentPane.add(normal);
 
@@ -94,36 +94,36 @@ public class Meisai extends JFrame {
 		contentPane.add(totalmoney);
 		
 		
-		normal_time = new JLabel("基本時間：");
+		normal_time = new JLabel("基本時間 ：");
 		normal_time.setHorizontalAlignment(SwingConstants.CENTER);
-		normal_time.setBounds(224, 426, 134, 29);
+		normal_time.setBounds(194, 411, 134, 29);
 		normal_time.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(normal_time);
 
 
-		over_time = new JLabel("残業時間：");
+		over_time = new JLabel("残業時間 ：");
 		over_time.setHorizontalAlignment(SwingConstants.CENTER);
-		over_time.setBounds(224, 548, 134, 29);
+		over_time.setBounds(194, 511, 134, 29);
 		over_time.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(over_time);
 
-		normal_money = new JLabel("基本給料：");
+		normal_money = new JLabel("基本給料 ：");
 		normal_money.setHorizontalAlignment(SwingConstants.CENTER);
-		normal_money.setBounds(224, 488, 134, 29);
+		normal_money.setBounds(194, 461, 134, 29);
 		normal_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(normal_money);
 
 
 
-		over_money = new JLabel("残業給料：");
+		over_money = new JLabel("残業給料 ：");
 		over_money.setHorizontalAlignment(SwingConstants.CENTER);
-		over_money.setBounds(224, 616, 134, 29);
+		over_money.setBounds(194, 561, 134, 29);
 		over_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(over_money);
 
 		total_money = new JLabel("総支給額：");
 		total_money.setHorizontalAlignment(SwingConstants.CENTER);
-		total_money.setBounds(653, 605, 199, 50);
+		total_money.setBounds(428, 550, 159, 50);
 		total_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(total_money);
 
@@ -222,7 +222,7 @@ public class Meisai extends JFrame {
 		);
 
 		back = new JButton("Back");
-		back.setBounds(827, 695, 125, 41);
+		back.setBounds(692, 659, 125, 41);
 		back.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		back.setForeground(new Color(255,255,255));
 		back.setBackground(new Color(29,161,242));
