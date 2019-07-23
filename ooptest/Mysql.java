@@ -72,7 +72,7 @@ public class Mysql {
 		   stmt=con.prepareStatement(sql2);
 			stmt.setString(1,Log_in.userid);
 			stmt.setString(2,Log_in.passwordstr);
-		//
+		
 			stmt.executeUpdate();
 			Log_in.ans = true;
 			stmt.close();
@@ -123,7 +123,7 @@ public class Mysql {
 			double end_time = Double.parseDouble(rs.getString("end_time"));
 			normal_money = Double.parseDouble(rs2.getString("normal_money"));
 			normal_time = end_time - start_time;
-			//0900 - 1645 = 745 745 / 100 = 7
+			
 			normal_time = normal_time / 100;
 			total_normal_time += normal_time;
 			total = total + normal_time * normal_money;
