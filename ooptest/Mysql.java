@@ -18,6 +18,7 @@ public class Mysql {
 		normal_salary = 0;
 		over_time = 0;
 		over_salary = 0;
+		salary = 0;
 		total = 0;
 		
 		
