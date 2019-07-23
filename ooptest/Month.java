@@ -40,14 +40,14 @@ public class Month extends JFrame {
 		year.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
 																 "2014", "2013", "2012", "2011", "2010"}));
 		year.setBounds(318, 232, 125, 55);
-		yeardata = (String)year.getSelectedItem();
+		
 		month_Pane.add(year);
 
 		month = new JComboBox();
 		month.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
 																   "7", "8", "9", "10", "11", "12"}));
 		month.setBounds(605, 232, 125, 55);
-		 monthdata = (String)month.getSelectedItem();
+		 
 		month_Pane.add(month);
 
 		meisai = new JButton("明細");
@@ -64,6 +64,9 @@ public class Month extends JFrame {
 				//明細ページのインスタンス生成
 				Meisai meisai = new Meisai();
 				if(cmd.equals("明細")) {
+					yeardata = (String)year.getSelectedItem();
+					monthdata = (String)month.getSelectedItem();
+					boolean ans = Mysql.ans(4);
 
 					//明細ページに遷移
 					meisai.setVisible(true);

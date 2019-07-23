@@ -8,11 +8,11 @@ import java.sql.ResultSet;
 import com.mysql.cj.protocol.Resultset;
 
 public class Mysql {
-	static double normal_money;
+	static double normal_money,normal_time,normal_salary,over_time,over_salary,total;
 	
 	public static boolean ans(int flag) {
 		
-		double total_money;
+	
 		String msg = "";
 		String sql = "select * from user where id = ? and password = ?" ;
 		String sql1 = "insert into user values(?,?,?,false)";
@@ -109,18 +109,19 @@ public class Mysql {
 			double start_time = Integer.parseInt(rs.getString("start_time"));
 			double end_time = Integer.parseInt(rs.getString("end_time"));
 			 normal_money = Integer.parseInt(rs2.getString("normal_money"));
-			double total_time = end_time - start_time;
+			 normal_time = end_time - start_time;
 			//0900 - 1645 = 745 745 / 100 = 7
-			total_time /= 100;
-			total_money = total_time * normal_money;
+			normal_time /= 100;
+			
+			total = normal_time * normal_money;
 			//労働時間が８時間越えていたら
-				if(total_time > 800) {
+				if(normal_time > 800) {
 					//残業時間を求めて代入
-					double over_time = total_time - 800;
+					 over_time = normal_time - 800;
 					double over_money = normal_money * 1.25;
 					//1000円
 				double salary = over_time * over_money;	
-				total_money += salary;
+				total += salary;
 				}
 			}
 			Log_in.ans = true;
