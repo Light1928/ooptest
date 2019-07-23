@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 public class Month extends JFrame {
 	private String yeardata,monthdata;
 	private JPanel month_Pane;
-	private JLabel yearLabel,monthLabel;
+	private JLabel yearLabel,monthLabel,login_name;
 	private JButton meisai,shinkisub,deletesub,mainsub,logoutsub;
 	private JComboBox year,month;
 
@@ -35,6 +35,12 @@ public class Month extends JFrame {
 		month_Pane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(month_Pane);
 		month_Pane.setLayout(null);
+		
+		login_name = new JLabel(Log_in.username+" 様");
+		login_name.setFont(new Font("Helvetica Neue",Font.PLAIN,15));
+		login_name.setBounds(20,5,125,19);
+		month_Pane.add(login_name);
+
 
 		year = new JComboBox();
 		year.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
