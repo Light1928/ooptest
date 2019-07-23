@@ -47,7 +47,7 @@ public class Delete_account extends JFrame {
 		pass.setColumns(10);
 
 		delete = new JButton("削除");
-		delete.setBounds(478, 494, 101, 25);
+		delete.setBounds(478, 494, 106, 33);
 		delete.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		delete.setForeground(new Color(255,255,255));
 		delete.setBackground(new Color(29,161,242));
