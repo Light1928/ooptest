@@ -76,10 +76,12 @@ public class Shinki_registration_Main extends JFrame  {
 		contentPane.add(name);
 
 		regist = new JButton("登録");
-		regist.setBounds(600, 567, 143, 54);
-		contentPane.add(regist);
+		regist.setBounds(743, 577, 143, 54);
 		regist.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
+		regist.setForeground(new Color(255,255,255));
+		regist.setBackground(new Color(29,161,242));
 		regist.setActionCommand("登録");
+		contentPane.add(regist);
 		regist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
@@ -111,10 +113,12 @@ public class Shinki_registration_Main extends JFrame  {
 	     );
 
 		login = new JButton("ログイン画面へ");
-		login.setFont(new Font("Helvetica Neue", Font.BOLD, 13));
-		login.setBounds(328, 567, 143, 54);
-		contentPane.add(login);
+		login.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
+		login.setBounds(350, 577, 209, 54);
+		login.setForeground(new Color(255,255,255));
+		login.setBackground(new Color(29,161,242));
 		login.setActionCommand("ログイン");
+		contentPane.add(login);
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
