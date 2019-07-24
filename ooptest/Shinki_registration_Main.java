@@ -96,15 +96,19 @@ public class Shinki_registration_Main extends JFrame  {
 					//0がYes、１がNo
 					if(ans == 0) {
 						boolean sqlans = Mysql.ans(1);
-						if(sqlans == true && Log_in.record == 1) {
+						if(sqlans == true && Log_in.record == 1) {						
 						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
 													 JOptionPane.PLAIN_MESSAGE);
+						userID.setText(null);
+						pass.setText(null);
+						name.setText(null);
 						}else {
+							
+							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されているか、文字数がこえています","メッセージ",
+								 JOptionPane.PLAIN_MESSAGE);
 							userID.setText(null);
 							pass.setText(null);
 							name.setText(null);
-							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されているか、文字数がこえています","メッセージ",
-								 JOptionPane.PLAIN_MESSAGE);
 						}
 					}
 				}
