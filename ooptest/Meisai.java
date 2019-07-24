@@ -44,7 +44,7 @@ public class Meisai extends JFrame {
 
 		nameLabel = new JLabel("名前：");
 		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		nameLabel.setFont(new Font("MS UI Gothic", Font.BOLD, 21));
+		nameLabel.setFont(new Font("Helvetica Neue", Font.BOLD, 21));
 		nameLabel.setBounds(263, 239, 95, 29);
 		contentPane.add(nameLabel);
 

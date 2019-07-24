@@ -104,17 +104,17 @@ public class Data_input extends JFrame {
 
 		year_label = new JLabel("年");
 		year_label.setBounds(525, 210, 28, 16);
-		year_label.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		year_label.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
 		contentPane.add(year_label);
 
 		month_label = new JLabel("月");
 		month_label.setBounds(647, 204, 22, 28);
-		month_label.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		month_label.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
 		contentPane.add(month_label);
 
 		day_label = new JLabel("日");
 		day_label.setBounds(740, 204, 22, 30);
-		day_label.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		day_label.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
 		contentPane.add(day_label);
 
 
