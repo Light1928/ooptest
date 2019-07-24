@@ -8,7 +8,8 @@ import java.sql.ResultSet;
 
 
 public class Mysql {
-	static double normal_money,normal_time,total_normal_time,normal_salary,over_time,salary,salary_total,total,normal_total;
+	static double normal_money,normal_time,total_normal_time,normal_salary,
+				  over_time,salary,salary_total,total,normal_total;
 
 	public static boolean ans(int flag) {
 

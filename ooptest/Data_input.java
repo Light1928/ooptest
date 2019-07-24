@@ -21,7 +21,8 @@ public class Data_input extends JFrame {
 	private JButton regist,shinkisub,deletesub,mainsub,logoutsub;
 	private JComboBox year,month,day;
 	private JPanel contentPane;
-	private JLabel titleLabel,dataIn,normal,normaltime,leaving_work,date,year_label,month_label,day_label,login_name;
+	private JLabel titleLabel,dataIn,normal,normaltime,leaving_work,date,
+				   year_label,month_label,day_label,login_name;
 	private JTextField normal_money,start_time,end_time;
 
 
@@ -77,7 +78,7 @@ public class Data_input extends JFrame {
 		contentPane.add(end_time);
 		end_time.setColumns(10);
 
-		 year = new JComboBox();
+		year = new JComboBox();
 		year.setBounds(421, 190, 32, 22);
 		year = new JComboBox();
 		year.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
@@ -91,23 +92,15 @@ public class Data_input extends JFrame {
 		month.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
 																   "7", "8", "9", "10", "11", "12"}));
 		contentPane.add(month);
-		String monthdata = (String)month.getSelectedItem();
-
+		
 		day = new JComboBox();
 		day.setBounds(686, 204, 46, 29);
 		day.setModel(new DefaultComboBoxModel(new String[] {"1","2","3","4","5","6","7","8","9","10","11","12",
 				"13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31",}));
 		contentPane.add(day);
-		String daydata = (String)day.getSelectedItem();
-
-
 
 		year.setBounds(429, 205, 84, 27);
-
-
 		month.setBounds(583, 204, 52, 28);
-
-
 
 		year_label = new JLabel("年");
 		year_label.setBounds(525, 210, 28, 16);

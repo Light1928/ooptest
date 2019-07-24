@@ -19,7 +19,6 @@ public class Meisai extends JFrame {
 				   normal_time,over_time,
 			normal_money,over_money,total_money,
 
-
 			name,normalmoney,normaltime,overtime,
 			totalnormalmoney,totalovermoney,totalmoney;
 	private JButton shinkisub,deletesub,tukisub,logoutsub,back;
@@ -81,8 +80,6 @@ public class Meisai extends JFrame {
 		normal_money.setFont(new Font("Helvetica Neue",Font.BOLD,21));
 		contentPane.add(normal_money);
 
-
-
 		over_money = new JLabel("残業給料 ：");
 		over_money.setHorizontalAlignment(SwingConstants.CENTER);
 		over_money.setBounds(169, 555, 158, 41);
@@ -95,13 +92,10 @@ public class Meisai extends JFrame {
 		total_money.setFont(new Font("MS UI Gothic",Font.BOLD,21));
 		contentPane.add(total_money);
 
-
 		normalmoney = new JLabel(String.format("%,d",(int)(Mysql.normal_money))+"円");
 		normalmoney.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
 		normalmoney.setBounds(350,351,124,41);
 		contentPane.add(normalmoney);
-
-
 
 		normaltime =new JLabel(String.format("%,d",(int)(Mysql.total_normal_time))+"時間");
 		normaltime.setFont(new Font("Helvetica Neue",Font.PLAIN,21));
