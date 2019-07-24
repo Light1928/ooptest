@@ -119,6 +119,14 @@ public class Shinki_registration_Main extends JFrame  {
 		login.setBackground(new Color(29,161,242));
 		login.setActionCommand("ログイン");
 		contentPane.add(login);
+		
+		JLabel label = new JLabel("※半角数字30文字以下");
+		label.setBounds(460, 347, 188, 16);
+		contentPane.add(label);
+		
+		JLabel label_1 = new JLabel("※半角数字30文字以下");
+		label_1.setBounds(460, 433, 188, 16);
+		contentPane.add(label_1);
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
@@ -134,5 +142,4 @@ public class Shinki_registration_Main extends JFrame  {
 
 
 	 }
-
 }
