@@ -221,7 +221,6 @@ public class Meisai extends JFrame {
 		back.setBackground(new Color(29,161,242));
 		contentPane.add(back);
 
-
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
@@ -233,7 +232,7 @@ public class Meisai extends JFrame {
 					setVisible(false);
 				}
 			}
-		});
-
+		}
+		);
 	}
 }

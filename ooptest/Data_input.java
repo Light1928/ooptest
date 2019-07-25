@@ -130,6 +130,7 @@ public class Data_input extends JFrame {
 		regist.setBounds(487,585,100,39);
 		regist.setActionCommand("登録");
 		contentPane.add(regist);
+
 		regist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
@@ -146,7 +147,9 @@ public class Data_input extends JFrame {
 					 Matcher match_money = pattern.matcher(money);
 					 int ans =JOptionPane.showConfirmDialog(null, "登録しますか？","データ入力"
 								,JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE);
+
 					 if(ans == 0) {
+
 						 if(starttime.equals("") || endtime.equals("") || money.equals("") ) {
 							 JOptionPane.showMessageDialog(null,"全て入力してください","メッセージ",
 										JOptionPane.PLAIN_MESSAGE);
@@ -158,13 +161,13 @@ public class Data_input extends JFrame {
 									 JOptionPane.PLAIN_MESSAGE);
 						 }
 					 }else {
+
 						 JOptionPane.showMessageDialog(null,"半角英数字で入力してください","メッセージ",
 									JOptionPane.PLAIN_MESSAGE);
 							start_time.setText(null);
 							end_time.setText(null);
 							normal_money.setText(null);
 					 }
-
 					 }
 				}
 			}
@@ -184,20 +187,16 @@ public class Data_input extends JFrame {
 		shinkisub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-
 				//新規登録ページのインスタンス生成
 				Shinki_registration_Sub new_Account = new Shinki_registration_Sub();
 				if(cmd.equals("新規登録")) {
-
 					//新規登録ページに遷移
 					new_Account.setVisible(true);
 					setVisible(false);
-
 				}
 			}
 		}
 		);
-
 
 		deletesub = new JButton("アカウント削除");
 		deletesub.setBounds(957, 10, 125, 19);
@@ -222,7 +221,6 @@ public class Data_input extends JFrame {
 		}
 		);
 
-
 		mainsub = new JButton("メインメニュー");
 		mainsub.setBounds(827, 32, 125, 19);
 		mainsub.setBackground(new Color(255,153,0));
@@ -231,7 +229,6 @@ public class Data_input extends JFrame {
 		mainsub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
-
 				//メインメニューページのインスタンス生成
 				Main_menu main = new Main_menu();
 				if(cmd.equals("メインメニュー")) {

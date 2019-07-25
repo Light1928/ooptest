@@ -116,7 +116,6 @@ public class Month extends JFrame {
 		}
 		);
 
-
 		deletesub = new JButton("アカウント削除");
 		deletesub.setBounds(957, 10, 125, 19);
 		deletesub.setActionCommand("アカウント削除");
@@ -190,5 +189,4 @@ public class Month extends JFrame {
 		}
 		);
 	}
-
 }

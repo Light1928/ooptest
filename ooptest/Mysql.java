@@ -158,6 +158,4 @@ public class Mysql {
 		}
 		return Log_in.ans;
 	}
-
-
 }
