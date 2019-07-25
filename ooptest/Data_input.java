@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -132,20 +134,37 @@ public class Data_input extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
 				if(cmd.contentEquals("登録")) {
+					Pattern pattern = Pattern.compile("[0-9a-zA-Z]+$");
 					starttime= start_time.getText();
 					endtime=end_time.getText();
+					money = normal_money.getText();
 					 yeardata = (String)year.getSelectedItem();;
 					 monthdata1 = (String)month.getSelectedItem();
 					 daydata1 = (String)day.getSelectedItem();
-					 money = normal_money.getText();
+					 Matcher match_starttime = pattern.matcher(starttime);
+					 Matcher match_endtime = pattern.matcher(endtime);
+					 Matcher match_money = pattern.matcher(money);
 					 int ans =JOptionPane.showConfirmDialog(null, "登録しますか？","データ入力"
 								,JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE);
 					 if(ans == 0) {
+						 if(starttime.equals("") || endtime.equals("") || money.equals("") ) {
+							 JOptionPane.showMessageDialog(null,"全て入力してください","メッセージ",
+										JOptionPane.PLAIN_MESSAGE);
+						 }else if(match_starttime.find() == true && match_endtime.find() == true && match_money.find() == true) {
+
 						 boolean sqlans = Mysql.ans(3);
 						 if(sqlans ==true) {
 							 JOptionPane.showMessageDialog(null, cmd+"しました","メッセージ",
 									 JOptionPane.PLAIN_MESSAGE);
 						 }
+					 }else {
+						 JOptionPane.showMessageDialog(null,"半角英数字で入力してください","メッセージ",
+									JOptionPane.PLAIN_MESSAGE);
+							start_time.setText(null);
+							end_time.setText(null);
+							normal_money.setText(null);
+					 }
+
 					 }
 				}
 			}
