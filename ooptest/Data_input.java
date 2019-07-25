@@ -23,7 +23,7 @@ public class Data_input extends JFrame {
 	private JButton regist,shinkisub,deletesub,mainsub,logoutsub;
 	private JComboBox year,month,day;
 	private JPanel contentPane;
-	private JLabel titleLabel,dataIn,normal,normaltime,leaving_work,date,
+	private JLabel titleLabel,normal,normaltime,leaving_work,date,
 				   year_label,month_label,day_label,login_name;
 	private JTextField normal_money,start_time,end_time;
 
@@ -38,28 +38,28 @@ public class Data_input extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		dataIn = new JLabel("データ入力");
-		dataIn.setFont(new Font("MS UI Gothic", Font.BOLD, 50));
-		dataIn.setBounds(438, 82, 247, 64);
-		contentPane.add(dataIn);
+		titleLabel = new JLabel("データ入力");
+		titleLabel.setFont(new Font("MS UI Gothic", Font.BOLD, 50));
+		titleLabel.setBounds(438, 82, 247, 64);
+		contentPane.add(titleLabel);
 
 	    normal = new JLabel("通常時給");
-		normal.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		normal.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
 		normal.setBounds(384, 302, 97, 29);
 		contentPane.add(normal);
 
 		normaltime = new JLabel("出勤時間");
-		normaltime.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		normaltime.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
 		normaltime.setBounds(384, 396, 97, 27);
 		contentPane.add(normaltime);
 
 		leaving_work = new JLabel("退勤時間");
-		leaving_work.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		leaving_work.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
 		leaving_work.setBounds(384, 493, 87, 26);
 		contentPane.add(leaving_work);
 
 		date = new JLabel("年月日");
-		date.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
+		date.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
 		date.setBounds(348, 204, 81, 22);
 		contentPane.add(date);
 
@@ -117,10 +117,6 @@ public class Data_input extends JFrame {
 		day_label.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
 		contentPane.add(day_label);
 
-
-		titleLabel = new JLabel("データ入力");
-		titleLabel.setForeground(Color.BLACK);
-		titleLabel.setFont(new Font("MS ゴシック",Font.BOLD,80));
 
 		regist = new JButton("登録");
 		regist.setForeground(Color.BLACK);

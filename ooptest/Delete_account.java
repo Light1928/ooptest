@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 public class Delete_account extends JFrame {
 
 	private JPanel deletePane;
-	private JLabel userLabel,passLabel;
+	private JLabel titleLabel,userLabel,passLabel;
 	private JTextField userID;
 	private JPasswordField pass;
 	private JButton delete,shinkisub,mainsub,tukisub,logoutsub;
@@ -159,10 +159,10 @@ public class Delete_account extends JFrame {
 		 logoutsub.setBackground(new Color(255,153,0));
 	     deletePane.add(logoutsub);
 
-	     JLabel label = new JLabel("アカウント削除");
-	     label.setFont(new Font("MS UI Gothic", Font.BOLD, 50));
-	     label.setBounds(375, 123, 334, 64);
-	     deletePane.add(label);
+	      titleLabel = new JLabel("アカウント削除");
+	     titleLabel.setFont(new Font("MS UI Gothic", Font.BOLD, 50));
+	     titleLabel.setBounds(375, 123, 334, 64);
+	     deletePane.add(titleLabel);
 
 	     //ログアウトサブボタンを押した場合の処理
 		 logoutsub.addActionListener(new ActionListener() {

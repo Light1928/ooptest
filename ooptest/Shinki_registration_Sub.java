@@ -15,7 +15,6 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 
 	private JButton mainsub,deletesub,tukisub,logoutsub;
 	private JLabel login_name;
-	
 
 	 Shinki_registration_Sub(){
 		super();
@@ -81,7 +80,7 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 			}
 		}
 		);
-		 
+
 
 		 logoutsub = new JButton("ログアウト");
 		 logoutsub.setActionCommand("ログアウト");
@@ -105,13 +104,13 @@ public class Shinki_registration_Sub extends Shinki_registration_Main {
 								JOptionPane.PLAIN_MESSAGE);
 						login.setVisible(true);
 						setVisible(false);
-						
-						
+
+
 						login_name = new JLabel(Log_in.username+" 様");
 						login_name.setFont(new Font("Helvetica Neue",Font.PLAIN,15));
 						login_name.setBounds(20,5,125,19);
 						contentPane.add(login_name);
-		
+
 					}
 				}
 			}

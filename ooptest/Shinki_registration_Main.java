@@ -19,7 +19,7 @@ public class Shinki_registration_Main extends JFrame  {
 
 	static String new_name;
 	protected JPanel contentPane;
-	protected JLabel titlelabel,userlabel,passlabel,namelabel,message1,message2;
+	protected JLabel titleLabel,userLabel,passLabel,nameLabel,message1,message2;
 	protected JTextField userID,name;
 	protected JPasswordField pass;
 	protected JButton regist,login;
@@ -38,25 +38,25 @@ public class Shinki_registration_Main extends JFrame  {
 		contentPane.setLayout(null);
 		contentPane.setBackground(new Color(255,255,255));
 
-		titlelabel = new JLabel("新規登録");
-		titlelabel.setFont(new Font("MS UI Gothic", Font.BOLD, 55));
-		titlelabel.setBounds(424, 117, 232, 99);
-		contentPane.add(titlelabel);
+		titleLabel = new JLabel("新規登録");
+		titleLabel.setFont(new Font("MS UI Gothic", Font.BOLD, 55));
+		titleLabel.setBounds(424, 117, 232, 99);
+		contentPane.add(titleLabel);
 
-		userlabel = new JLabel("ユーザID");
-		userlabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		userlabel.setBounds(333, 297, 101, 34);
-		contentPane.add(userlabel);
+		userLabel = new JLabel("ユーザID");
+		userLabel.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
+		userLabel.setBounds(333, 297, 101, 34);
+		contentPane.add(userLabel);
 
-		passlabel = new JLabel("パスワード");
-		passlabel.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
-		passlabel.setBounds(333, 383, 101, 34);
-		contentPane.add(passlabel);
+		passLabel = new JLabel("パスワード");
+		passLabel.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
+		passLabel.setBounds(333, 383, 101, 34);
+		contentPane.add(passLabel);
 
-		namelabel = new JLabel("名前");
-		namelabel.setFont(new Font("MS UI Gothic", Font.BOLD, 22));
-		namelabel.setBounds(344, 467, 59, 34);
-		contentPane.add(namelabel);
+		nameLabel = new JLabel("名前");
+		nameLabel.setFont(new Font("Helvetica Neue", Font.BOLD, 22));
+		nameLabel.setBounds(344, 467, 59, 34);
+		contentPane.add(nameLabel);
 
 		userID = new JTextField(20);
 		userBorder = new LineBorder(new Color(29,161,242), 1, true);
