@@ -25,8 +25,6 @@ public class Data_input extends JFrame {
 				   year_label,month_label,day_label,login_name;
 	private JTextField normal_money,start_time,end_time;
 
-
-
 	public Data_input() {
 		setTitle("給与入力");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,7 +41,7 @@ public class Data_input extends JFrame {
 		dataIn.setBounds(438, 82, 247, 64);
 		contentPane.add(dataIn);
 
-	 normal = new JLabel("通常時給");
+	    normal = new JLabel("通常時給");
 		normal.setFont(new Font("MS UI Gothic", Font.BOLD, 20));
 		normal.setBounds(384, 302, 97, 29);
 		contentPane.add(normal);
@@ -92,7 +90,7 @@ public class Data_input extends JFrame {
 		month.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
 																   "7", "8", "9", "10", "11", "12"}));
 		contentPane.add(month);
-		
+
 		day = new JComboBox();
 		day.setBounds(686, 204, 46, 29);
 		day.setModel(new DefaultComboBoxModel(new String[] {"1","2","3","4","5","6","7","8","9","10","11","12",

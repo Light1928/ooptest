@@ -23,7 +23,6 @@ public class Meisai extends JFrame {
 			totalnormalmoney,totalovermoney,totalmoney;
 	private JButton shinkisub,deletesub,tukisub,logoutsub,back;
 
-//
 	public Meisai() {
 		setTitle("給与明細");
 		setSize(1100,800);
@@ -66,7 +65,6 @@ public class Meisai extends JFrame {
 		normal_time.setBounds(169, 400, 159, 41);
 		normal_time.setFont(new Font("Helvetica Neue",Font.BOLD,21));
 		contentPane.add(normal_time);
-
 
 		over_time = new JLabel("残業時間 ：");
 		over_time.setHorizontalAlignment(SwingConstants.CENTER);

@@ -100,10 +100,12 @@ public class Shinki_registration_Main extends JFrame  {
 							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
 					if(ans == 0) {
-
+						//TextFieldに何も入力されていなかったら
 						if(userID.getText().equals("") || pass.getPassword().equals("") || name.getText().equals("")) {
 							JOptionPane.showMessageDialog(null,"全て入力してください","メッセージ",
 									JOptionPane.PLAIN_MESSAGE);
+
+						//入力した文字が半角英数字か判断
 						}else if(match_userid.find() == true && match_password.find() == true) {
 
 							boolean sqlans = Mysql.ans(1);
@@ -115,7 +117,7 @@ public class Shinki_registration_Main extends JFrame  {
 								setVisible(false);
 
 							}else {
-
+						//IDが重複または文字数が超えたら
 								JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されているか、文字数が超えています","メッセージ",
 										JOptionPane.PLAIN_MESSAGE);
 								userID.setText(null);
@@ -123,7 +125,7 @@ public class Shinki_registration_Main extends JFrame  {
 								name.setText(null);
 							}
 						}else {
-
+						//半角英数字以外だったら
 							JOptionPane.showMessageDialog(null,"半角英数字で入力してください","メッセージ",
 									JOptionPane.PLAIN_MESSAGE);
 							userID.setText(null);

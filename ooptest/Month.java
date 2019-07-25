@@ -21,7 +21,7 @@ public class Month extends JFrame {
 	private JButton meisai,shinkisub,deletesub,mainsub,logoutsub;
 	private JComboBox year,month;
 
-	
+
      Month() {
 		setTitle("月選択");
 		setSize(1100,800);
@@ -35,7 +35,7 @@ public class Month extends JFrame {
 		month_Pane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(month_Pane);
 		month_Pane.setLayout(null);
-		
+
 		login_name = new JLabel(Log_in.username+" 様");
 		login_name.setFont(new Font("Helvetica Neue",Font.PLAIN,15));
 		login_name.setBounds(20,5,125,19);
@@ -46,14 +46,14 @@ public class Month extends JFrame {
 		year.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015",
 																 "2014", "2013", "2012", "2011", "2010"}));
 		year.setBounds(318, 232, 125, 55);
-		
+
 		month_Pane.add(year);
 
 		month = new JComboBox();
 		month.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6",
 																   "7", "8", "9", "10", "11", "12"}));
 		month.setBounds(605, 232, 125, 55);
-		 
+
 		month_Pane.add(month);
 
 		meisai = new JButton("明細");
@@ -68,13 +68,13 @@ public class Month extends JFrame {
 				String cmd = e.getActionCommand();
 
 				//明細ページのインスタンス生成
-				
+
 				if(cmd.equals("明細")) {
 					yeardata = (String)year.getSelectedItem();
 					monthdata = (String)month.getSelectedItem();
 					boolean ans = Mysql.ans(4);
 					if(ans == true) {
-						
+
 					//明細ページに遷移
 					Meisai meisai = new Meisai();
 					meisai.setVisible(true);
@@ -190,5 +190,5 @@ public class Month extends JFrame {
 		}
 		);
 	}
-   
+
 }
