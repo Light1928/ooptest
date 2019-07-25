@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,18 +15,17 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-
 public class Shinki_registration_Main extends JFrame  {
 
 	static String new_name;
 	protected JPanel contentPane;
-	protected JLabel titlelabel,userlabel,passlabel,namelabel;
+	protected JLabel titlelabel,userlabel,passlabel,namelabel,message1,message2;
 	protected JTextField userID,name;
 	protected JPasswordField pass;
 	protected JButton regist,login;
 	protected LineBorder userBorder,passBorder,nameBorder;
 
-	 Shinki_registration_Main() {
+	Shinki_registration_Main() {
 		setTitle("新規登録");
 		setSize(1100,800);
 		setLocationRelativeTo(null);
@@ -91,30 +92,50 @@ public class Shinki_registration_Main extends JFrame  {
 					new_name = name.getText();
 					char[] passwordchar = pass.getPassword();
 					Log_in.passwordstr = new String(passwordchar);
+					Pattern pattern = Pattern.compile("[0-9a-zA-Z]+$");
+					Matcher match_userid = pattern.matcher(Log_in.userid);
+					Matcher match_password = pattern.matcher(Log_in.passwordstr);
+
 					int ans = JOptionPane.showConfirmDialog(null, "登録しますか？","新規登録",
 							JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
 					if(ans == 0) {
-						boolean sqlans = Mysql.ans(1);
-						if(sqlans == true && Log_in.record == 1) {						
-						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
-													 JOptionPane.PLAIN_MESSAGE);
-						userID.setText(null);
-						pass.setText(null);
-						name.setText(null);
+
+						if(userID.getText().equals("") || pass.getPassword().equals("") || name.getText().equals("")) {
+							JOptionPane.showMessageDialog(null,"全て入力してください","メッセージ",
+									JOptionPane.PLAIN_MESSAGE);
+						}else if(match_userid.find() == true && match_password.find() == true) {
+
+							boolean sqlans = Mysql.ans(1);
+							if(sqlans == true && Log_in.record == 1) {
+								JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
+										JOptionPane.PLAIN_MESSAGE);
+								Log_in login = new Log_in();
+								login.setVisible(true);
+								setVisible(false);
+
+							}else {
+
+								JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されているか、文字数が超えています","メッセージ",
+										JOptionPane.PLAIN_MESSAGE);
+								userID.setText(null);
+								pass.setText(null);
+								name.setText(null);
+							}
 						}else {
-							
-							JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されているか、文字数がこえています","メッセージ",
-								 JOptionPane.PLAIN_MESSAGE);
+
+							JOptionPane.showMessageDialog(null,"半角英数字で入力してください","メッセージ",
+									JOptionPane.PLAIN_MESSAGE);
 							userID.setText(null);
 							pass.setText(null);
 							name.setText(null);
 						}
+
 					}
 				}
 			}
-		 }
-	     );
+		}
+				);
 
 		login = new JButton("ログイン画面へ");
 		login.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
@@ -123,14 +144,14 @@ public class Shinki_registration_Main extends JFrame  {
 		login.setBackground(new Color(29,161,242));
 		login.setActionCommand("ログイン");
 		contentPane.add(login);
-		
-		JLabel label = new JLabel("※半角数字30文字以下");
-		label.setBounds(460, 347, 188, 16);
-		contentPane.add(label);
-		
-		JLabel label_1 = new JLabel("※半角数字30文字以下");
-		label_1.setBounds(460, 433, 188, 16);
-		contentPane.add(label_1);
+
+		message1 = new JLabel("※半角数字30文字以下");
+		message1.setBounds(460, 347, 188, 16);
+		contentPane.add(message1);
+
+		message2 = new JLabel("※半角数字30文字以下");
+		message2.setBounds(460, 433, 188, 16);
+		contentPane.add(message2);
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String cmd = e.getActionCommand();
@@ -139,11 +160,8 @@ public class Shinki_registration_Main extends JFrame  {
 					login.setVisible(true);
 					setVisible(false);
 				}
-
 			}
 		}
 		);
-
-
-	 }
+	}
 }

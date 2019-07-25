@@ -30,7 +30,6 @@ public class Log_in extends JFrame  {
 	private JButton log_in,sign_up;
 
 	Log_in(){
-
 		//フレームの設定
 		setTitle("SalaPay-ログイン");
 		setSize(1100,800);//Frameの左上ｘ座標、ｙ座標、幅、高さを設定
