@@ -153,7 +153,8 @@ public class Data_input extends JFrame {
 						 if(starttime.equals("") || endtime.equals("") || money.equals("") ) {
 							 JOptionPane.showMessageDialog(null,"全て入力してください","メッセージ",
 										JOptionPane.PLAIN_MESSAGE);
-						 }else if(match_starttime.find() == true && match_endtime.find() == true && match_money.find() == true) {
+						 }else if(match_starttime.find() == true && match_endtime.find() == true &&
+								  match_money.find() == true) {
 
 						 boolean sqlans = Mysql.ans(3);
 						 if(sqlans ==true) {

@@ -101,7 +101,8 @@ public class Shinki_registration_Main extends JFrame  {
 					//0がYes、１がNo
 					if(ans == 0) {
 						//TextFieldに何も入力されていなかったら
-						if(userID.getText().equals("") || pass.getPassword().equals("") || name.getText().equals("")) {
+						if(userID.getText().equals("") || pass.getPassword().equals("") ||
+								name.getText().equals("")) {
 							JOptionPane.showMessageDialog(null,"全て入力してください","メッセージ",
 									JOptionPane.PLAIN_MESSAGE);
 
@@ -118,8 +119,8 @@ public class Shinki_registration_Main extends JFrame  {
 
 							}else {
 						//IDが重複または文字数が超えたら
-								JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されているか、文字数が超えています","メッセージ",
-										JOptionPane.PLAIN_MESSAGE);
+								JOptionPane.showMessageDialog(null,"既に同じユーザIDが登録されているか、文字数が超えています",
+										"メッセージ",JOptionPane.PLAIN_MESSAGE);
 								userID.setText(null);
 								pass.setText(null);
 								name.setText(null);

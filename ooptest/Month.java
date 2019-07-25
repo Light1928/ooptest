@@ -139,7 +139,6 @@ public class Month extends JFrame {
 		}
 		);
 
-
 		mainsub = new JButton("メインメニュー");
 		mainsub.setBounds(827, 32, 125, 19);
 		mainsub.setBackground(new Color(255,153,0));
