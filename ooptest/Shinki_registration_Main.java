@@ -50,7 +50,7 @@ public class Shinki_registration_Main extends JFrame  {
 
 		passLabel = new JLabel("パスワード");
 		passLabel.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
-		passLabel.setBounds(333, 383, 101, 34);
+		passLabel.setBounds(317, 383, 117, 34);
 		contentPane.add(passLabel);
 
 		nameLabel = new JLabel("名前");

@@ -98,12 +98,12 @@ public class Delete_account extends JFrame {
 		);
 
 		userLabel = new JLabel("ユーザID");
-		userLabel.setBounds(375, 306, 119, 33);
+		userLabel.setBounds(346, 306, 119, 33);
 		userLabel.setFont(new Font("Helvetica Neue",Font.BOLD,25));
 		deletePane.add(userLabel);
 
-		passLabel = new JLabel("pass");
-		passLabel.setBounds(395, 421, 70, 33);
+		passLabel = new JLabel("パスワード");
+		passLabel.setBounds(325, 421, 140, 33);
 		passLabel.setFont(new Font("Helvetica Neue",Font.BOLD,27));
 		deletePane.add(passLabel);
 
