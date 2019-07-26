@@ -101,8 +101,8 @@ public class Shinki_registration_Main extends JFrame  {
 					//0がYes、１がNo
 					if(ans == 0) {
 						//TextFieldに何も入力されていなかったら
-						if(userID.getText().equals("") || pass.getPassword().equals("") ||
-								name.getText().equals("")) {
+						if(Log_in.userid.equals("") || Log_in.passwordstr.equals("") ||
+								new_name.equals("")) {
 							JOptionPane.showMessageDialog(null,"全て入力してください","メッセージ",
 									JOptionPane.PLAIN_MESSAGE);
 

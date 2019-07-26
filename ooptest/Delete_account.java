@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -59,10 +61,19 @@ public class Delete_account extends JFrame {
 					Log_in.userid = userID.getText();
 					char[] passwordchar = pass.getPassword();
 					Log_in.passwordstr = new String(passwordchar);
+					Pattern pattern = Pattern.compile("[0-9a-zA-Z]+$");
+					Matcher match_userid = pattern.matcher(Log_in.userid);
+					Matcher match_password = pattern.matcher(Log_in.passwordstr);
 					int ans = JOptionPane.showConfirmDialog(null, "本当に削除しますか？",
 							"削除",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE );
 					//0がYes、１がNo
 					if(ans == 0){
+						if(Log_in.userid.equals("") || Log_in.passwordstr.equals("")) {
+							JOptionPane.showMessageDialog(null,"全て入力してください","メッセージ",
+									JOptionPane.PLAIN_MESSAGE);
+
+						//入力した文字が半角英数字か判断
+						}else if(match_userid.find() == true && match_password.find() == true) {
 						boolean sqlans = Mysql.ans(2);
 						if(sqlans == true ) {
 						JOptionPane.showMessageDialog(null,cmd+"しました","メッセージ",
@@ -73,6 +84,12 @@ public class Delete_account extends JFrame {
 							JOptionPane.showMessageDialog(null,"削除できませんでした","メッセージ",
 									JOptionPane.PLAIN_MESSAGE);
 
+						}
+						}else {
+							JOptionPane.showMessageDialog(null,"半角英数字で入力してください","メッセージ",
+									JOptionPane.PLAIN_MESSAGE);
+							userID.setText(null);
+							pass.setText(null);
 						}
 					}
 				}
